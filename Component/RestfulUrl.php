@@ -53,6 +53,11 @@ class RestfulUrl
 
     public const PAYMENTS_METHODS = 'payments/methods';
 
+    public const PROPERTIES = '/rest/properties';
+    public const PROPERTIES_RELATIONS = '/rest/properties/relations';
+    public const PROPERTIES_RELATIONS_VALUES = '/rest/properties/relations/values';
+    public const PROPERTIES_RELATIONS_VALUES_BY_ID = '/rest/properties/relations/values/%d';
+
     public const STOCK_MANAGEMENT_WAREHOUSE = 'stockmanagement/warehouses/%d';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_MOVEMENTS = 'stockmanagement/warehouses/%d/stock/movements';
     public const STOCK_MANAGEMENT_WAREHOUSES = 'stockmanagement/warehouses';

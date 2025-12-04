@@ -154,12 +154,7 @@ class LimitHistory
         return $this;
     }
 
-    /**
-     * Get longPeriodTotal
-     *
-     * @return int
-     */
-    public function getLongPeriodTotal()
+    public function getLongPeriodTotal(): int
     {
         return $this->longPeriodTotal;
     }
@@ -328,10 +323,7 @@ class LimitHistory
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getLongPeriodLatest()
+    public function getLongPeriodLatest(): int
     {
         return $this->longPeriodLatest;
     }

@@ -24,7 +24,6 @@ services:
   PM\PlentyMarketsBundle\Services\RestfulService:
     arguments:
       $accessTokenRepository: '@PM\PlentyMarketsBundle\Repository\AccessTokenRepository'
-      $apiHitsRepository: '@PM\PlentyMarketsBundle\Repository\ApiHitsRepository'
       $apiLockRepository: '@PM\PlentyMarketsBundle\Repository\ApiLockRepository'
       $limitHistoryRepository: '@PM\PlentyMarketsBundle\Repository\LimitHistoryRepository'
       $serializer: '@jms_serializer.serializer'

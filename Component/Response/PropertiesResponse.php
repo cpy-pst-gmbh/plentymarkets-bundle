@@ -2,38 +2,32 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
+use AppBundle\Entity\Property\Property;
 use JMS\Serializer\Annotation as JMS;
-use PM\PlentyMarketsBundle\Component\Model\Item\ItemVariation;
 
 #[JMS\ExclusionPolicy('ALL')]
-class ItemsVariationsResponse extends PaginationResponse
+class PropertiesResponse extends PaginationResponse
 {
-    /**
-     * @var ItemVariation[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariation>')]
+
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\Property>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
     private array $entries = [];
 
     /**
-     * @return ItemVariation[]
+     * @return Property[]
      */
     public function getEntries(): array
     {
         return $this->entries;
     }
 
-    /**
-     * @param ItemVariation[] $entries
-     *
-     * @return ItemsVariationsResponse
-     */
     public function setEntries(array $entries): static
     {
         $this->entries = $entries;
 
         return $this;
     }
+
 
 }

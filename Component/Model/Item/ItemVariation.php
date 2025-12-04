@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sjoder
- * Date: 14.07.2017
- * Time: 09:34
- */
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
 use JMS\Serializer\Annotation as JMS;
+use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
 
 /**
  * Class ItemVariation
@@ -481,9 +476,11 @@ class ItemVariation
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImage>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $images;
+    private array $images = [];
 
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImage>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
     private array $itemImages = [];
 
     /**
@@ -492,7 +489,7 @@ class ItemVariation
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBarcode>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $variationBarcodes;
+    private array $variationBarcodes = [];
 
     /**
      * @var array|ItemVariationBarcode[]
@@ -500,7 +497,7 @@ class ItemVariation
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCategory>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $variationCategories;
+    private array $variationCategories = [];
 
     /**
      * @var array|ItemVariationSalesPrice[]
@@ -508,7 +505,7 @@ class ItemVariation
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSalesPrice>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $variationSalesPrices;
+    private array $variationSalesPrices = [];
 
     /**
      * @var array|ItemVariationSupplier[]
@@ -516,12 +513,17 @@ class ItemVariation
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSupplier>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $variationSuppliers;
+    private array $variationSuppliers = [];
 
     /**
-     * @return int
+     * @var array|Relation[]
      */
-    public function getId()
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\Relation>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private array $properties = [];
+
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -1762,5 +1764,16 @@ class ItemVariation
         return $this;
     }
 
+    public function getProperties(): array
+    {
+        return $this->properties;
+    }
+
+    public function setProperties(array $properties): ItemVariation
+    {
+        $this->properties = $properties;
+
+        return $this;
+    }
 
 }
