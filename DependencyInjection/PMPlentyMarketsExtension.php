@@ -26,11 +26,23 @@ class PMPlentyMarketsExtension extends Extension
 
         if (true === $container->hasParameter('doctrine_mongodb.odm.document_managers')) {
             $loader->load('services_odm.yml');
-        } elseif (true === $container->hasParameter('doctrine.orm.entity_manager.class') || true === $container->hasParameter('doctrine.orm.entity_manager')) {
-            $loader->load('services_orm.yml');
-        } else {
-            throw new RuntimeException('No Object Manager found.');
+
+            return;
         }
+
+        if (true === $container->hasParameter('doctrine.orm.entity_manager.class')) {
+            $loader->load('services_orm.yml');
+
+            return;
+        }
+
+        if (true === $container->hasParameter('doctrine.entity_managers') && true === in_array('doctrine.orm.default_entity_manager', $container->getParameter('doctrine.entity_managers'))) {
+            $loader->load('services_orm.yml');
+
+            return;
+        }
+        
+        throw new RuntimeException('No Object Manager found.');
     }
 
     private function getParameters(array $config, $prefix): array
