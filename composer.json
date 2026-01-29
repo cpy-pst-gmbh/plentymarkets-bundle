@@ -1,5 +1,5 @@
 {
-    "name": "pmdevelopment/plentymarkets-bundle",
+    "name": "cpy-pst-gmbh/plentymarkets-bundle",
     "description": "Plentymarkets API",
     "license": "UNLICENSED",
     "authors": [
@@ -9,11 +9,11 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "ext-xml": "*",
         "jms/serializer": "*",
         "symfony/form": "*",
-        "symfony/dependency-injection": "^v7.2.0"
+        "symfony/dependency-injection": "^7.4"
     },
     "autoload": {
         "psr-4": {
@@ -21,3 +21,4 @@
         }
     }
 }
+
