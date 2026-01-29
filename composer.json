@@ -1,5 +1,5 @@
 {
-    "name": "pmdevelopment/plentymarkets-bundle",
+    "name": "cpy-pst-gmbh/plentymarkets-bundle",
     "description": "Plentymarkets API",
     "license": "UNLICENSED",
     "authors": [
@@ -21,3 +21,4 @@
         }
     }
 }
+
