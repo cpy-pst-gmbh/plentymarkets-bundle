@@ -24,10 +24,10 @@ class StatusHistoryEntry
     #[JMS\Since('1.0')]
     private $orderId;
 
-    #[JMS\Type('float')]
+    #[JMS\Type('string')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $statusId;
+    private string $statusId = '';
 
     #[JMS\Type('DateTime')]
     #[JMS\Expose]
@@ -68,12 +68,12 @@ class StatusHistoryEntry
         return $this;
     }
 
-    public function getStatusId(): float
+    public function getStatusId(): string
     {
         return $this->statusId;
     }
 
-    public function setStatusId(float $statusId): self
+    public function setStatusId(string $statusId): self
     {
         $this->statusId = $statusId;
 
