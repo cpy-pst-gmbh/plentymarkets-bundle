@@ -136,13 +136,10 @@ class Order
     #[JMS\Since('1.0')]
     private $locationId;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
+    #[JMS\Type('string')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $statusId;
+    private ?string $statusId = null;
 
     /**
      * @var string
@@ -385,20 +382,12 @@ class Order
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getStatusId()
+    public function getStatusId(): ?string
     {
         return $this->statusId;
     }
 
-    /**
-     * @param float $statusId
-     *
-     * @return Order
-     */
-    public function setStatusId($statusId)
+    public function setStatusId(?string $statusId): self
     {
         $this->statusId = $statusId;
 

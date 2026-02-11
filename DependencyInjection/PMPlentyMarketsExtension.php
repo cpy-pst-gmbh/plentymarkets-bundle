@@ -41,7 +41,7 @@ class PMPlentyMarketsExtension extends Extension
 
             return;
         }
-        
+
         throw new RuntimeException('No Object Manager found.');
     }
 
