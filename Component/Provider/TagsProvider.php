@@ -4,6 +4,7 @@
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use GuzzleHttp\RequestOptions;
+use PM\PlentyMarketsBundle\Component\Config\TagType;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
 use Throwable;
@@ -11,7 +12,7 @@ use Throwable;
 class TagsProvider extends BaseProvider
 {
 
-    public function postRelationship(int $tagId, string $tagType, string $relationshipValue, string $relationshipUUID5 = ''): ?Throwable
+    public function postRelationship(int $tagId, TagType $tagType, string $relationshipValue, string $relationshipUUID5 = ''): ?Throwable
     {
         $options = [
             RequestOptions::JSON => [
