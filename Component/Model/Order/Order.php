@@ -388,7 +388,7 @@ class Order
     /**
      * @return float
      */
-    public function getStatusId()
+    public function getStatusId(): float
     {
         return $this->statusId;
     }
@@ -398,7 +398,7 @@ class Order
      *
      * @return Order
      */
-    public function setStatusId($statusId)
+    public function setStatusId(float $statusId)
     {
         $this->statusId = $statusId;
 

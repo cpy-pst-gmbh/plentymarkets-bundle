@@ -5,7 +5,7 @@ namespace PM\PlentyMarketsBundle\Services;
 use DateTime;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Persistence\ObjectManager;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
@@ -13,7 +13,6 @@ use JMS\Serializer\SerializerInterface;
 use PM\PlentyMarketsBundle\Component\Config;
 use PM\PlentyMarketsBundle\Component\Helper\ServiceHelper;
 use PM\PlentyMarketsBundle\Component\Interfaces\AccessTokenRepositoryInterface;
-use PM\PlentyMarketsBundle\Component\Interfaces\ApiHitsRepositoryInterface;
 use PM\PlentyMarketsBundle\Component\Interfaces\ApiLockRepositoryInterface;
 use PM\PlentyMarketsBundle\Component\Interfaces\LimitHistoryRepositoryInterface;
 use PM\PlentyMarketsBundle\Component\Provider\AccountsProvider;
@@ -24,16 +23,12 @@ use PM\PlentyMarketsBundle\Component\Provider\FulfilmentProvider;
 use PM\PlentyMarketsBundle\Component\Provider\ItemsProvider;
 use PM\PlentyMarketsBundle\Component\Provider\OrdersProvider;
 use PM\PlentyMarketsBundle\Component\Provider\PaymentsProvider;
+use PM\PlentyMarketsBundle\Component\Provider\PropertiesProvider;
 use PM\PlentyMarketsBundle\Component\Provider\StockManagementProvider;
 use PM\PlentyMarketsBundle\Component\Provider\TagsProvider;
 use PM\PlentyMarketsBundle\Component\Provider\WarehousesProvider;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
-use PM\PlentyMarketsBundle\DocumentRepository\ApiLockRepository;
 use PM\PlentyMarketsBundle\Entity\AccessToken;
-use PM\PlentyMarketsBundle\Entity\ApiHits;
-use PM\PlentyMarketsBundle\Entity\ApiLock;
-use PM\PlentyMarketsBundle\Entity\LimitHistory;
-use PM\PlentyMarketsBundle\Repository\AccessTokenRepository;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,16 +40,14 @@ class RestfulService
     private Config $config;
 
     public function __construct(
-        private readonly AccessTokenRepositoryInterface      $accessTokenRepository,
-        private readonly ApiHitsRepositoryInterface          $apiHitsRepository,
-        private readonly ApiLockRepositoryInterface          $apiLockRepository,
-        private readonly LimitHistoryRepositoryInterface     $limitHistoryRepository,
-        private readonly SerializerInterface                 $serializer,
-        private readonly \Doctrine\Persistence\ObjectManager $objectManager,
-        private readonly LoggerInterface                     $logger,
-        private readonly bool                                $parameterGuzzleVerifySsl
-    )
-    {
+        private readonly AccessTokenRepositoryInterface $accessTokenRepository,
+        private readonly ApiLockRepositoryInterface $apiLockRepository,
+        private readonly LimitHistoryRepositoryInterface $limitHistoryRepository,
+        private readonly SerializerInterface $serializer,
+        private readonly ObjectManager $objectManager,
+        private readonly LoggerInterface $logger,
+        private readonly bool $parameterGuzzleVerifySsl
+    ) {
     }
 
     public function getObjectManager(): ObjectManager
@@ -77,7 +70,7 @@ class RestfulService
         return $this->apiLockRepository;
     }
 
-    public function getLimitHistoryRepository(): LimitHistoryRepository
+    public function getLimitHistoryRepository(): LimitHistoryRepositoryInterface
     {
         return $this->limitHistoryRepository;
     }
@@ -144,13 +137,20 @@ class RestfulService
         return new OrdersProvider($client, $this);
     }
 
-
     public function payments(Config $config): PaymentsProvider
     {
         $this->config = $config;
         $client = $this->login();
 
         return new PaymentsProvider($client, $this);
+    }
+
+    public function properties(Config $config): PropertiesProvider
+    {
+        $this->config = $config;
+        $client = $this->login();
+
+        return new PropertiesProvider($client, $this);
     }
 
     public function stockManagement(Config $config): StockManagementProvider

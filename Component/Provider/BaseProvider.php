@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sjoder
- * Date: 12.07.2017
- * Time: 11:24
- */
 
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use DateTime;
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
@@ -109,7 +102,7 @@ class BaseProvider
             if ($oneMinuteLater > $currentLock->getValidUntil()) {
                 sleep($currentLock->getValidUntil()->getTimestamp() - time());
 
-                return $this->getResponse($method, $path, $options, $final, $ignoreLock, $flushEntities);
+                return $this->getResponse($method, $path, $options, $final, false, $flushEntities);
             }
 
             return (new ApiLockActiveException());
@@ -184,23 +177,22 @@ class BaseProvider
     public function getBodyContentsWithFixedDate(ResponseInterface $response): string
     {
         $body = str_replace('-0001-11-30T00:00:00+01:00', '0000-00-00T00:00:00+01:00', $response->getBody()->getContents());
-        $body = str_replace('-0001-11-30T00:00:00+00:53', '0000-00-00T00:00:00+01:00', $body);
 
-        return $body;
+        return str_replace('-0001-11-30T00:00:00+00:53', '0000-00-00T00:00:00+01:00', $body);
     }
 
-    private function saveRequestLimits(array $responseHeaders, string $path, bool $shortLimitException = false, bool $flushEntities = true): bool
+    private function saveRequestLimits(array $responseHeaders, string $path, bool $shortLimitException = false, bool $flushEntities = true): void
     {
         $path = explode('/', $path);
         $basePath = reset($path);
 
         if (false === isset($responseHeaders[self::HEADER_LONG_PERIOD_CALLS_LEFT])) {
-            return false;
+            return;
         }
 
         $requestHeaders = $this->getClient()->getConfig('headers');
         if (false === isset($requestHeaders[self::HEADER_INTERNAL_API_ID])) {
-            return false;
+            return;
         }
 
         $now = new DateTime();
@@ -263,13 +255,11 @@ class BaseProvider
         }
 
         /* Save */
-        $this->getService()->getEntityManager()->persist($history);
+        $this->getService()->getObjectManager()->persist($history);
 
         if (true === $flushEntities) {
-            $this->getService()->getEntityManager()->flush();
+            $this->getService()->getObjectManager()->flush();
         }
-
-        return true;
     }
 
     private function createApiLock(int $decayTime, string $internalApiId, string $lockType): void
@@ -282,6 +272,6 @@ class BaseProvider
             ->setValidUntil(new DateTime(sprintf('+%d seconds', $decayTime + 1)))
             ->setDescription($this->getService()->getConfig()->getUri());
 
-        $this->getService()->getEntityManager()->persist($lock);
+        $this->getService()->getObjectManager()->persist($lock);
     }
 }

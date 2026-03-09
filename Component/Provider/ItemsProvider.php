@@ -263,9 +263,16 @@ class ItemsProvider extends BaseProvider
         return $result;
     }
 
-    public function getVariation(int $itemId, int $variationId): Throwable|ItemVariation
+    public function getVariation(int $itemId, int $variationId, ?array $query = null): Throwable|ItemVariation
     {
-        $response = $this->getResponse(Request::METHOD_GET, sprintf(RestfulUrl::ITEM_VARIATION, $itemId, $variationId));
+        $options = [];
+
+        if (null !== $query) {
+            $options['query'] = $query;
+        }
+
+        $response = $this->getResponse(Request::METHOD_GET, sprintf(RestfulUrl::ITEM_VARIATION, $itemId, $variationId), $options);
+
         if ($response instanceof Throwable) {
             return $response;
         }
