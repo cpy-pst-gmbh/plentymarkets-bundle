@@ -17,7 +17,7 @@ class TagsProvider extends BaseProvider
         $options = [
             RequestOptions::JSON => [
                 'tagId'             => $tagId,
-                'tagType'           => $tagType,
+                'tagType'           => $tagType->name,
                 'relationshipValue' => $relationshipValue,
                 'relationshipUUID5' => $relationshipUUID5,
             ],
