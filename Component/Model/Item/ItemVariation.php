@@ -6,11 +6,6 @@ use DateTime;
 use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
 
-/**
- * Class ItemVariation
- *
- * @package PM\PlentyMarketsBundle\Component\Model\Item
- */
 #[JMS\ExclusionPolicy('ALL')]
 class ItemVariation
 {
@@ -506,6 +501,11 @@ class ItemVariation
     #[JMS\Expose]
     #[JMS\Since('1.0')]
     private array $variationSalesPrices = [];
+
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private array $variationSkus = [];
 
     /**
      * @var array|ItemVariationSupplier[]
@@ -1724,6 +1724,18 @@ class ItemVariation
         return $this;
     }
 
+    public function getVariationSkus(): array
+    {
+        return $this->variationSkus;
+    }
+
+    public function setVariationSkus(array $variationSkus): ItemVariation
+    {
+        $this->variationSkus = $variationSkus;
+
+        return $this;
+    }
+
     /**
      * @return array|ItemVariationSupplier[]
      */
@@ -1737,7 +1749,7 @@ class ItemVariation
      *
      * @return ItemVariation
      */
-    public function setVariationSuppliers(array $variationSuppliers = null)
+    public function setVariationSuppliers(?array $variationSuppliers = null)
     {
         $this->variationSuppliers = $variationSuppliers;
 
@@ -1757,7 +1769,7 @@ class ItemVariation
      *
      * @return ItemVariation
      */
-    public function setVariationCategories(array $variationCategories = null)
+    public function setVariationCategories(?array $variationCategories = null)
     {
         $this->variationCategories = $variationCategories;
 
@@ -1775,5 +1787,4 @@ class ItemVariation
 
         return $this;
     }
-
 }

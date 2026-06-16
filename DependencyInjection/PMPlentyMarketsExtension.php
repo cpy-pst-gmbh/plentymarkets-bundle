@@ -5,7 +5,7 @@ namespace PM\PlentyMarketsBundle\DependencyInjection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Doctrine\ORM\EntityManagerInterface;
 use RuntimeException;
