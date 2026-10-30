@@ -523,6 +523,54 @@ class ItemVariation
     #[JMS\Since('1.0')]
     private array $properties = [];
 
+    /**
+     * Tags, with=tags. Null when not requested.
+     *
+     * @var ItemVariationTag[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationTag>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $tags = null;
+
+    /**
+     * Clients, with=variationClients. Null when not requested.
+     *
+     * @var ItemVariationClient[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationClient>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $variationClients = null;
+
+    /**
+     * Default categories, with=variationDefaultCategory. Null when not requested.
+     *
+     * @var ItemVariationDefaultCategory[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationDefaultCategory>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $variationDefaultCategory = null;
+
+    /**
+     * Stock per warehouse, with=stock. Null when not requested.
+     *
+     * @var ItemVariationStock[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationStock>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $stock = null;
+
+    /**
+     * Item, with=item. Null when not requested.
+     */
+    #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\Item')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?Item $item = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -1772,6 +1820,90 @@ class ItemVariation
     public function setVariationCategories(?array $variationCategories = null)
     {
         $this->variationCategories = $variationCategories;
+
+        return $this;
+    }
+
+    /**
+     * @return ItemVariationTag[]|null
+     */
+    public function getTags(): ?array
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param ItemVariationTag[]|null $tags
+     */
+    public function setTags(?array $tags): ItemVariation
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @return ItemVariationClient[]|null
+     */
+    public function getVariationClients(): ?array
+    {
+        return $this->variationClients;
+    }
+
+    /**
+     * @param ItemVariationClient[]|null $variationClients
+     */
+    public function setVariationClients(?array $variationClients): ItemVariation
+    {
+        $this->variationClients = $variationClients;
+
+        return $this;
+    }
+
+    /**
+     * @return ItemVariationDefaultCategory[]|null
+     */
+    public function getVariationDefaultCategory(): ?array
+    {
+        return $this->variationDefaultCategory;
+    }
+
+    /**
+     * @param ItemVariationDefaultCategory[]|null $variationDefaultCategory
+     */
+    public function setVariationDefaultCategory(?array $variationDefaultCategory): ItemVariation
+    {
+        $this->variationDefaultCategory = $variationDefaultCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return ItemVariationStock[]|null
+     */
+    public function getStock(): ?array
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param ItemVariationStock[]|null $stock
+     */
+    public function setStock(?array $stock): ItemVariation
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getItem(): ?Item
+    {
+        return $this->item;
+    }
+
+    public function setItem(?Item $item): ItemVariation
+    {
+        $this->item = $item;
 
         return $this;
     }

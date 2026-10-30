@@ -74,6 +74,31 @@ class ItemsProvider extends BaseProvider
         return array_merge($data->getEntries(), $merged);
     }
 
+    /**
+     * A single page, for result sets too large to keep in memory.
+     */
+    public function getVariationsPage(int $page = 1, array $query = []): ItemsVariationsResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::ITEM_VARIATIONS,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($this->getBodyContentsWithFixedDate($response), ItemsVariationsResponse::class, 'json');
+    }
+
     public function getAllVariations(int $page = 1, array $query = []): array|Throwable
     {
         $response = $this->getResponse(
