@@ -12,6 +12,7 @@
         "php": "^8.4",
         "ext-xml": "*",
         "jms/serializer": "*",
+        "symfony/polyfill-php86": "*",
         "symfony/form": "*",
         "symfony/dependency-injection": "*"
     },

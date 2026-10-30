@@ -59,6 +59,16 @@ class Category
     #[JMS\Since('1.0')]
     private $details;
 
+    /**
+     * Only filled when requested with "with=clients"
+     *
+     * @var CategoryClient[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Category\CategoryClient>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $clients = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -136,6 +146,24 @@ class Category
     public function setDetails($details)
     {
         $this->details = $details;
+
+        return $this;
+    }
+
+    /**
+     * @return CategoryClient[]|null
+     */
+    public function getClients(): ?array
+    {
+        return $this->clients;
+    }
+
+    /**
+     * @param CategoryClient[]|null $clients
+     */
+    public function setClients(?array $clients): Category
+    {
+        $this->clients = $clients;
 
         return $this;
     }

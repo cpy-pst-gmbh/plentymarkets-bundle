@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use PM\PlentyMarketsBundle\Component\Interfaces\ApiHitsRepositoryInterface;
 use PM\PlentyMarketsBundle\Component\Model\ApiHitsStatisticModel;
 use PM\PlentyMarketsBundle\Entity\ApiHits;
+use SortDirection;
 
 /**
  * ApiHitsRepository
@@ -61,7 +62,7 @@ class ApiHitsRepository extends ServiceEntityRepository implements ApiHitsReposi
             ->select('api_hits.day')
             ->where('api_hits.apiId = :api_id')
             ->andWhere('api_hits.day >= :start')
-            ->orderBy('api_hits.day', 'asc')
+            ->orderBy('api_hits.day', SortDirection::Ascending)
             ->groupBy('api_hits.day')
             ->setParameters(
                 new ArrayCollection(

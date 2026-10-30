@@ -81,4 +81,15 @@ class CategoryProvider extends BaseProvider
 
         return $this->getAll(1, $query);
     }
+
+    /**
+     * Item categories including their clients
+     *
+     * @return array|Category[]|Throwable
+     * @throws Throwable
+     */
+    public function getAllForItemsWithClients()
+    {
+        return $this->getAll(1, ['type' => 'item', 'with' => 'clients', 'itemsPerPage' => 250]);
+    }
 }

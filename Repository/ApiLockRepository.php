@@ -8,6 +8,7 @@ use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 use PM\PlentyMarketsBundle\Component\Interfaces\ApiLockRepositoryInterface;
 use PM\PlentyMarketsBundle\Entity\ApiLock;
+use SortDirection;
 
 /**
  * ApiLockRepository
@@ -52,7 +53,7 @@ class ApiLockRepository extends ServiceEntityRepository implements ApiLockReposi
                     ]
                 )
             )
-            ->orderBy(sprintf('%s.validUntil', $alias), 'desc');
+            ->orderBy(sprintf('%s.validUntil', $alias), SortDirection::Descending);
 
         return $builder;
     }
