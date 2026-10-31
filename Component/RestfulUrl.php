@@ -60,6 +60,7 @@ class RestfulUrl
 
     public const STOCK_MANAGEMENT_WAREHOUSE = 'stockmanagement/warehouses/%d';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_MOVEMENTS = 'stockmanagement/warehouses/%d/stock/movements';
+    public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_STORAGE_LOCATIONS = 'stockmanagement/warehouses/%d/stock/storageLocations';
     public const STOCK_MANAGEMENT_WAREHOUSES = 'stockmanagement/warehouses';
 
     public const TAGS_RELATIONSHIPS = 'tags/relationships';

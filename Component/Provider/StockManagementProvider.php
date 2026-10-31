@@ -12,6 +12,7 @@ use DateTimeInterface;
 use Exception;
 use PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement;
 use PM\PlentyMarketsBundle\Component\Model\StockManagement\Warehouse;
+use PM\PlentyMarketsBundle\Component\Response\ItemLocationsResponse;
 use PM\PlentyMarketsBundle\Component\Response\StockMovementsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
@@ -99,4 +100,28 @@ class StockManagementProvider extends BaseProvider
         return array_merge($data->getEntries(), $merged);
     }
 
+    /**
+     * One page of the stock per storage location, the whole warehouse does not fit in memory.
+     */
+    public function getStorageLocationStockPage(int $warehouseId, int $page = 1, array $query = []): ItemLocationsResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            sprintf(RestfulUrl::STOCK_MANAGEMENT_WAREHOUSE_STOCK_STORAGE_LOCATIONS, $warehouseId),
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($this->getBodyContentsWithFixedDate($response), ItemLocationsResponse::class, 'json');
+    }
 }
