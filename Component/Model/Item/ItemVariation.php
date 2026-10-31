@@ -564,6 +564,16 @@ class ItemVariation
     private ?array $stock = null;
 
     /**
+     * Reorder levels and more per warehouse, with=variationWarehouses. Null when not requested.
+     *
+     * @var ItemVariationWarehouse[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationWarehouse>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $variationWarehouses = null;
+
+    /**
      * Item, with=item. Null when not requested.
      */
     #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\Item')]
@@ -1892,6 +1902,24 @@ class ItemVariation
     public function setStock(?array $stock): ItemVariation
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * @return ItemVariationWarehouse[]|null
+     */
+    public function getVariationWarehouses(): ?array
+    {
+        return $this->variationWarehouses;
+    }
+
+    /**
+     * @param ItemVariationWarehouse[]|null $variationWarehouses
+     */
+    public function setVariationWarehouses(?array $variationWarehouses): ItemVariation
+    {
+        $this->variationWarehouses = $variationWarehouses;
 
         return $this;
     }
