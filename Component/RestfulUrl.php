@@ -16,6 +16,7 @@ class RestfulUrl
     public const ACCOUNT_CONTACTS = 'accounts/contacts';
 
     public const BACKEND_USERS = 'backend/users';
+    public const LOGS = 'logs';
 
     public const FULFILMENT_PICKLIST = 'fulfillment/picklist/%d';
 
