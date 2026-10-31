@@ -42,6 +42,7 @@ class RestfulUrl
 
     public const ORDER = 'orders/%d';
     public const ORDER_DATE_TYPES = 'orders/dates/types';
+    public const ORDER_DOCUMENTS_DOWNLOAD = 'orders/%d/documents/downloads/%s';
     public const ORDER_ITEM = 'orders/%d/items/%d';
     public const ORDER_PROPERTY = 'orders/%d/properties/%d';
     public const ORDER_PROPERTY_TYPE = 'orders/properties/types/%d';
