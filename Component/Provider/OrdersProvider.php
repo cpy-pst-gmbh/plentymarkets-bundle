@@ -50,6 +50,45 @@ class OrdersProvider extends BaseProvider
         return $data;
     }
 
+    /**
+     * One page of orders, filters such as statusFrom or outgoingItemsBookedAtFrom go in $query.
+     */
+    public function getOrdersPage(int $page = 1, array $query = []): OrderResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::ORDERS,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($this->getBodyContentsWithFixedDate($response), OrderResponse::class, 'json');
+    }
+
+    /**
+     * ZIP with the documents of an order as binary string, $type being e.g. invoice.
+     */
+    public function getDocumentsArchive(int $orderId, string $type): string|Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_GET, sprintf(RestfulUrl::ORDER_DOCUMENTS_DOWNLOAD, $orderId, $type));
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $response->getBody()->getContents();
+    }
+
     public function getByExternalOrderId(string $externalOrderId, ?array $with = null): null|Throwable|Order
     {
         $query = [
