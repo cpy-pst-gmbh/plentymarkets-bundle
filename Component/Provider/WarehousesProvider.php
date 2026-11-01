@@ -81,7 +81,7 @@ class WarehousesProvider extends BaseProvider
      * @return object|Exception|LocationsResponse
      * @throws Throwable
      */
-    public function getLocations($warehouseId, $page = 1, int $levelId = null)
+    public function getLocations($warehouseId, $page = 1, ?int $levelId = null)
     {
         $query = [
             'page'         => $page,
