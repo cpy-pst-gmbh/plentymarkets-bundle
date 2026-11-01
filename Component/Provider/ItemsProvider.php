@@ -559,6 +559,22 @@ class ItemsProvider extends BaseProvider
         return true;
     }
 
+    /**
+     * @param array<string, mixed> $fields
+     */
+    public function putVariationFields(int $itemId, int $variationId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_PUT,
+            sprintf(RestfulUrl::ITEM_VARIATION, $itemId, $variationId),
+            [
+                RequestOptions::JSON => $fields,
+            ]
+        );
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
     public function putItemField(int $itemId, string $field, string $value): ?Throwable
     {
         $response = $this->getResponse(
