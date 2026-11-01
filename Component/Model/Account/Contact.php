@@ -318,6 +318,21 @@ class Contact
     private $options;
 
     /**
+     * Payment settings, with=allowedMethodsOfPayment. Null when not requested.
+     *
+     * @var ContactAllowedMethodOfPayment[]|null
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\ContactAllowedMethodOfPayment>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?array $allowedMethodsOfPayment = null;
+
+    #[JMS\Type('boolean')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?bool $isAnonymized = null;
+
+    /**
      * @return int
      */
     public function getId()
@@ -1053,6 +1068,36 @@ class Contact
     public function setOptions($options)
     {
         $this->options = $options;
+
+        return $this;
+    }
+
+    /**
+     * @return ContactAllowedMethodOfPayment[]|null
+     */
+    public function getAllowedMethodsOfPayment(): ?array
+    {
+        return $this->allowedMethodsOfPayment;
+    }
+
+    /**
+     * @param ContactAllowedMethodOfPayment[]|null $allowedMethodsOfPayment
+     */
+    public function setAllowedMethodsOfPayment(?array $allowedMethodsOfPayment): self
+    {
+        $this->allowedMethodsOfPayment = $allowedMethodsOfPayment;
+
+        return $this;
+    }
+
+    public function isAnonymized(): ?bool
+    {
+        return $this->isAnonymized;
+    }
+
+    public function setIsAnonymized(?bool $isAnonymized): self
+    {
+        $this->isAnonymized = $isAnonymized;
 
         return $this;
     }

@@ -10,10 +10,12 @@ namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use DateTimeInterface;
 use Exception;
+use GuzzleHttp\RequestOptions;
 use PM\PlentyMarketsBundle\Component\Model\Account\Contact;
 use PM\PlentyMarketsBundle\Component\Response\ContactsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
+use Throwable;
 
 
 /**
@@ -109,5 +111,46 @@ class AccountsProvider extends BaseProvider
         }
 
         return $this->getContacts(1, $query);
+    }
+
+    /**
+     * One page of contacts, filters such as classId or updatedAtAfter go in $query.
+     */
+    public function getContactsPage(int $page = 1, array $query = []): ContactsResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::ACCOUNT_CONTACTS,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ContactsResponse::class, 'json');
+    }
+
+    /**
+     * @param array<string, mixed> $fields
+     */
+    public function putContactFields(int $contactId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_PUT,
+            sprintf(RestfulUrl::ACCOUNT_CONTACT, $contactId),
+            [
+                RequestOptions::JSON => $fields,
+            ]
+        );
+
+        return $response instanceof Throwable ? $response : null;
     }
 }
