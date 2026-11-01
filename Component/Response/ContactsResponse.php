@@ -37,7 +37,7 @@ class ContactsResponse extends PaginationResponse
     }
 
     /**
-     * @param Item[] $entries
+     * @param Contact[] $entries
      *
      * @return ContactsResponse
      */
