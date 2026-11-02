@@ -41,6 +41,8 @@ class RestfulUrl
     public const ITEM_VARIATION_WAREHOUSES_WAREHOUSE = 'items/%d/variations/%d/variation_warehouses/%d';
     public const ITEM_VARIATIONS = 'items/variations';
 
+    public const LISTING_MARKETS = 'listings/markets';
+
     public const ORDER = 'orders/%d';
     public const ORDER_DATE_TYPES = 'orders/dates/types';
     public const ORDER_DOCUMENTS_DOWNLOAD = 'orders/%d/documents/downloads/%s';
