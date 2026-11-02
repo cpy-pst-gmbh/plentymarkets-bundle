@@ -574,6 +574,14 @@ class ItemVariation
     private ?array $variationWarehouses = null;
 
     /**
+     * Unit and content, with=unit. Null when not requested.
+     */
+    #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationUnit')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?ItemVariationUnit $unit = null;
+
+    /**
      * Item, with=item. Null when not requested.
      */
     #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\Item')]
@@ -1902,6 +1910,18 @@ class ItemVariation
     public function setStock(?array $stock): ItemVariation
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getUnit(): ?ItemVariationUnit
+    {
+        return $this->unit;
+    }
+
+    public function setUnit(?ItemVariationUnit $unit): ItemVariation
+    {
+        $this->unit = $unit;
 
         return $this;
     }
