@@ -40,6 +40,16 @@ class CategoryDetail
     #[JMS\Since('1.0')]
     private $name;
 
+    #[JMS\Type('integer')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?int $plentyId = null;
+
+    #[JMS\Type('integer')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?int $position = null;
+
     public function getCategoryId(): int
     {
         return $this->categoryId;
@@ -85,4 +95,27 @@ class CategoryDetail
         return $this;
     }
 
+    public function getPlentyId(): ?int
+    {
+        return $this->plentyId;
+    }
+
+    public function setPlentyId(?int $plentyId): CategoryDetail
+    {
+        $this->plentyId = $plentyId;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): CategoryDetail
+    {
+        $this->position = $position;
+
+        return $this;
+    }
 }
