@@ -19,11 +19,13 @@ use PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSupplier;
 use PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationWarehouse;
 use PM\PlentyMarketsBundle\Component\Model\Item\Manufacturer;
 use PM\PlentyMarketsBundle\Component\Model\Item\SalesPrice;
+use PM\PlentyMarketsBundle\Component\Model\Item\Unit;
 use PM\PlentyMarketsBundle\Component\Response\ItemLocationsResponse;
 use PM\PlentyMarketsBundle\Component\Response\ItemsBarcodesResponse;
 use PM\PlentyMarketsBundle\Component\Response\ItemsResponse;
 use PM\PlentyMarketsBundle\Component\Response\ItemsVariationsResponse;
 use PM\PlentyMarketsBundle\Component\Response\ManufacturersResponse;
+use PM\PlentyMarketsBundle\Component\Response\UnitsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -441,13 +443,17 @@ class ItemsProvider extends BaseProvider
         return $this->getService()->getSerializer()->deserialize($body, sprintf('array<%s>', ItemVariationSupplier::class), 'json');
     }
 
-    public function getVariationsUpdatedSince(?DateTimeInterface $since): array
+    public function getVariationsUpdatedSince(?DateTimeInterface $since, array $with = []): array
     {
         $query = [];
         if (null !== $since) {
             $query['updatedBetween'] = $since->getTimestamp();
         } else {
             $query['updatedBetween'] = (new DateTime('2020-01-01'))->getTimestamp();
+        }
+
+        if (0 < count($with)) {
+            $query['with'] = implode(',', $with);
         }
 
         $result = $this->getAllVariations(1, $query);
@@ -557,6 +563,30 @@ class ItemsProvider extends BaseProvider
         }
 
         return true;
+    }
+
+    /**
+     * @return Unit[]|Throwable
+     */
+    public function getUnits(): array|Throwable
+    {
+        $units = [];
+        $page = 1;
+
+        do {
+            $response = $this->getResponse(Request::METHOD_GET, RestfulUrl::ITEM_UNITS, ['query' => ['page' => $page, 'itemsPerPage' => 250]]);
+            if ($response instanceof Throwable) {
+                return $response;
+            }
+
+            /** @var UnitsResponse $data */
+            $data = $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), UnitsResponse::class, 'json');
+            array_push($units, ...$data->getEntries());
+
+            ++$page;
+        } while (false === $data->isIsLastPage());
+
+        return $units;
     }
 
     /**

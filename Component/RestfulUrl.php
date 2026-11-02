@@ -22,6 +22,7 @@ class RestfulUrl
 
     public const ITEMS = 'items';
     public const ITEM = 'items/%d';
+    public const ITEM_UNITS = 'items/units';
     public const ITEM_BARCODES = 'items/barcodes';
     public const ITEM_MANUFACTURERS = 'items/manufacturers';
     public const ITEM_SALES_PRICE = 'items/sales_prices/%d';
