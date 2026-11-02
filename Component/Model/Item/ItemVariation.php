@@ -589,6 +589,14 @@ class ItemVariation
     #[JMS\Since('1.0')]
     private ?Item $item = null;
 
+    /**
+     * Customs tariff number, plenty keeps it at the variation. Writing the field of the item has no effect.
+     */
+    #[JMS\Type('string')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?string $customsTariffNumber = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -1922,6 +1930,18 @@ class ItemVariation
     public function setUnit(?ItemVariationUnit $unit): ItemVariation
     {
         $this->unit = $unit;
+
+        return $this;
+    }
+
+    public function getCustomsTariffNumber(): ?string
+    {
+        return $this->customsTariffNumber;
+    }
+
+    public function setCustomsTariffNumber(?string $customsTariffNumber): ItemVariation
+    {
+        $this->customsTariffNumber = $customsTariffNumber;
 
         return $this;
     }
