@@ -10,6 +10,14 @@ use JMS\Serializer\Annotation as JMS;
 #[JMS\ExclusionPolicy('ALL')]
 class ItemVariationUnit
 {
+    /**
+     * Id of the combination of unit and content.
+     */
+    #[JMS\Type('integer')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?int $id = null;
+
     #[JMS\Type('integer')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
@@ -19,6 +27,18 @@ class ItemVariationUnit
     #[JMS\Expose]
     #[JMS\Since('1.0')]
     private ?float $content = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 
     public function getUnitId(): ?int
     {

@@ -21,6 +21,7 @@ use PM\PlentyMarketsBundle\Component\Provider\BaseProvider;
 use PM\PlentyMarketsBundle\Component\Provider\CategoryProvider;
 use PM\PlentyMarketsBundle\Component\Provider\FulfilmentProvider;
 use PM\PlentyMarketsBundle\Component\Provider\ItemsProvider;
+use PM\PlentyMarketsBundle\Component\Provider\ListingsProvider;
 use PM\PlentyMarketsBundle\Component\Provider\OrdersProvider;
 use PM\PlentyMarketsBundle\Component\Provider\PaymentsProvider;
 use PM\PlentyMarketsBundle\Component\Provider\PropertiesProvider;
@@ -127,6 +128,14 @@ class RestfulService
         $client = $this->login();
 
         return new ItemsProvider($client, $this);
+    }
+
+    public function listings(Config $config): ListingsProvider
+    {
+        $this->config = $config;
+        $client = $this->login();
+
+        return new ListingsProvider($client, $this);
     }
 
     public function orders(Config $config): OrdersProvider
