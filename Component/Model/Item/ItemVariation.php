@@ -1831,7 +1831,7 @@ class ItemVariation
     }
 
     /**
-     * @return array|ItemVariationBarcode[]
+     * @return ItemVariationCategory[]
      */
     public function getVariationCategories(): ?array
     {
@@ -1839,7 +1839,7 @@ class ItemVariation
     }
 
     /**
-     * @param array|ItemVariationBarcode[] $variationCategories
+     * @param ItemVariationCategory[]|null $variationCategories
      *
      * @return ItemVariation
      */
