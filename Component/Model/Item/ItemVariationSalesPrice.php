@@ -43,6 +43,22 @@ class ItemVariationSalesPrice
     #[JMS\Since('1.0')]
     private $price;
 
+    /**
+     * @var float|null
+     */
+    #[JMS\Type('float')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private $lowestPrice;
+
+    /**
+     * @var bool
+     */
+    #[JMS\Type('boolean')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private $lowestPriceCalculation;
+
 
     /**
      * @var DateTime
@@ -116,6 +132,46 @@ class ItemVariationSalesPrice
     public function setPrice($price)
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getLowestPrice()
+    {
+        return $this->lowestPrice;
+    }
+
+    /**
+     * @param float|null $lowestPrice
+     *
+     * @return ItemVariationSalesPrice
+     */
+    public function setLowestPrice($lowestPrice)
+    {
+        $this->lowestPrice = $lowestPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLowestPriceCalculation()
+    {
+        return $this->lowestPriceCalculation;
+    }
+
+    /**
+     * @param bool $lowestPriceCalculation
+     *
+     * @return ItemVariationSalesPrice
+     */
+    public function setLowestPriceCalculation($lowestPriceCalculation)
+    {
+        $this->lowestPriceCalculation = $lowestPriceCalculation;
 
         return $this;
     }
