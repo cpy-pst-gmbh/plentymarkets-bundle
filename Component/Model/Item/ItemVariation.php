@@ -502,6 +502,22 @@ class ItemVariation
     #[JMS\Since('1.0')]
     private array $variationSalesPrices = [];
 
+    /**
+     * @var array|ItemVariationMarket[]
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarket>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private array $variationMarkets = [];
+
+    /**
+     * @var array|ItemVariationMarketNumber[]
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarketNumber>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private array $marketItemNumbers = [];
+
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
@@ -1794,6 +1810,46 @@ class ItemVariation
     public function setVariationSalesPrices($variationSalesPrices)
     {
         $this->variationSalesPrices = $variationSalesPrices;
+
+        return $this;
+    }
+
+    /**
+     * @return array|ItemVariationMarket[]
+     */
+    public function getVariationMarkets()
+    {
+        return $this->variationMarkets;
+    }
+
+    /**
+     * @param array|ItemVariationMarket[] $variationMarkets
+     *
+     * @return ItemVariation
+     */
+    public function setVariationMarkets($variationMarkets)
+    {
+        $this->variationMarkets = $variationMarkets;
+
+        return $this;
+    }
+
+    /**
+     * @return array|ItemVariationMarketNumber[]
+     */
+    public function getMarketItemNumbers()
+    {
+        return $this->marketItemNumbers;
+    }
+
+    /**
+     * @param array|ItemVariationMarketNumber[] $marketItemNumbers
+     *
+     * @return ItemVariation
+     */
+    public function setMarketItemNumbers($marketItemNumbers)
+    {
+        $this->marketItemNumbers = $marketItemNumbers;
 
         return $this;
     }
