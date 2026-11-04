@@ -93,7 +93,7 @@ class ItemVariationCharacteristic
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristicName>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $names;
+    private $names = [];
 
     /**
      * @return int
