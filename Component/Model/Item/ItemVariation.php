@@ -518,6 +518,14 @@ class ItemVariation
     #[JMS\Since('1.0')]
     private array $marketItemNumbers = [];
 
+    /**
+     * @var array|ItemVariationBundleComponent[]
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBundleComponent>')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private array $variationBundleComponents = [];
+
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
@@ -1850,6 +1858,26 @@ class ItemVariation
     public function setMarketItemNumbers($marketItemNumbers)
     {
         $this->marketItemNumbers = $marketItemNumbers;
+
+        return $this;
+    }
+
+    /**
+     * @return array|ItemVariationBundleComponent[]
+     */
+    public function getVariationBundleComponents()
+    {
+        return $this->variationBundleComponents;
+    }
+
+    /**
+     * @param array|ItemVariationBundleComponent[] $variationBundleComponents
+     *
+     * @return ItemVariation
+     */
+    public function setVariationBundleComponents($variationBundleComponents)
+    {
+        $this->variationBundleComponents = $variationBundleComponents;
 
         return $this;
     }
