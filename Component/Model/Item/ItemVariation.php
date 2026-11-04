@@ -231,6 +231,22 @@ class ItemVariation
     #[JMS\Type('boolean')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
+    private $isVisibleInListIfNetStockIsPositive;
+
+    /**
+     * @var bool
+     */
+    #[JMS\Type('boolean')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private $isInvisibleInListIfNetStockIsNotPositive;
+
+    /**
+     * @var bool
+     */
+    #[JMS\Type('boolean')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
     private $isAvailableIfNetStockIsPositive;
 
     /**
@@ -525,6 +541,17 @@ class ItemVariation
     #[JMS\Expose]
     #[JMS\Since('1.0')]
     private array $variationBundleComponents = [];
+
+    /**
+     * Merkmale (alte Eigenschaften), with=variationProperties
+     *
+     * @var array|ItemVariationCharacteristic[]
+     */
+    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristic>')]
+    #[JMS\Expose]
+    #[JMS\SerializedName('variationProperties')]
+    #[JMS\Since('1.0')]
+    private array $variationCharacteristics = [];
 
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku>')]
     #[JMS\Expose]
@@ -1878,6 +1905,66 @@ class ItemVariation
     public function setVariationBundleComponents($variationBundleComponents)
     {
         $this->variationBundleComponents = $variationBundleComponents;
+
+        return $this;
+    }
+
+    /**
+     * @return array|ItemVariationCharacteristic[]
+     */
+    public function getVariationCharacteristics()
+    {
+        return $this->variationCharacteristics;
+    }
+
+    /**
+     * @param array|ItemVariationCharacteristic[] $variationCharacteristics
+     *
+     * @return ItemVariation
+     */
+    public function setVariationCharacteristics($variationCharacteristics)
+    {
+        $this->variationCharacteristics = $variationCharacteristics;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIsVisibleInListIfNetStockIsPositive()
+    {
+        return $this->isVisibleInListIfNetStockIsPositive;
+    }
+
+    /**
+     * @param bool $isVisibleInListIfNetStockIsPositive
+     *
+     * @return ItemVariation
+     */
+    public function setIsVisibleInListIfNetStockIsPositive($isVisibleInListIfNetStockIsPositive)
+    {
+        $this->isVisibleInListIfNetStockIsPositive = $isVisibleInListIfNetStockIsPositive;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isIsInvisibleInListIfNetStockIsNotPositive()
+    {
+        return $this->isInvisibleInListIfNetStockIsNotPositive;
+    }
+
+    /**
+     * @param bool $isInvisibleInListIfNetStockIsNotPositive
+     *
+     * @return ItemVariation
+     */
+    public function setIsInvisibleInListIfNetStockIsNotPositive($isInvisibleInListIfNetStockIsNotPositive)
+    {
+        $this->isInvisibleInListIfNetStockIsNotPositive = $isInvisibleInListIfNetStockIsNotPositive;
 
         return $this;
     }

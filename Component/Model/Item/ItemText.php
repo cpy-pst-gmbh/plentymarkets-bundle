@@ -88,6 +88,9 @@ class ItemText
     /**
      * @var string
      */
+    #[JMS\Type('string')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
     private $keywords;
 
     /**

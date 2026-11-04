@@ -153,7 +153,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getPurchasePrice(): float
+    public function getPurchasePrice(): ?float
     {
         return $this->purchasePrice;
     }
@@ -168,7 +168,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getMinimumPurchase(): int
+    public function getMinimumPurchase(): ?int
     {
         return $this->minimumPurchase;
     }
@@ -183,7 +183,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getItemNumber(): string
+    public function getItemNumber(): ?string
     {
         return $this->itemNumber;
     }
@@ -198,7 +198,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getLastPriceQuery(): string
+    public function getLastPriceQuery(): ?string
     {
         return $this->lastPriceQuery;
     }
@@ -213,7 +213,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getDeliveryTimeInDays(): int
+    public function getDeliveryTimeInDays(): ?int
     {
         return $this->deliveryTimeInDays;
     }
@@ -228,7 +228,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getDiscount(): float
+    public function getDiscount(): ?float
     {
         return $this->discount;
     }
@@ -243,7 +243,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function isDiscountable(): bool
+    public function isDiscountable(): ?bool
     {
         return $this->isDiscountable;
     }
@@ -258,7 +258,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getPackagingUnit(): int
+    public function getPackagingUnit(): ?int
     {
         return $this->packagingUnit;
     }
@@ -273,7 +273,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getLastUpdateTimestamp(): \DateTime
+    public function getLastUpdateTimestamp(): ?\DateTime
     {
         return $this->lastUpdateTimestamp;
     }
@@ -288,7 +288,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
