@@ -65,6 +65,16 @@ class OrderAmount extends BaseAmount
     #[JMS\Since('1.0')]
     private $paidAmount;
 
+    #[JMS\Type('float')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?float $shippingCostsGross = null;
+
+    #[JMS\Type('float')]
+    #[JMS\Expose]
+    #[JMS\Since('1.0')]
+    private ?float $shippingCostsNet = null;
+
     /**
      * @var BaseVat
      *
@@ -191,6 +201,30 @@ class OrderAmount extends BaseAmount
     public function setPaidAmount($paidAmount)
     {
         $this->paidAmount = $paidAmount;
+
+        return $this;
+    }
+
+    public function getShippingCostsGross(): ?float
+    {
+        return $this->shippingCostsGross;
+    }
+
+    public function setShippingCostsGross(?float $shippingCostsGross): self
+    {
+        $this->shippingCostsGross = $shippingCostsGross;
+
+        return $this;
+    }
+
+    public function getShippingCostsNet(): ?float
+    {
+        return $this->shippingCostsNet;
+    }
+
+    public function setShippingCostsNet(?float $shippingCostsNet): self
+    {
+        $this->shippingCostsNet = $shippingCostsNet;
 
         return $this;
     }
