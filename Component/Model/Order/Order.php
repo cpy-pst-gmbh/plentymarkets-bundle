@@ -185,9 +185,11 @@ class Order
     private $id;
 
     /**
-     * @var int
+     * Herkuenfte haben Nachkommastellen, 4.01 ist Amazon Deutschland, 2.08 eBay Deutschland.
+     *
+     * @var float|null
      */
-    #[JMS\Type('int')]
+    #[JMS\Type('float')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
     private $referrerId;
@@ -505,7 +507,7 @@ class Order
         return $this;
     }
 
-    public function getReferrerId(): ?int
+    public function getReferrerId(): ?float
     {
         return $this->referrerId;
     }
@@ -513,7 +515,7 @@ class Order
     /**
      * @return Order
      */
-    public function setReferrerId(?int $referrerId): Order
+    public function setReferrerId(?float $referrerId): Order
     {
         $this->referrerId = $referrerId;
 

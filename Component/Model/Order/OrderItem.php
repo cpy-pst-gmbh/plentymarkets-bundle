@@ -28,8 +28,9 @@ class OrderItem
     #[JMS\Type("integer")]
     private ?int $typeId = null;
 
-    #[JMS\Type("integer")]
-    private ?int $referrerId = null;
+    /* Herkuenfte haben Nachkommastellen, 4.01 ist Amazon Deutschland. */
+    #[JMS\Type("float")]
+    private ?float $referrerId = null;
 
     #[JMS\Type("integer")]
     private ?int $itemVariationId = null;
@@ -88,7 +89,7 @@ class OrderItem
         return $this->typeId;
     }
 
-    public function getReferrerId(): ?int
+    public function getReferrerId(): ?float
     {
         return $this->referrerId;
     }
