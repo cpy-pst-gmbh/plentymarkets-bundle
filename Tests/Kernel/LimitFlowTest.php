@@ -36,25 +36,18 @@ final class LimitFlowTest extends BundleKernelTestCase
 
     public function testTooFewCallsLeftLockTheNextRequest(): void
     {
-        KernelRestfulService::$handler->append(self::json(self::LOGIN), new Response(200, self::limits(250), '{}'), new Response(200, [], '{}'));
+        KernelRestfulService::$handler->append(self::json(self::LOGIN), new Response(200, self::limits(250), '{}'));
         $provider = $this->restful()->base(self::config());
 
         self::assertSame(200, $provider->getResponse('GET', 'orders/1')->getStatusCode());
+        // Right away, in the same second: before #65 the lock held only from the next one.
+        $second = $provider->getResponse('GET', 'orders/2');
 
-        $locks = $this->entityManager()->getRepository(ApiLock::class)->findAll();
-        self::assertCount(1, $locks);
+        self::assertInstanceOf(ApiLockActiveException::class, $second, 'The lock lasts the 30 minutes of the decay, which no request waits for.');
+        self::assertSame(['/rest/login', '/rest/orders/1'], self::paths(), 'The second request did not leave.');
+        self::assertCount(1, $this->entityManager()->getRepository(ApiLock::class)->findAll());
         $history = $this->entityManager()->getRepository(LimitHistory::class)->findOneBy(['path' => 'orders']);
         self::assertSame(250, $history?->getLongPeriodLatest());
-
-        // A lock is valid from the second it is made, and the repository asks for validFrom < now:
-        // a request in the same second still goes out. Recorded as it is.
-        self::assertSame(200, $provider->getResponse('GET', 'orders/2')->getStatusCode());
-
-        $this->entityManager()->createQuery('UPDATE '.ApiLock::class.' l SET l.validFrom = :from')->setParameter('from', new \DateTime('-1 second'))->execute();
-        $third = $provider->getResponse('GET', 'orders/3');
-
-        self::assertInstanceOf(ApiLockActiveException::class, $third, 'The lock lasts the 30 minutes of the decay, which no request waits for.');
-        self::assertSame(['/rest/login', '/rest/orders/1', '/rest/orders/2'], self::paths(), 'The third request did not leave.');
     }
 
     public function testEnoughCallsLeftLockNothing(): void
@@ -70,19 +63,38 @@ final class LimitFlowTest extends BundleKernelTestCase
         self::assertSame(899, $this->entityManager()->getRepository(LimitHistory::class)->findOneBy(['path' => 'orders'])?->getLongPeriodLatest());
     }
 
-    public function testATokenPlentymarketsRefusesIsTriedAgainNotReplaced(): void
+    public function testATokenPlentymarketsRefusesIsReplaced(): void
     {
-        KernelRestfulService::$handler->append(self::json(self::LOGIN), new Response(401, [], '{"error":"Unauthenticated."}'), new Response(401, [], '{"error":"Unauthenticated."}'));
+        KernelRestfulService::$handler->append(
+            self::json(self::LOGIN),
+            new Response(401, [], '{"error":"Unauthenticated."}'),
+            self::json(['access_token' => 'new-token', 'expires_in' => 86400]),
+            new Response(200, [], '{"id":1}'),
+        );
 
         $response = $this->restful()->base(self::config())->getResponse('GET', 'orders/1');
 
-        // After a 401 the bundle logs in again, but login() takes the token the database still
-        // holds as valid: the second try goes out with the same token, and the 401 comes back.
-        // Recorded as it is; plentymarkets is unreachable for this user until the token runs out.
+        // Before #64 login() took the refused token from the database again.
+        self::assertSame(200, $response->getStatusCode());
+        self::assertSame(['/rest/login', '/rest/orders/1', '/rest/login', '/rest/orders/1'], self::paths());
+        self::assertSame('Bearer new-token', KernelRestfulService::$history[3]['request']->getHeaderLine('Authorization'));
+        $this->entityManager()->clear();
+        self::assertSame(['new-token'], array_map(static fn (AccessToken $token): string => $token->getToken(), $this->entityManager()->getRepository(AccessToken::class)->findAll()), 'The refused token is gone.');
+    }
+
+    public function testATokenRefusedAgainAfterANewLoginEndsTheTrying(): void
+    {
+        KernelRestfulService::$handler->append(
+            self::json(self::LOGIN),
+            new Response(401, [], '{}'),
+            self::json(['access_token' => 'new-token', 'expires_in' => 86400]),
+            new Response(401, [], '{}'),
+        );
+
+        $response = $this->restful()->base(self::config())->getResponse('GET', 'orders/1');
+
         self::assertInstanceOf(\GuzzleHttp\Exception\ClientException::class, $response);
-        self::assertSame(['/rest/login', '/rest/orders/1', '/rest/orders/1'], self::paths(), 'No second login.');
-        self::assertSame('Bearer the-token', KernelRestfulService::$history[2]['request']->getHeaderLine('Authorization'));
-        self::assertCount(1, $this->entityManager()->getRepository(AccessToken::class)->findAll());
+        self::assertCount(4, KernelRestfulService::$history, 'One new login, one more try, no loop.');
     }
 
     private function restful(): RestfulService

@@ -3,6 +3,7 @@
 namespace PM\PlentyMarketsBundle\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,7 +40,8 @@ class ApiLockRepository extends ServiceEntityRepository implements ApiLockReposi
         $builder = $this->createQueryBuilder($alias);
         $builder
             ->where(sprintf('%s.deleted = 0', $alias))
-            ->andWhere(sprintf('%s.validFrom < :now', $alias))
+            /* <=: a lock holds from the second it is made, as in the ODM repository (#65) */
+            ->andWhere(sprintf('%s.validFrom <= :now', $alias))
             ->andWhere(
                 $builder->expr()->orX(
                     $builder->expr()->isNull(sprintf('%s.validUntil', $alias)),
@@ -49,7 +51,7 @@ class ApiLockRepository extends ServiceEntityRepository implements ApiLockReposi
             ->setParameters(
                 new ArrayCollection(
                     [
-                        new Parameter('now', date('Y-m-d H:i:s')),
+                        new Parameter('now', new \DateTime(), Types::DATETIME_MUTABLE),
                     ]
                 )
             )

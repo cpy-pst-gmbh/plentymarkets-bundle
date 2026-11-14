@@ -188,7 +188,11 @@ class RestfulService
         return new WarehousesProvider($client, $this);
     }
 
-    public function login(?Config $config = null): Client
+    /**
+     * A client with a token: the stored one while it holds, or, with $forceLogin, a new one
+     * from plentymarkets in place of the stored one (after a 401, #64).
+     */
+    public function login(?Config $config = null, bool $forceLogin = false): Client
     {
         if (null === $config) {
             $config = $this->getConfig();
@@ -207,7 +211,8 @@ class RestfulService
                         $this->getAccessToken(
                             $uri,
                             $config->getUsername(),
-                            $config->getPassword()
+                            $config->getPassword(),
+                            $forceLogin
                         )
                     ),
                     BaseProvider::HEADER_INTERNAL_API_ID => ServiceHelper::createApiId(
@@ -252,12 +257,19 @@ class RestfulService
     }
 
 
-    public function getAccessToken(string $uri, string $username, string $password): string
+    public function getAccessToken(string $uri, string $username, string $password, bool $forceLogin = false): string
     {
         $api = ServiceHelper::createApiId($uri, $username, $password);
         $token = $this->accessTokenRepository->findOneByApi($api);
 
-        if ($token instanceof AccessToken) {
+        if (null !== $token && true === $forceLogin) {
+            /* plentymarkets refused it: it must not be taken again until it runs out */
+            $this->objectManager->remove($token);
+            $this->objectManager->flush();
+            $token = null;
+        }
+
+        if (null !== $token) {
             return $token->getToken();
         }
 
