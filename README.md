@@ -73,6 +73,12 @@ und 8.5, jeweils mit Guzzle 7 und 8, auf GitHubs eigenen Runnern (das Repo ist �
   - Die `.expected.json` sind der Sollzustand: einmal erzeugt, im Diff geprüft, dann
     committet. Ändert ein Umbau sie, sagt der Diff, was anders gelesen wird. Neu schreiben nur
     mit Absicht: `--expected` (nur Sollzustände) oder `--all` (auch die Antworten).
-- **Provider** (`ProviderTest`): Pfad, Query und eingelesene Modelle für Auftrag, Artikelseiten
-  und Batch, mit Guzzles `MockHandler` statt plentymarkets (`Tests/Support/MockedRestfulService`).
+- **Provider** (`Tests/Provider`): jede öffentliche Methode jedes Providers, mit Anfrage
+  (Methode, Pfad, Query, Body), Ergebnis, Blättern und Fehlerweg; dazu die Buchführung der
+  API-Limits und die Sperren in `BaseProvider`. plentymarkets spielt Guzzles `MockHandler`
+  (`ProviderTestCase`, `Tests/Support/MockedRestfulService`). Die Tests halten das heutige
+  Verhalten fest, auch wo es fragwürdig ist.
+- **Coverage** mit PCOV: `php -d pcov.enabled=1 vendor/bin/phpunit --coverage-html var/coverage`.
+  Die Getter und Setter der Modelle zählen kaum mit, weil der Serializer per Reflection
+  schreibt; sie prüfen die Golden-Master-Tests.
 - **Login, Fehlertexte, Warten** (`LoginTest`, `ResponseHelperTest`, `WaitTest`).
