@@ -1,0 +1,41 @@
+{
+    "page": 3653,
+    "totalsCount": 3654,
+    "isLastPage": false,
+    "lastPageNumber": 3656,
+    "firstOnPage": 3657,
+    "lastOnPage": 3658,
+    "itemsPerPage": 3659,
+    "entries": [
+        {
+            "id": 3662,
+            "storage_location": 3663,
+            "item_id": 3664,
+            "attribute_value_set": 3665,
+            "warehouse_id": 3666,
+            "quantity": 3667.25,
+            "reserved": 3668.25,
+            "variation_id": 3669,
+            "last_update": "2026-03-11 10:30:00",
+            "batchBestBeforeDateId": 3671,
+            "name": "value-2672",
+            "fullLabel": "value-2673",
+            "warehouseLocationLevel": 3674
+        },
+        {
+            "id": 3676,
+            "storage_location": 3677,
+            "item_id": 3678,
+            "attribute_value_set": 3679,
+            "warehouse_id": 3680,
+            "quantity": 3681.25,
+            "reserved": 3682.25,
+            "variation_id": 3683,
+            "last_update": "2026-03-25 10:44:00",
+            "batchBestBeforeDateId": 3685,
+            "name": "value-2686",
+            "fullLabel": "value-2687",
+            "warehouseLocationLevel": 3688
+        }
+    ]
+}

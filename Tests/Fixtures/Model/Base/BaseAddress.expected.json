@@ -1,0 +1,12 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Base\\BaseAddress",
+    "address1": "value-103",
+    "address2": "value-104",
+    "countryId": 1107,
+    "name1": "value-102",
+    "options": {
+        "key-108": "value-108"
+    },
+    "postalCode": "value-105",
+    "town": "value-106"
+}

@@ -1,0 +1,6 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Fulfilment\\PicklistFilterOptions",
+    "orderIds": {
+        "key-155": "value-155"
+    }
+}

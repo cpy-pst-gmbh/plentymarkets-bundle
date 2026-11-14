@@ -1,0 +1,31 @@
+{
+    "page": 3723,
+    "totalsCount": 3724,
+    "isLastPage": false,
+    "lastPageNumber": 3726,
+    "firstOnPage": 3727,
+    "lastOnPage": 3728,
+    "itemsPerPage": 3729,
+    "entries": [
+        {
+            "identifier": "value-2732",
+            "integration": "value-2733",
+            "level": "value-2734",
+            "code": "value-2735",
+            "codeMessage": "value-2736",
+            "callerFunction": "value-2737",
+            "createdAt": "value-2738",
+            "trace": "value-2739"
+        },
+        {
+            "identifier": "value-2741",
+            "integration": "value-2742",
+            "level": "value-2743",
+            "code": "value-2744",
+            "codeMessage": "value-2745",
+            "callerFunction": "value-2746",
+            "createdAt": "value-2747",
+            "trace": "value-2748"
+        }
+    ]
+}

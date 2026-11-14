@@ -1,0 +1,12 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\StatusHistoryEntry",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-15T10:58:00.000000+01:00 +01:00"
+    },
+    "id": 2915,
+    "orderId": 2916,
+    "procedureText": "value-1920",
+    "statusId": 2917.25,
+    "userId": 2919
+}

@@ -1,0 +1,6 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Base\\BaseAmount",
+    "currency": "value-110",
+    "exchangeRate": 1111.25,
+    "isSystemCurrency": false
+}

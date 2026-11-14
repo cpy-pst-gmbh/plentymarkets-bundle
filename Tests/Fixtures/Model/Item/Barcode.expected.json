@@ -1,0 +1,10 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Barcode",
+    "id": 1156,
+    "name": "value-157",
+    "type": "value-158",
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-20T10:39:00.000000+01:00 +01:00"
+    }
+}

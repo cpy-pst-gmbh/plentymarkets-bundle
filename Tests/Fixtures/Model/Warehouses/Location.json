@@ -1,0 +1,24 @@
+{
+    "id": 3053,
+    "levelId": 3054,
+    "label": "value-2055",
+    "purposeKey": "value-2056",
+    "statusKey": "value-2057",
+    "position": 3058,
+    "type": "value-2059",
+    "pickupPathPosition": "value-2060",
+    "createdAt": "2026-03-18T10:21:00+01:00",
+    "updatedAt": "2026-03-19T10:22:00+01:00",
+    "fullLabel": "value-2063",
+    "warehouseLocationLevel": {
+        "id": 3065,
+        "parentId": 3066,
+        "dimensionId": 3067,
+        "position": 3068,
+        "pathName": "value-2069",
+        "pickupPathPosition": "value-2070",
+        "name": "value-2071",
+        "createdAt": "2026-03-01T10:32:00+01:00",
+        "updatedAt": "2026-03-02T10:33:00+01:00"
+    }
+}

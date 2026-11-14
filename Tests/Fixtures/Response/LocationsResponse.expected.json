@@ -1,0 +1,54 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\LocationsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\Location",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-19T10:06:00.000000+01:00 +01:00"
+            },
+            "fullLabel": "value-2708",
+            "id": 3698,
+            "label": "value-2700",
+            "levelId": 3699,
+            "pickupPathPosition": "value-2705",
+            "position": 3703,
+            "purposeKey": "value-2701",
+            "statusKey": "value-2702",
+            "type": "value-2704",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-20T10:07:00.000000+01:00 +01:00"
+            },
+            "warehouseLocationLevel": null
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\Location",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:19:00.000000+01:00 +01:00"
+            },
+            "fullLabel": "value-2721",
+            "id": 3711,
+            "label": "value-2713",
+            "levelId": 3712,
+            "pickupPathPosition": "value-2718",
+            "position": 3716,
+            "purposeKey": "value-2714",
+            "statusKey": "value-2715",
+            "type": "value-2717",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-05T10:20:00.000000+01:00 +01:00"
+            },
+            "warehouseLocationLevel": null
+        }
+    ],
+    "firstOnPage": 3693,
+    "isLastPage": false,
+    "itemsPerPage": 3695,
+    "lastOnPage": 3694,
+    "lastPageNumber": 3692,
+    "page": 3689,
+    "totalsCount": 3690
+}

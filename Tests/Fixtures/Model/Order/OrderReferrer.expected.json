@@ -1,0 +1,10 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderReferrer",
+    "backendName": "value-1849",
+    "id": 2846.25,
+    "isEditable": false,
+    "isFilterable": true,
+    "name": "value-1850",
+    "orderOwnerId": 2852,
+    "origin": "value-1851"
+}

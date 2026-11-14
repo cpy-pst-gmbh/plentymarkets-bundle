@@ -1,0 +1,10 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\PaginationResponse",
+    "firstOnPage": 3901,
+    "isLastPage": false,
+    "itemsPerPage": 3903,
+    "lastOnPage": 3902,
+    "lastPageNumber": 3900,
+    "page": 3897,
+    "totalsCount": 3898
+}

@@ -6,9 +6,27 @@
          colors="true"
          failOnRisky="true"
          failOnWarning="true">
+    <php>
+        <!-- A date without zone (LocationStock::$lastUpdate) is read in the default zone, and
+             the recorded states name it. -->
+        <ini name="date.timezone" value="UTC"/>
+    </php>
     <testsuites>
         <testsuite name="plentymarkets-bundle">
             <directory>Tests</directory>
         </testsuite>
     </testsuites>
+    <!-- What the coverage counts: the bundle's own code, without the tests and vendor/. -->
+    <source>
+        <include>
+            <directory>Component</directory>
+            <directory>DependencyInjection</directory>
+            <directory>Document</directory>
+            <directory>DocumentRepository</directory>
+            <directory>Entity</directory>
+            <directory>Repository</directory>
+            <directory>Services</directory>
+            <file>PMPlentyMarketsBundle.php</file>
+        </include>
+    </source>
 </phpunit>

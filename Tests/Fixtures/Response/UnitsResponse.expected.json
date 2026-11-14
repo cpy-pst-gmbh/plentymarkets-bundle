@@ -1,0 +1,24 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\UnitsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Unit",
+            "id": 3983,
+            "names": [],
+            "unitOfMeasurement": "value-2984"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Unit",
+            "id": 3989,
+            "names": [],
+            "unitOfMeasurement": "value-2990"
+        }
+    ],
+    "firstOnPage": 3978,
+    "isLastPage": true,
+    "itemsPerPage": 3980,
+    "lastOnPage": 3979,
+    "lastPageNumber": 3977,
+    "page": 3974,
+    "totalsCount": 3975
+}

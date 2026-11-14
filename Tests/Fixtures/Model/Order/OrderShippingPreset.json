@@ -1,0 +1,56 @@
+{
+    "id": 2866,
+    "parcelServiceId": 2867,
+    "backendName": "value-1868",
+    "flag": 2869,
+    "priority": 2870,
+    "category": 2871,
+    "useArticlePorto": 2872,
+    "isInsured": 2873,
+    "isExpress": 2874,
+    "isPostident": 2875,
+    "isDefaultEnabled": 2876,
+    "islandFee": 2877.25,
+    "shippingGroup": "value-1878",
+    "dispatchIdentifier": "value-1879",
+    "auctionType": 2880,
+    "updatedAt": "value-1881",
+    "supportedMultishop": [
+        "value-1883",
+        "value-1884"
+    ],
+    "supportedReferrer": [
+        "value-1886",
+        "value-1887"
+    ],
+    "subreferrerSupport": [
+        "value-1889",
+        "value-1890"
+    ],
+    "excludedPaymentMethods": [
+        "value-1892",
+        "value-1893"
+    ],
+    "excludedCustomerGroups": [
+        "value-1895",
+        "value-1896"
+    ],
+    "supportedLoyaltyPrograms": [
+        "value-1898",
+        "value-1899"
+    ],
+    "parcelServiceNames": [
+        {
+            "id": 2902,
+            "lang": "value-1903",
+            "name": "value-1904",
+            "parcelServiceId": "value-1905"
+        },
+        {
+            "id": 2907,
+            "lang": "value-1908",
+            "name": "value-1909",
+            "parcelServiceId": "value-1910"
+        }
+    ]
+}

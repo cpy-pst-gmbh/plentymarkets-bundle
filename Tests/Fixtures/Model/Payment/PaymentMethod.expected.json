@@ -1,0 +1,7 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Payment\\PaymentMethod",
+    "id": 2921,
+    "name": "value-1924",
+    "paymentKey": "value-1923",
+    "pluginKey": "value-1922"
+}

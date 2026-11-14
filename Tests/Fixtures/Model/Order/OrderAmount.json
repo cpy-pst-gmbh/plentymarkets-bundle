@@ -1,0 +1,25 @@
+{
+    "isSystemCurrency": true,
+    "currency": "value-1649",
+    "exchangeRate": 2650.25,
+    "isNet": false,
+    "netTotal": 2652.25,
+    "grossTotal": 2653.25,
+    "vatTotal": 2654.25,
+    "invoiceTotal": 2655.25,
+    "paidAmount": 2656.25,
+    "shippingCostsGross": 2657.25,
+    "shippingCostsNet": 2658.25,
+    "vats": [
+        {
+            "vatField": 2661,
+            "vatAmount": 2662,
+            "value": 2663.25
+        },
+        {
+            "vatField": 2665,
+            "vatAmount": 2666,
+            "value": 2667.25
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "id": 2925,
+    "propertyId": 2926,
+    "cast": "value-1927",
+    "typeIdentifier": "value-1928",
+    "propertyGroupId": 2929,
+    "names": [
+        {
+            "id": 2932,
+            "propertyId": 2933,
+            "lang": "value-1934",
+            "name": "value-1935",
+            "description": "value-1936",
+            "createdAt": "2026-03-06T10:17:00+01:00",
+            "updatedAt": "2026-03-07T10:18:00+01:00"
+        },
+        {
+            "id": 2940,
+            "propertyId": 2941,
+            "lang": "value-1942",
+            "name": "value-1943",
+            "description": "value-1944",
+            "createdAt": "2026-03-14T10:25:00+01:00",
+            "updatedAt": "2026-03-15T10:26:00+01:00"
+        }
+    ]
+}

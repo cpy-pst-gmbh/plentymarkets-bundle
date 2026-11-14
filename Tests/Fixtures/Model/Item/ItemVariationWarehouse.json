@@ -1,0 +1,15 @@
+{
+    "variationId": 2214,
+    "warehouseId": 2215,
+    "warehouseZoneId": 2216,
+    "reorderLevel": 2217,
+    "maximumStock": 2218,
+    "stuckTurnoverInDays": 2219,
+    "storageLocation": 2220,
+    "stockBuffer": 2221,
+    "storageLocationType": "value-1222",
+    "lastUpdateTimestamp": "2026-03-20T10:23:00+01:00",
+    "createdAt": "2026-03-21T10:24:00+01:00",
+    "isBatch": false,
+    "isBestBeforeDate": true
+}

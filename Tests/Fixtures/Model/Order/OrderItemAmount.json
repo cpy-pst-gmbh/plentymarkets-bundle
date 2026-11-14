@@ -1,0 +1,17 @@
+{
+    "isSystemCurrency": false,
+    "currency": "value-1784",
+    "exchangeRate": 2785.25,
+    "id": 2786,
+    "orderItemId": 2787,
+    "purchasePrice": 2788.25,
+    "priceOriginalGross": 2789.25,
+    "priceOriginalNet": 2790.25,
+    "priceGross": 2791.25,
+    "priceNet": 2792.25,
+    "surcharge": 2793.25,
+    "discount": 2794.25,
+    "isPercentage": false,
+    "createdAt": "2026-03-05T10:56:00+01:00",
+    "updatedAt": "2026-03-06T10:57:00+01:00"
+}

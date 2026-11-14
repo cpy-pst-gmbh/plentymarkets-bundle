@@ -21,7 +21,9 @@ use Psr\Log\NullLogger;
 /**
  * The RestfulService with Guzzle's MockHandler in place of plentymarkets: each client it makes
  * answers from $handler and notes its requests in $history. No token is stored, so the first
- * call of a provider logs in. An API lock is active while $lockedUntil is set.
+ * call of a provider logs in. An API lock is active while $lockedUntil is set. Given one, the
+ * serializer is a real one (Serializers::bundle()), for the tests that read models. What the
+ * bundle persists (tokens, limit history, locks) is collected in $persisted.
  */
 final class MockedRestfulService extends RestfulService
 {
@@ -32,7 +34,10 @@ final class MockedRestfulService extends RestfulService
 
     public ?DateTime $lockedUntil = null;
 
-    public function __construct(TestCase $test)
+    /** @var list<object> what the bundle handed to the entity manager to keep */
+    public array $persisted = [];
+
+    public function __construct(TestCase $test, ?SerializerInterface $serializer = null)
     {
         $service = $this;
 
@@ -64,8 +69,15 @@ final class MockedRestfulService extends RestfulService
                     return null;
                 }
             },
-            (fn (): SerializerInterface => $this->createStub(SerializerInterface::class))->call($test),
-            (fn (): EntityManagerInterface => $this->createStub(EntityManagerInterface::class))->call($test),
+            $serializer ?? (fn (): SerializerInterface => $this->createStub(SerializerInterface::class))->call($test),
+            (function () use ($service): EntityManagerInterface {
+                $entityManager = $this->createStub(EntityManagerInterface::class);
+                $entityManager->method('persist')->willReturnCallback(static function (object $object) use ($service): void {
+                    $service->persisted[] = $object;
+                });
+
+                return $entityManager;
+            })->call($test),
             new NullLogger(),
             true
         );

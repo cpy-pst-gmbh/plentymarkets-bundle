@@ -1,0 +1,40 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ItemLocationsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationStockStorageLocation",
+            "batch": "value-2228",
+            "bestBeforeDate": "value-2229",
+            "itemId": 3223,
+            "quantity": 3225,
+            "storageLocationId": 3222,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-16T10:07:00.000000+01:00 +01:00"
+            },
+            "variationId": 3226,
+            "warehouseId": 3224
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationStockStorageLocation",
+            "batch": "value-2237",
+            "bestBeforeDate": "value-2238",
+            "itemId": 3232,
+            "quantity": 3234,
+            "storageLocationId": 3231,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-25T10:16:00.000000+01:00 +01:00"
+            },
+            "variationId": 3235,
+            "warehouseId": 3233
+        }
+    ],
+    "firstOnPage": 3217,
+    "isLastPage": false,
+    "itemsPerPage": 3219,
+    "lastOnPage": 3218,
+    "lastPageNumber": 3216,
+    "page": 3213,
+    "totalsCount": 3214
+}

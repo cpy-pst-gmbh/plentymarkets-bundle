@@ -1,0 +1,23 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\StockMovement",
+    "attributeValues": "value-2007",
+    "batch": "value-2010",
+    "bestBeforeDate": "value-2011",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-25T10:32:00.000000+01:00 +01:00"
+    },
+    "id": 2996,
+    "itemId": 2998,
+    "processRowId": 2997,
+    "processRowType": 3002,
+    "purchasePrice": 3003.25,
+    "quantity": 3005,
+    "reason": 3000,
+    "reasonString": "value-2006",
+    "storageLocationName": "value-2009",
+    "userId": 3001,
+    "variationId": 3004,
+    "warehouseId": 2999,
+    "warehouseName": "value-2008"
+}

@@ -1,0 +1,15 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderItemReference",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-17T10:08:00.000000+01:00 +01:00"
+    },
+    "id": 2804,
+    "orderItemId": 2805,
+    "referenceOrderItemId": 2806,
+    "referenceType": "value-1807",
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-18T10:09:00.000000+01:00 +01:00"
+    }
+}

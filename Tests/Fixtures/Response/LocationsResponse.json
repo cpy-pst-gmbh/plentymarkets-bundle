@@ -1,0 +1,37 @@
+{
+    "page": 3689,
+    "totalsCount": 3690,
+    "isLastPage": false,
+    "lastPageNumber": 3692,
+    "firstOnPage": 3693,
+    "lastOnPage": 3694,
+    "itemsPerPage": 3695,
+    "entries": [
+        {
+            "id": 3698,
+            "levelId": 3699,
+            "label": "value-2700",
+            "purposeKey": "value-2701",
+            "statusKey": "value-2702",
+            "position": 3703,
+            "type": "value-2704",
+            "pickupPathPosition": "value-2705",
+            "createdAt": "2026-03-19T10:06:00+01:00",
+            "updatedAt": "2026-03-20T10:07:00+01:00",
+            "fullLabel": "value-2708"
+        },
+        {
+            "id": 3711,
+            "levelId": 3712,
+            "label": "value-2713",
+            "purposeKey": "value-2714",
+            "statusKey": "value-2715",
+            "position": 3716,
+            "type": "value-2717",
+            "pickupPathPosition": "value-2718",
+            "createdAt": "2026-03-04T10:19:00+01:00",
+            "updatedAt": "2026-03-05T10:20:00+01:00",
+            "fullLabel": "value-2721"
+        }
+    ]
+}

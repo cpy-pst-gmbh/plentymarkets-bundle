@@ -1,0 +1,19 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\LocationStock",
+    "attributeValueSet": 3077,
+    "batchBestBeforeDateId": 3083,
+    "fullLabel": "value-2085",
+    "id": 3074,
+    "itemId": 3076,
+    "lastUpdate": {
+        "@class": "DateTime",
+        "@value": "2026-03-11T10:42:00.000000+00:00 UTC"
+    },
+    "name": "value-2084",
+    "quantity": 3079.25,
+    "reserved": 3080.25,
+    "storageLocation": 3075,
+    "variationId": 3081,
+    "warehouseId": 3078,
+    "warehouseLocationLevel": 3086
+}

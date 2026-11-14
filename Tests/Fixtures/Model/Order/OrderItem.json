@@ -1,0 +1,108 @@
+{
+    "id": 2689,
+    "orderId": 2690,
+    "typeId": 2691,
+    "referrerId": 2692.25,
+    "itemVariationId": 2693,
+    "quantity": 2694,
+    "orderItemName": "value-1695",
+    "attributeValues": "value-1696",
+    "shippingProfileId": 2697,
+    "vatField": 2698,
+    "vatRate": 2699,
+    "createdAt": "2026-03-21T10:20:00+01:00",
+    "updatedAt": "2026-03-22T10:21:00+01:00",
+    "warehouseId": 2702,
+    "amounts": [
+        {
+            "isSystemCurrency": false,
+            "currency": "value-1706",
+            "exchangeRate": 2707.25,
+            "id": 2708,
+            "orderItemId": 2709,
+            "purchasePrice": 2710.25,
+            "priceOriginalGross": 2711.25,
+            "priceOriginalNet": 2712.25,
+            "priceGross": 2713.25,
+            "priceNet": 2714.25,
+            "surcharge": 2715.25,
+            "discount": 2716.25,
+            "isPercentage": false,
+            "createdAt": "2026-03-11T10:38:00+01:00",
+            "updatedAt": "2026-03-12T10:39:00+01:00"
+        },
+        {
+            "isSystemCurrency": false,
+            "currency": "value-1722",
+            "exchangeRate": 2723.25,
+            "id": 2724,
+            "orderItemId": 2725,
+            "purchasePrice": 2726.25,
+            "priceOriginalGross": 2727.25,
+            "priceOriginalNet": 2728.25,
+            "priceGross": 2729.25,
+            "priceNet": 2730.25,
+            "surcharge": 2731.25,
+            "discount": 2732.25,
+            "isPercentage": false,
+            "createdAt": "2026-03-27T10:54:00+01:00",
+            "updatedAt": "2026-03-28T10:55:00+01:00"
+        }
+    ],
+    "properties": [
+        {
+            "id": 2738,
+            "orderItemId": 2739,
+            "typeId": 2740,
+            "value": "value-1741",
+            "createdAt": "2026-03-07T10:02:00+01:00",
+            "updatedAt": "2026-03-08T10:03:00+01:00"
+        },
+        {
+            "id": 2745,
+            "orderItemId": 2746,
+            "typeId": 2747,
+            "value": "value-1748",
+            "createdAt": "2026-03-14T10:09:00+01:00",
+            "updatedAt": "2026-03-15T10:10:00+01:00"
+        }
+    ],
+    "references": [
+        {
+            "id": 2753,
+            "orderItemId": 2754,
+            "referenceOrderItemId": 2755,
+            "referenceType": "value-1756",
+            "createdAt": "2026-03-22T10:17:00+01:00",
+            "updatedAt": "2026-03-23T10:18:00+01:00"
+        },
+        {
+            "id": 2760,
+            "orderItemId": 2761,
+            "referenceOrderItemId": 2762,
+            "referenceType": "value-1763",
+            "createdAt": "2026-03-01T10:24:00+01:00",
+            "updatedAt": "2026-03-02T10:25:00+01:00"
+        }
+    ],
+    "warehouseLocations": [
+        {
+            "orderItemId": 2768,
+            "quantity": 2769,
+            "warehouseLocationId": 2770,
+            "batchBestBeforeDateId": 2771,
+            "originalQuantity": 2772,
+            "batch": "value-1773",
+            "bestBeforeDate": "value-1774"
+        },
+        {
+            "orderItemId": 2776,
+            "quantity": 2777,
+            "warehouseLocationId": 2778,
+            "batchBestBeforeDateId": 2779,
+            "originalQuantity": 2780,
+            "batch": "value-1781",
+            "bestBeforeDate": "value-1782"
+        }
+    ]
+}

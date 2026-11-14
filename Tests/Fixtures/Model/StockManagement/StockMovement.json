@@ -1,0 +1,19 @@
+{
+    "id": 2996,
+    "processRowId": 2997,
+    "itemId": 2998,
+    "warehouseId": 2999,
+    "reason": 3000,
+    "userId": 3001,
+    "processRowType": 3002,
+    "purchasePrice": 3003.25,
+    "variationId": 3004,
+    "quantity": 3005,
+    "reasonString": "value-2006",
+    "attributeValues": "value-2007",
+    "warehouseName": "value-2008",
+    "storageLocationName": "value-2009",
+    "batch": "value-2010",
+    "bestBeforeDate": "value-2011",
+    "createdAt": "2026-03-25T10:32:00+01:00"
+}

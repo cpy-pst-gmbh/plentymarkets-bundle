@@ -1,0 +1,14 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationStockStorageLocation",
+    "batch": "value-1195",
+    "bestBeforeDate": "value-1196",
+    "itemId": 2190,
+    "quantity": 2192,
+    "storageLocationId": 2189,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-19T10:54:00.000000+01:00 +01:00"
+    },
+    "variationId": 2193,
+    "warehouseId": 2191
+}

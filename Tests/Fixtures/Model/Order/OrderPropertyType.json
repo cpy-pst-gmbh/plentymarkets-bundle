@@ -1,0 +1,20 @@
+{
+    "id": 2820,
+    "isErasable": false,
+    "position": 2822,
+    "cast": "value-1823",
+    "names": [
+        {
+            "id": 2826,
+            "typeId": 2827,
+            "name": "value-1828",
+            "lang": "value-1829"
+        },
+        {
+            "id": 2831,
+            "typeId": 2832,
+            "name": "value-1833",
+            "lang": "value-1834"
+        }
+    ]
+}

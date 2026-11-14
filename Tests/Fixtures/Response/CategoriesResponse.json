@@ -1,0 +1,27 @@
+{
+    "page": 3087,
+    "totalsCount": 3088,
+    "isLastPage": false,
+    "lastPageNumber": 3090,
+    "firstOnPage": 3091,
+    "lastOnPage": 3092,
+    "itemsPerPage": 3093,
+    "entries": [
+        {
+            "id": 3096,
+            "parentCategoryId": 3097,
+            "level": 3098,
+            "type": "value-2099",
+            "details": [],
+            "clients": []
+        },
+        {
+            "id": 3107,
+            "parentCategoryId": 3108,
+            "level": 3109,
+            "type": "value-2110",
+            "details": [],
+            "clients": []
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ManufacturersResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Manufacturer",
+            "comment": "value-2774",
+            "commissions": [],
+            "countryId": 3769,
+            "email": "value-2768",
+            "externalName": "value-2760",
+            "faxNumber": "value-2767",
+            "houseNo": "value-2763",
+            "id": 3758,
+            "laRedouteBrandId": 3772,
+            "logo": "value-2761",
+            "name": "value-2759",
+            "neckermannAtEpBrandId": 3771,
+            "phoneNumber": "value-2766",
+            "pixmaniaBrandId": 3770,
+            "position": 3773,
+            "postcode": "value-2764",
+            "street": "value-2762",
+            "town": "value-2765",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:15:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Manufacturer",
+            "comment": "value-2796",
+            "commissions": [],
+            "countryId": 3791,
+            "email": "value-2790",
+            "externalName": "value-2782",
+            "faxNumber": "value-2789",
+            "houseNo": "value-2785",
+            "id": 3780,
+            "laRedouteBrandId": 3794,
+            "logo": "value-2783",
+            "name": "value-2781",
+            "neckermannAtEpBrandId": 3793,
+            "phoneNumber": "value-2788",
+            "pixmaniaBrandId": 3792,
+            "position": 3795,
+            "postcode": "value-2786",
+            "street": "value-2784",
+            "town": "value-2787",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-26T10:37:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "firstOnPage": 3753,
+    "isLastPage": false,
+    "itemsPerPage": 3755,
+    "lastOnPage": 3754,
+    "lastPageNumber": 3752,
+    "page": 3749,
+    "totalsCount": 3750
+}

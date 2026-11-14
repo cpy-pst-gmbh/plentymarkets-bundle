@@ -1,0 +1,30 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\PropertiesResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Property",
+            "cast": "value-2915",
+            "id": 3913,
+            "names": [],
+            "propertyGroupId": 3917,
+            "propertyId": 3914,
+            "typeIdentifier": "value-2916"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Property",
+            "cast": "value-2924",
+            "id": 3922,
+            "names": [],
+            "propertyGroupId": 3926,
+            "propertyId": 3923,
+            "typeIdentifier": "value-2925"
+        }
+    ],
+    "firstOnPage": 3908,
+    "isLastPage": true,
+    "itemsPerPage": 3910,
+    "lastOnPage": 3909,
+    "lastPageNumber": 3907,
+    "page": 3904,
+    "totalsCount": 3905
+}

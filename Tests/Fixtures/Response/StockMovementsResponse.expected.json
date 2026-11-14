@@ -1,0 +1,58 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\StockMovementsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\StockMovement",
+            "attributeValues": "value-2950",
+            "batch": "value-2953",
+            "bestBeforeDate": "value-2954",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-16T10:15:00.000000+01:00 +01:00"
+            },
+            "id": 3939,
+            "itemId": 3941,
+            "processRowId": 3940,
+            "processRowType": 3945,
+            "purchasePrice": 3946.25,
+            "quantity": 3948,
+            "reason": 3943,
+            "reasonString": "value-2949",
+            "storageLocationName": "value-2952",
+            "userId": 3944,
+            "variationId": 3947,
+            "warehouseId": 3942,
+            "warehouseName": "value-2951"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\StockMovement",
+            "attributeValues": "value-2968",
+            "batch": "value-2971",
+            "bestBeforeDate": "value-2972",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-06T10:33:00.000000+01:00 +01:00"
+            },
+            "id": 3957,
+            "itemId": 3959,
+            "processRowId": 3958,
+            "processRowType": 3963,
+            "purchasePrice": 3964.25,
+            "quantity": 3966,
+            "reason": 3961,
+            "reasonString": "value-2967",
+            "storageLocationName": "value-2970",
+            "userId": 3962,
+            "variationId": 3965,
+            "warehouseId": 3960,
+            "warehouseName": "value-2969"
+        }
+    ],
+    "firstOnPage": 3934,
+    "isLastPage": true,
+    "itemsPerPage": 3936,
+    "lastOnPage": 3935,
+    "lastPageNumber": 3933,
+    "page": 3930,
+    "totalsCount": 3931
+}

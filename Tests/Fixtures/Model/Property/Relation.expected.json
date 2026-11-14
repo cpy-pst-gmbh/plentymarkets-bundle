@@ -1,0 +1,61 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Relation",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-02T10:41:00.000000+01:00 +01:00"
+    },
+    "groupId": 2959,
+    "id": 2954,
+    "markup": 2960,
+    "property": {
+        "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Property",
+        "cast": "value-1966",
+        "id": 2964,
+        "names": [],
+        "propertyGroupId": 2968,
+        "propertyId": 2965,
+        "typeIdentifier": "value-1967"
+    },
+    "propertyId": 2955,
+    "relationTargetId": 2957,
+    "relationTypeIdentifier": "value-1956",
+    "relationValues": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\RelationValue",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-20T10:59:00.000000+01:00 +01:00"
+            },
+            "description": "value-1978",
+            "id": 2974,
+            "lang": "value-1976",
+            "propertyRelationId": 2975,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-21T10:00:00.000000+01:00 +01:00"
+            },
+            "value": "value-1977"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\RelationValue",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-28T10:07:00.000000+01:00 +01:00"
+            },
+            "description": "value-1986",
+            "id": 2982,
+            "lang": "value-1984",
+            "propertyRelationId": 2983,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-01T10:08:00.000000+01:00 +01:00"
+            },
+            "value": "value-1985"
+        }
+    ],
+    "selectionRelationId": 2958,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-03T10:42:00.000000+01:00 +01:00"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationCharacteristic",
+    "id": 2114,
+    "itemId": 2115,
+    "names": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationCharacteristicName",
+            "lang": "value-1125",
+            "value": "value-1126"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationCharacteristicName",
+            "lang": "value-1128",
+            "value": "value-1129"
+        }
+    ],
+    "propertyId": 2117,
+    "propertySelectionId": 2118,
+    "surcharge": 2122.25,
+    "valueFile": "value-1121",
+    "valueFloat": 2120.25,
+    "valueInt": 2119,
+    "variationId": 2116
+}

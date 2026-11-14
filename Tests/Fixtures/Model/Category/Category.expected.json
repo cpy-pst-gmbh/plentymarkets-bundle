@@ -1,0 +1,37 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\Category",
+    "clients": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\CategoryClient",
+            "categoryId": 1134,
+            "plentyId": 1135
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\CategoryClient",
+            "categoryId": 1137,
+            "plentyId": 1138
+        }
+    ],
+    "details": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\CategoryDetail",
+            "categoryId": 1121,
+            "lang": "value-122",
+            "name": "value-123",
+            "plentyId": 1124,
+            "position": 1125
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\CategoryDetail",
+            "categoryId": 1127,
+            "lang": "value-128",
+            "name": "value-129",
+            "plentyId": 1130,
+            "position": 1131
+        }
+    ],
+    "id": 1115,
+    "level": 1117,
+    "parentCategoryId": 1116,
+    "type": "value-118"
+}

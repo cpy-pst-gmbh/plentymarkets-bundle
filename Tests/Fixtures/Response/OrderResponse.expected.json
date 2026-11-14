@@ -1,0 +1,72 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\OrderResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\Order",
+            "addressRelations": [],
+            "addresses": [],
+            "amounts": [],
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-22T10:29:00.000000+01:00 +01:00"
+            },
+            "dates": [],
+            "id": 3851,
+            "locationId": 3845,
+            "orderItems": [],
+            "orderReferences": [],
+            "originOrderReferences": [],
+            "ownerId": 3848,
+            "plentyId": 3844,
+            "properties": [],
+            "referrerId": 3852.25,
+            "relations": [],
+            "shippingPackages": [],
+            "statusId": 3846.25,
+            "statusName": "value-2847",
+            "tags": [],
+            "typeId": 3843,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-23T10:30:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\Order",
+            "addressRelations": [],
+            "addresses": [],
+            "amounts": [],
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-10T10:13:00.000000+01:00 +01:00"
+            },
+            "dates": [],
+            "id": 3895,
+            "locationId": 3889,
+            "orderItems": [],
+            "orderReferences": [],
+            "originOrderReferences": [],
+            "ownerId": 3892,
+            "plentyId": 3888,
+            "properties": [],
+            "referrerId": 3896.25,
+            "relations": [],
+            "shippingPackages": [],
+            "statusId": 3890.25,
+            "statusName": "value-2891",
+            "tags": [],
+            "typeId": 3887,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-11T10:14:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "firstOnPage": 3805,
+    "isLastPage": false,
+    "itemsPerPage": 3807,
+    "lastOnPage": 3806,
+    "lastPageNumber": 3804,
+    "page": 3801,
+    "totalsCount": 3802
+}

@@ -1,0 +1,36 @@
+{
+    "id": 2227,
+    "name": "value-1228",
+    "externalName": "value-1229",
+    "logo": "value-1230",
+    "street": "value-1231",
+    "houseNo": "value-1232",
+    "postcode": "value-1233",
+    "town": "value-1234",
+    "phoneNumber": "value-1235",
+    "faxNumber": "value-1236",
+    "email": "value-1237",
+    "countryId": 2238,
+    "pixmaniaBrandId": 2239,
+    "neckermannAtEpBrandId": 2240,
+    "laRedouteBrandId": 2241,
+    "position": 2242,
+    "comment": "value-1243",
+    "updatedAt": "2026-03-13T10:44:00+01:00",
+    "commissions": [
+        {
+            "id": 2247,
+            "manufacturerId": 2248,
+            "plentyId": 2249,
+            "referrerId": 2250.25,
+            "commission": 2251.25
+        },
+        {
+            "id": 2253,
+            "manufacturerId": 2254,
+            "plentyId": 2255,
+            "referrerId": 2256.25,
+            "commission": 2257.25
+        }
+    ]
+}

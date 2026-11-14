@@ -1,0 +1,23 @@
+{
+    "page": 3239,
+    "totalsCount": 3240,
+    "isLastPage": false,
+    "lastPageNumber": 3242,
+    "firstOnPage": 3243,
+    "lastOnPage": 3244,
+    "itemsPerPage": 3245,
+    "entries": [
+        {
+            "id": 3248,
+            "name": "value-2249",
+            "type": "value-2250",
+            "updatedAt": "2026-03-12T10:31:00+01:00"
+        },
+        {
+            "id": 3253,
+            "name": "value-2254",
+            "type": "value-2255",
+            "updatedAt": "2026-03-17T10:36:00+01:00"
+        }
+    ]
+}

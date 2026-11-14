@@ -1,0 +1,28 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderAmount",
+    "currency": "value-1649",
+    "exchangeRate": 2650.25,
+    "grossTotal": 2653.25,
+    "invoiceTotal": 2655.25,
+    "isNet": false,
+    "isSystemCurrency": true,
+    "netTotal": 2652.25,
+    "paidAmount": 2656.25,
+    "shippingCostsGross": 2657.25,
+    "shippingCostsNet": 2658.25,
+    "vatTotal": 2654.25,
+    "vats": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Base\\BaseVat",
+            "value": 2663.25,
+            "vatAmount": 2662,
+            "vatField": 2661
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Base\\BaseVat",
+            "value": 2667.25,
+            "vatAmount": 2666,
+            "vatField": 2665
+        }
+    ]
+}

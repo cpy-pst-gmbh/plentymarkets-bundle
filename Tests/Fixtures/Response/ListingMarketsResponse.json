@@ -1,0 +1,27 @@
+{
+    "page": 3631,
+    "totalsCount": 3632,
+    "isLastPage": false,
+    "lastPageNumber": 3634,
+    "firstOnPage": 3635,
+    "lastOnPage": 3636,
+    "itemsPerPage": 3637,
+    "entries": [
+        {
+            "id": 3640,
+            "listingId": 3641,
+            "variationId": 3642,
+            "referrerId": 3643.25,
+            "enabled": true,
+            "verified": "value-2645"
+        },
+        {
+            "id": 3647,
+            "listingId": 3648,
+            "variationId": 3649,
+            "referrerId": 3650.25,
+            "enabled": false,
+            "verified": "value-2652"
+        }
+    ]
+}

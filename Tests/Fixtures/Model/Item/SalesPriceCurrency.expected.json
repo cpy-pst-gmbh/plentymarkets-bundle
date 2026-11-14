@@ -1,0 +1,13 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCurrency",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-21T10:44:00.000000+01:00 +01:00"
+    },
+    "currency": "value-1363",
+    "salesPriceId": 2362,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-22T10:45:00.000000+01:00 +01:00"
+    }
+}

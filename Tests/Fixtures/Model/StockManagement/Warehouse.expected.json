@@ -1,0 +1,27 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\Warehouse",
+    "address": {
+        "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Base\\BaseAddress",
+        "address1": "value-2027",
+        "address2": "value-2028",
+        "countryId": 3031,
+        "name1": "value-2026",
+        "options": {
+            "key-2032": "value-2032"
+        },
+        "postalCode": "value-2029",
+        "town": "value-2030"
+    },
+    "id": 3013,
+    "isInventoryModeActive": false,
+    "logisticsType": "value-2024",
+    "name": "value-2014",
+    "note": "value-2015",
+    "onStockAvailability": 3017,
+    "outOfStockAvailability": 3018,
+    "repairWarehouseId": 3022,
+    "splitByShippingProfile": false,
+    "storageLocationType": "value-2020",
+    "storageLocationZone": 3021,
+    "typeId": 3016
+}

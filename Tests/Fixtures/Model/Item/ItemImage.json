@@ -1,0 +1,49 @@
+{
+    "id": 1536,
+    "itemId": 1537,
+    "position": 1538,
+    "width": 1539,
+    "height": 1540,
+    "size": 1541,
+    "documentUploadPreviewWidth": 1542,
+    "documentUploadPreviewHeight": 1543,
+    "type": "value-544",
+    "fileType": "value-545",
+    "path": "value-546",
+    "storageProviderId": "value-547",
+    "md5Checksum": "value-548",
+    "md5ChecksumOriginal": "value-549",
+    "cleanImageName": "value-550",
+    "url": "value-551",
+    "urlMiddle": "value-552",
+    "urlPreview": "value-553",
+    "urlSecondPreview": "value-554",
+    "createdAt": "2026-03-24T10:15:00+01:00",
+    "updatedAt": "2026-03-25T10:16:00+01:00",
+    "names": [
+        {
+            "imageId": 1559,
+            "lang": "value-560",
+            "name": "value-561",
+            "alternate": "value-562"
+        },
+        {
+            "imageId": 1564,
+            "lang": "value-565",
+            "name": "value-566",
+            "alternate": "value-567"
+        }
+    ],
+    "availabilities": [
+        {
+            "imageId": 1570,
+            "type": "value-571",
+            "value": 1572.25
+        },
+        {
+            "imageId": 1574,
+            "type": "value-575",
+            "value": 1576.25
+        }
+    ]
+}

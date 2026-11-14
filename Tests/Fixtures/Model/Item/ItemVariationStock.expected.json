@@ -1,0 +1,14 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationStock",
+    "deltaReorderLevel": 2188.25,
+    "itemId": 2178,
+    "netStock": 2186.25,
+    "physicalStock": 2184.25,
+    "purchasePrice": 2181.25,
+    "reorderLevel": 2187.25,
+    "reservedBundles": 2183.25,
+    "reservedListing": 2182.25,
+    "reservedStock": 2185.25,
+    "variationId": 2179,
+    "warehouseId": 2180
+}

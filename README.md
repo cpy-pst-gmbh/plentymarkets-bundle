@@ -53,3 +53,40 @@ Sql:
             $objectManager: '@Doctrine\ORM\EntityManagerInterface'
             $logger: '@logger'
             $parameterGuzzleVerifySsl: '%pm__plenty_market.configuration.guzzle.verify_ssl%'
+
+## Tests
+
+```bash
+composer install
+vendor/bin/phpunit
+```
+
+Die CI (`.github/workflows/ci.yml`) führt sie auf jedem Push und Pull Request aus, unter PHP 8.4
+und 8.5, jeweils mit Guzzle 7 und 8, auf GitHubs eigenen Runnern (das Repo ist öffentlich).
+
+- **Modelle** (`ModelDeserializationTest`): Für jede Klasse unter `Component/Model` und
+  `Component/Response` liegt in `Tests/Fixtures` eine Antwort, die jedes Feld setzt
+  (`<Klasse>.json`), und das Objekt, das daraus werden muss (`<Klasse>.expected.json`, jede
+  Property per Reflection). Die Werte sind erfunden, keine echten Daten.
+  - Ein neues Modell braucht eine Fixture, sonst schlägt der Test fehl. Erzeugt wird sie mit
+    `php Tests/bin/generate-model-fixtures.php` aus den Serializer-Metadaten des Modells.
+  - Die `.expected.json` sind der Sollzustand: einmal erzeugt, im Diff geprüft, dann
+    committet. Ändert ein Umbau sie, sagt der Diff, was anders gelesen wird. Neu schreiben nur
+    mit Absicht: `--expected` (nur Sollzustände) oder `--all` (auch die Antworten).
+- **Provider** (`Tests/Provider`): jede öffentliche Methode jedes Providers, mit Anfrage
+  (Methode, Pfad, Query, Body), Ergebnis, Blättern und Fehlerweg; dazu die Buchführung der
+  API-Limits und die Sperren in `BaseProvider`. plentymarkets spielt Guzzles `MockHandler`
+  (`ProviderTestCase`, `Tests/Support/MockedRestfulService`). Die Tests halten das heutige
+  Verhalten fest, auch wo es fragwürdig ist.
+- **Im Kernel** (`Tests/Kernel`): das Bundle in einer kleinen Symfony-Anwendung
+  (`Tests/App/TestKernel`) mit Doctrine ORM auf SQLite im Arbeitsspeicher, wie Shop und Helpdesk
+  es einbinden. Geprüft werden die Extension und die Verdrahtung, die Repositories mit ihren
+  Abfragen (Token, Sperren, Limit-Historie, API-Hits) und der ganze Weg: Token behalten, Limits
+  schreiben, Sperre für die nächste Anfrage. Nur plentymarkets ist gespielt
+  (`KernelRestfulService`). Der MongoDB-Teil (`Document`, `DocumentRepository`) ist nicht
+  getestet.
+- **Coverage** mit PCOV, mit leerem `var/`, damit der Container neu gebaut und die Extension
+  mitgezählt wird: `rm -rf var && php -d pcov.enabled=1 vendor/bin/phpunit --coverage-html var/coverage`.
+  Die Getter und Setter der Modelle zählen kaum mit, weil der Serializer per Reflection
+  schreibt; sie prüfen die Golden-Master-Tests.
+- **Login, Fehlertexte, Warten** (`LoginTest`, `ResponseHelperTest`, `WaitTest`).

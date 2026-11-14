@@ -1,0 +1,24 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderItemAmount",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-05T10:56:00.000000+01:00 +01:00"
+    },
+    "currency": "value-1784",
+    "discount": 2794.25,
+    "exchangeRate": 2785.25,
+    "id": 2786,
+    "isPercentage": false,
+    "isSystemCurrency": false,
+    "orderItemId": 2787,
+    "priceGross": 2791.25,
+    "priceNet": 2792.25,
+    "priceOriginalGross": 2789.25,
+    "priceOriginalNet": 2790.25,
+    "purchasePrice": 2788.25,
+    "surcharge": 2793.25,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-06T10:57:00.000000+01:00 +01:00"
+    }
+}

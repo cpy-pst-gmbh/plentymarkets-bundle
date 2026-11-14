@@ -1,0 +1,10 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderItemWarehouseLocation",
+    "batch": "value-1815",
+    "batchBestBeforeDateId": 2813,
+    "bestBeforeDate": "value-1816",
+    "orderItemId": 2810,
+    "originalQuantity": 2814,
+    "quantity": 2811,
+    "warehouseLocationId": 2812
+}

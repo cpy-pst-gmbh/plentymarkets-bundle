@@ -1,0 +1,34 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\LogsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\Log",
+            "callerFunction": "value-2737",
+            "code": "value-2735",
+            "codeMessage": "value-2736",
+            "createdAt": "value-2738",
+            "identifier": "value-2732",
+            "integration": "value-2733",
+            "level": "value-2734",
+            "trace": "value-2739"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\Log",
+            "callerFunction": "value-2746",
+            "code": "value-2744",
+            "codeMessage": "value-2745",
+            "createdAt": "value-2747",
+            "identifier": "value-2741",
+            "integration": "value-2742",
+            "level": "value-2743",
+            "trace": "value-2748"
+        }
+    ],
+    "firstOnPage": 3727,
+    "isLastPage": false,
+    "itemsPerPage": 3729,
+    "lastOnPage": 3728,
+    "lastPageNumber": 3726,
+    "page": 3723,
+    "totalsCount": 3724
+}

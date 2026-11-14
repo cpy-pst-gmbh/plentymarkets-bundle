@@ -1,0 +1,14 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceAccount",
+    "accountId": 2355,
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-13T10:36:00.000000+01:00 +01:00"
+    },
+    "referrerId": 2354,
+    "salesPriceId": 2353,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-14T10:37:00.000000+01:00 +01:00"
+    }
+}

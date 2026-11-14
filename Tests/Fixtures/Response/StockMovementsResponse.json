@@ -1,0 +1,49 @@
+{
+    "page": 3930,
+    "totalsCount": 3931,
+    "isLastPage": true,
+    "lastPageNumber": 3933,
+    "firstOnPage": 3934,
+    "lastOnPage": 3935,
+    "itemsPerPage": 3936,
+    "entries": [
+        {
+            "id": 3939,
+            "processRowId": 3940,
+            "itemId": 3941,
+            "warehouseId": 3942,
+            "reason": 3943,
+            "userId": 3944,
+            "processRowType": 3945,
+            "purchasePrice": 3946.25,
+            "variationId": 3947,
+            "quantity": 3948,
+            "reasonString": "value-2949",
+            "attributeValues": "value-2950",
+            "warehouseName": "value-2951",
+            "storageLocationName": "value-2952",
+            "batch": "value-2953",
+            "bestBeforeDate": "value-2954",
+            "createdAt": "2026-03-16T10:15:00+01:00"
+        },
+        {
+            "id": 3957,
+            "processRowId": 3958,
+            "itemId": 3959,
+            "warehouseId": 3960,
+            "reason": 3961,
+            "userId": 3962,
+            "processRowType": 3963,
+            "purchasePrice": 3964.25,
+            "variationId": 3965,
+            "quantity": 3966,
+            "reasonString": "value-2967",
+            "attributeValues": "value-2968",
+            "warehouseName": "value-2969",
+            "storageLocationName": "value-2970",
+            "batch": "value-2971",
+            "bestBeforeDate": "value-2972",
+            "createdAt": "2026-03-06T10:33:00+01:00"
+        }
+    ]
+}

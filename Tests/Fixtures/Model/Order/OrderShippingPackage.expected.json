@@ -1,0 +1,12 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderShippingPackage",
+    "id": 2857,
+    "labelBase64": "value-1863",
+    "labelPath": "value-1862",
+    "orderId": 2858,
+    "packageId": 2859,
+    "packageNumber": "value-1861",
+    "packageType": 2864,
+    "volume": 2865.25,
+    "weight": 2860
+}

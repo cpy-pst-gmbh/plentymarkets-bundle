@@ -1,0 +1,21 @@
+{
+    "id": 2114,
+    "itemId": 2115,
+    "variationId": 2116,
+    "propertyId": 2117,
+    "propertySelectionId": 2118,
+    "valueInt": 2119,
+    "valueFloat": 2120.25,
+    "valueFile": "value-1121",
+    "surcharge": 2122.25,
+    "names": [
+        {
+            "lang": "value-1125",
+            "value": "value-1126"
+        },
+        {
+            "lang": "value-1128",
+            "value": "value-1129"
+        }
+    ]
+}

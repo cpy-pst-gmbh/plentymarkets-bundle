@@ -1,0 +1,13 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCountry",
+    "countryId": 2359,
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-17T10:40:00.000000+01:00 +01:00"
+    },
+    "salesPriceId": 2358,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-18T10:41:00.000000+01:00 +01:00"
+    }
+}

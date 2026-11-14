@@ -1,0 +1,13 @@
+{
+    "id": 3033,
+    "parentId": 3034,
+    "warehouseId": 3035,
+    "level": 3036,
+    "name": "value-2037",
+    "displayInName": true,
+    "shortcut": "value-2039",
+    "separator": "value-2040",
+    "isActiveForPickupPath": false,
+    "createdAt": "2026-03-27T10:02:00+01:00",
+    "updatedAt": "2026-03-28T10:03:00+01:00"
+}

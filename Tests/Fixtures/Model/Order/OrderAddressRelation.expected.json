@@ -1,0 +1,6 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderAddressRelation",
+    "addressId": 2647,
+    "orderId": 2645,
+    "typeId": 2646
+}
