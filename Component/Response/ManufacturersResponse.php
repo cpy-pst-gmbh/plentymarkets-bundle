@@ -25,7 +25,7 @@ class ManufacturersResponse extends PaginationResponse
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\Manufacturer>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $entries;
+    private array $entries = [];
 
     /**
      * @return Manufacturer[]

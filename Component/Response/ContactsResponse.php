@@ -26,7 +26,7 @@ class ContactsResponse extends PaginationResponse
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\Contact>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $entries;
+    private array $entries = [];
 
     /**
      * @return Contact[]

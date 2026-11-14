@@ -25,7 +25,7 @@ class LocationsResponse extends PaginationResponse
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Warehouses\Location>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $entries;
+    private array $entries = [];
 
     /**
      * @return Location[]

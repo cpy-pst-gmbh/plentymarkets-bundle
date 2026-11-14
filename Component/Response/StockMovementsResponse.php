@@ -25,7 +25,7 @@ class StockMovementsResponse extends PaginationResponse
     #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement>')]
     #[JMS\Expose]
     #[JMS\Since('1.0')]
-    private $entries;
+    private array $entries = [];
 
     /**
      * @return StockMovement[]
