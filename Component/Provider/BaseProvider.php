@@ -120,7 +120,8 @@ class BaseProvider
                 $this->getService()->increaseStatistics($internalApiId, $e->getResponse()->getStatusCode());
 
                 try {
-                    $this->setClient($this->getService()->login());
+                    /* The stored token is the one just refused: drop it and log in anew (#64) */
+                    $this->setClient($this->getService()->login(forceLogin: true));
                 } catch (Throwable $e) {
                     return new ApiLoginFailedException(
                         'Login after receiving 401 error failed!',
@@ -129,14 +130,14 @@ class BaseProvider
                     );
                 }
 
-                return $this->getResponse($method, $path, $options, true, $flushEntities);
+                return $this->getResponse($method, $path, $options, final: true, ignoreLock: $ignoreLock, flushEntities: $flushEntities);
             }
 
             /* Short period limit */
             if (false === $final && $e instanceof ClientException && Response::HTTP_TOO_MANY_REQUESTS === $e->getResponse()->getStatusCode()) {
                 $this->getService()->increaseStatistics($internalApiId, $e->getResponse()->getStatusCode());
 
-                $this->saveRequestLimits($e->getResponse()->getHeaders(), $path, true);
+                $this->saveRequestLimits($e->getResponse()->getHeaders(), $path, true, $flushEntities);
 
                 if (false === $wait) {
                     return $e;
@@ -144,14 +145,14 @@ class BaseProvider
 
                 sleep(70);
 
-                return $this->getResponse($method, $path, $options, true, $flushEntities);
+                return $this->getResponse($method, $path, $options, final: true, ignoreLock: $ignoreLock, flushEntities: $flushEntities);
             }
 
             /* Timeout or connection refused */
             if (true === $wait && false === $final && $e instanceof ConnectException) {
                 sleep(10);
 
-                return $this->getResponse($method, $path, $options, true, $flushEntities);
+                return $this->getResponse($method, $path, $options, final: true, ignoreLock: $ignoreLock, flushEntities: $flushEntities);
             }
 
             /* Server error */
@@ -161,7 +162,7 @@ class BaseProvider
             ) {
                 sleep(2);
 
-                return $this->getResponse($method, $path, $options, true, $flushEntities);
+                return $this->getResponse($method, $path, $options, final: true, ignoreLock: $ignoreLock, flushEntities: $flushEntities);
             }
 
             return $e;

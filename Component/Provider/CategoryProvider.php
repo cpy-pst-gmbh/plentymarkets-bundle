@@ -32,7 +32,9 @@ class CategoryProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -76,7 +78,9 @@ class CategoryProvider extends BaseProvider
         $query = ['type' => 'item'];
 
         if (null !== $since) {
-            $query['updatedAtAfter'] = $since->format('Y-m-d');
+            // The parameter is updatedAt, as a unix timestamp or ISO 8601, so with time and zone;
+            // updatedAtAfter, sent before #61, plentymarkets did not know, and all came back.
+            $query['updatedAt'] = $since->format(DATE_ATOM);
         }
 
         return $this->getAll(1, $query);

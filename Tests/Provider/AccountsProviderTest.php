@@ -124,24 +124,25 @@ final class AccountsProviderTest extends ProviderTestCase
         self::assertSame([1, 2], array_map(static fn (Contact $contact) => $contact->getId(), $contacts), 'Without isLastPage it stops only at an error.');
     }
 
-    public function testTheContactsUpdatedSinceADateAreAskedForWithTheDayOnly(): void
+    public function testTheContactsUpdatedSinceADateAreAskedForFromTheDayBefore(): void
     {
         $this->respond(self::page(1, true, [['id' => 1]]));
         $since = new DateTimeImmutable('2026-03-02 00:30:00', new DateTimeZone('Europe/Berlin'));
 
         $contacts = $this->provider()->getContactsUpdatedSince($since);
 
-        $this->assertRequest('GET', '/rest/accounts/contacts', ['page' => '1', 'itemsPerPage' => '10000', 'updatedAtAfter' => '2026-03-02']);
+        // plentymarkets takes a day only; the day before, so that nothing is missed (#61).
+        $this->assertRequest('GET', '/rest/accounts/contacts', ['page' => '1', 'itemsPerPage' => '10000', 'updatedAtAfter' => '2026-03-01']);
         self::assertSame([1], array_map(static fn (Contact $contact) => $contact->getId(), $contacts));
     }
 
-    public function testTheContactsUpdatedSinceADateUseTheDayInTheZoneOfTheDateGiven(): void
+    public function testTheDayBeforeCoversAnyZone(): void
     {
         $this->respond(self::page(1, true, []));
 
         $this->provider()->getContactsUpdatedSince(new DateTimeImmutable('2026-03-01T23:30:00-05:00'));
 
-        self::assertSame('2026-03-01', $this->query()['updatedAtAfter'], 'Not converted: in Berlin it is already the 2nd.');
+        self::assertSame('2026-02-28', $this->query()['updatedAtAfter'], 'In Berlin it is the 2nd already, in New York the 1st: from the 28th, neither misses a change.');
     }
 
     public function testTheContactsUpdatedSinceNoDateAreThoseSince2020(): void
@@ -161,7 +162,7 @@ final class AccountsProviderTest extends ProviderTestCase
         $contacts = $this->provider()->getContactsUpdatedSince(new DateTimeImmutable('2026-03-02T10:14:00+01:00'));
 
         $this->assertRequestCount(2);
-        self::assertSame(['page' => '2', 'itemsPerPage' => '10000', 'updatedAtAfter' => '2026-03-02'], $this->query(1));
+        self::assertSame(['page' => '2', 'itemsPerPage' => '10000', 'updatedAtAfter' => '2026-03-01'], $this->query(1));
         self::assertSame([1, 2], array_map(static fn (Contact $contact) => $contact->getId(), $contacts));
     }
 

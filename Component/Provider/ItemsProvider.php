@@ -4,6 +4,7 @@ namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use DateTime;
 use DateTimeInterface;
+use DateTimeZone;
 use GuzzleHttp\RequestOptions;
 use PM\PlentyMarketsBundle\Component\Model\Item\Barcode;
 use PM\PlentyMarketsBundle\Component\Model\Item\Item;
@@ -44,7 +45,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -89,7 +92,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -111,7 +116,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -279,7 +286,7 @@ class ItemsProvider extends BaseProvider
         if (null !== $since) {
             $query['updatedBetween'] = $since->getTimestamp();
         } else {
-            $query['updatedBetween'] = (new DateTime('2020-01-01'))->getTimestamp();
+            $query['updatedBetween'] = (new DateTime('2020-01-01', new DateTimeZone('UTC')))->getTimestamp();
         }
 
         $result = $this->getAll(1, $query);
@@ -381,7 +388,9 @@ class ItemsProvider extends BaseProvider
                         'page' => $page,
                         'itemsPerPage' => 200,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -449,7 +458,7 @@ class ItemsProvider extends BaseProvider
         if (null !== $since) {
             $query['updatedBetween'] = $since->getTimestamp();
         } else {
-            $query['updatedBetween'] = (new DateTime('2020-01-01'))->getTimestamp();
+            $query['updatedBetween'] = (new DateTime('2020-01-01', new DateTimeZone('UTC')))->getTimestamp();
         }
 
         if (0 < count($with)) {
@@ -470,7 +479,7 @@ class ItemsProvider extends BaseProvider
         if (null !== $since) {
             $query['relatedUpdatedBetween'] = $since->getTimestamp();
         } else {
-            $query['relatedUpdatedBetween'] = (new DateTime('2020-01-01'))->getTimestamp();
+            $query['relatedUpdatedBetween'] = (new DateTime('2020-01-01', new DateTimeZone('UTC')))->getTimestamp();
         }
 
         if (0 < count($with)) {

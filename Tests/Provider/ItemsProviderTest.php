@@ -83,14 +83,12 @@ final class ItemsProviderTest extends ProviderTestCase
         self::assertSame([1], self::ids($items), 'The error is only logged.');
     }
 
-    public function testAnItemPageWithoutEntriesIsATypeError(): void
+    public function testAnItemPageWithoutEntriesIsNoItems(): void
     {
         $this->respond(['page' => 1, 'isLastPage' => true]);
 
-        $this->expectException(TypeError::class);
-        $this->expectExceptionMessage('must be of type Throwable|array, null returned');
-
-        $this->items()->getAll();
+        // Before #62 the entries stayed null, and getAll() failed with a TypeError.
+        self::assertSame([], $this->items()->getAll());
     }
 
     public function testTheZeroDateOfAnItemIsNotFixedAndRefused(): void

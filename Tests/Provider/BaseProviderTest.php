@@ -100,6 +100,22 @@ final class BaseProviderTest extends ProviderTestCase
         self::assertSame([], $this->persisted(ApiLock::class));
     }
 
+    public function testASecondTryAfterA401KeepsTheBookkeeping(): void
+    {
+        $this->respond(
+            new Response(401, [], '{"error":"Unauthenticated."}'),
+            new Response(200, [], '{"access_token":"new-token","expires_in":86400}'),
+            new Response(200, self::limits(900, 8), '{}'),
+        );
+
+        $response = $this->service->base($this->config())->getResponse('GET', 'orders/1');
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertSame(['/rest/orders/1', '/rest/login', '/rest/orders/1'], array_map(static fn ($request): string => $request->getUri()->getPath(), $this->requests()));
+        // Before #63 the second try ran with ignoreLock: no lock check and no limits written.
+        self::assertCount(1, $this->persisted(LimitHistory::class));
+    }
+
     public function testALockedApiAnswersWithoutARequest(): void
     {
         $this->service->lockedUntil = new DateTime('+30 minutes');

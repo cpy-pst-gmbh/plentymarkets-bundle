@@ -50,13 +50,16 @@ final class PropertiesProviderTest extends ProviderTestCase
         self::assertSame([1, 2, 3], array_map(static fn (Property $property): ?int => $property->getId(), $properties));
     }
 
-    public function testAPageInTheQueryWinsOverThePageArgument(): void
+    public function testThePageArgumentWinsOverAPageInTheQuery(): void
     {
-        $this->respond(self::page(true, [1]));
+        $this->respond(self::page(false, [1]), self::page(true, [2]));
 
         $this->service->properties($this->config())->getAll(1, ['page' => 6]);
 
-        $this->assertRequest('GET', '/rest/properties', ['page' => '6']);
+        // Before #60 the query's page won, and every round asked for page 6 again.
+        $this->assertRequestCount(2);
+        $this->assertRequest('GET', '/rest/properties', ['page' => '1'], 0);
+        $this->assertRequest('GET', '/rest/properties', ['page' => '2'], 1);
     }
 
     public function testAnErrorOnTheFirstPageIsReturned(): void

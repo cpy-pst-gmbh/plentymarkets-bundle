@@ -60,13 +60,16 @@ final class CategoryProviderTest extends ProviderTestCase
         $this->assertRequest('GET', '/rest/categories', ['page' => '4']);
     }
 
-    public function testAPageInTheQueryWinsOverThePageArgument(): void
+    public function testThePageArgumentWinsOverAPageInTheQuery(): void
     {
-        $this->respond(self::page(true, [7]));
+        $this->respond(self::page(false, [7]), self::page(true, [8]));
 
         $this->service->categories($this->config())->getAll(1, ['page' => 9]);
 
-        $this->assertRequest('GET', '/rest/categories', ['page' => '9']);
+        // Before #60 the query's page won, and every round asked for page 9 again.
+        $this->assertRequestCount(2);
+        $this->assertRequest('GET', '/rest/categories', ['page' => '1'], 0);
+        $this->assertRequest('GET', '/rest/categories', ['page' => '2'], 1);
     }
 
     public function testAnErrorOnTheFirstPageIsReturned(): void
@@ -100,11 +103,12 @@ final class CategoryProviderTest extends ProviderTestCase
             new DateTimeImmutable('2026-03-02 23:30:00', new DateTimeZone('Europe/Berlin')),
         );
 
-        $this->assertRequest('GET', '/rest/categories', ['page' => '1', 'type' => 'item', 'updatedAtAfter' => '2026-03-02']);
+        // updatedAt, with time and zone (#61); updatedAtAfter plentymarkets does not know.
+        $this->assertRequest('GET', '/rest/categories', ['page' => '1', 'type' => 'item', 'updatedAt' => '2026-03-02T23:30:00+01:00']);
         self::assertSame(1, $categories[0]->getId());
     }
 
-    public function testTheDayOfUpdatedSinceIsTakenInTheTimezoneOfTheDate(): void
+    public function testTheMomentOfUpdatedSinceKeepsItsZone(): void
     {
         $this->respond(self::page(true, [1]));
 
@@ -112,7 +116,8 @@ final class CategoryProviderTest extends ProviderTestCase
             new DateTimeImmutable('2026-03-02 23:30:00', new DateTimeZone('UTC')),
         );
 
-        self::assertSame('2026-03-02', $this->query()['updatedAtAfter'], 'Not converted: 00:30 on 3 March in Berlin.');
+        self::assertSame('2026-03-02T23:30:00+00:00', $this->query()['updatedAt'], 'The same moment as 00:30 on 3 March in Berlin.');
+        self::assertStringContainsString('%2B00%3A00', $this->request()->getUri()->getQuery(), 'The plus is encoded, not read as a space.');
     }
 
     public function testItemCategoriesWithoutASinceDateAreAllItemCategories(): void
@@ -131,7 +136,7 @@ final class CategoryProviderTest extends ProviderTestCase
         $categories = $this->service->categories($this->config())->getAllForItemsUpdatedSince(new DateTimeImmutable('2026-03-02'));
 
         $this->assertRequestCount(2);
-        $this->assertRequest('GET', '/rest/categories', ['page' => '2', 'type' => 'item', 'updatedAtAfter' => '2026-03-02'], 1);
+        $this->assertRequest('GET', '/rest/categories', ['page' => '2', 'type' => 'item', 'updatedAt' => '2026-03-02T00:00:00+00:00'], 1);
         self::assertSame([1, 2], array_map(static fn (Category $category): int => $category->getId(), $categories));
     }
 

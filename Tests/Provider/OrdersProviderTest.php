@@ -136,13 +136,13 @@ final class OrdersProviderTest extends ProviderTestCase
         self::assertSame([], $result->getEntries());
     }
 
-    public function testAPageOfOrdersMayOverrideThePageByItsFilters(): void
+    public function testThePageArgumentWinsOverAPageInTheFilters(): void
     {
-        $this->respond(['page' => 9, 'totalsCount' => 0, 'isLastPage' => true, 'entries' => []]);
+        $this->respond(['page' => 2, 'totalsCount' => 0, 'isLastPage' => true, 'entries' => []]);
 
-        $this->provider()->getOrdersPage(2, ['page' => 9]);
+        $this->provider()->getOrdersPage(2, ['page' => 9, 'statusFrom' => 5]);
 
-        self::assertSame(['page' => '9'], $this->query(), 'The filters are merged over the page.');
+        self::assertSame(['page' => '2', 'statusFrom' => '5'], $this->query(), 'The page of the argument (#60), the other filters as given.');
     }
 
     public function testAPageOfOrdersReadsTheZeroDateOfPlentymarkets(): void
