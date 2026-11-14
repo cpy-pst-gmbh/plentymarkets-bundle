@@ -78,7 +78,15 @@ und 8.5, jeweils mit Guzzle 7 und 8, auf GitHubs eigenen Runnern (das Repo ist �
   API-Limits und die Sperren in `BaseProvider`. plentymarkets spielt Guzzles `MockHandler`
   (`ProviderTestCase`, `Tests/Support/MockedRestfulService`). Die Tests halten das heutige
   Verhalten fest, auch wo es fragw체rdig ist.
-- **Coverage** mit PCOV: `php -d pcov.enabled=1 vendor/bin/phpunit --coverage-html var/coverage`.
+- **Im Kernel** (`Tests/Kernel`): das Bundle in einer kleinen Symfony-Anwendung
+  (`Tests/App/TestKernel`) mit Doctrine ORM auf SQLite im Arbeitsspeicher, wie Shop und Helpdesk
+  es einbinden. Gepr체ft werden die Extension und die Verdrahtung, die Repositories mit ihren
+  Abfragen (Token, Sperren, Limit-Historie, API-Hits) und der ganze Weg: Token behalten, Limits
+  schreiben, Sperre f체r die n채chste Anfrage. Nur plentymarkets ist gespielt
+  (`KernelRestfulService`). Der MongoDB-Teil (`Document`, `DocumentRepository`) ist nicht
+  getestet.
+- **Coverage** mit PCOV, mit leerem `var/`, damit der Container neu gebaut und die Extension
+  mitgez채hlt wird: `rm -rf var && php -d pcov.enabled=1 vendor/bin/phpunit --coverage-html var/coverage`.
   Die Getter und Setter der Modelle z채hlen kaum mit, weil der Serializer per Reflection
   schreibt; sie pr체fen die Golden-Master-Tests.
 - **Login, Fehlertexte, Warten** (`LoginTest`, `ResponseHelperTest`, `WaitTest`).

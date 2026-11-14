@@ -32,7 +32,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: xml
+          extensions: xml, pdo_sqlite
           coverage: none
           tools: composer:v2
 
