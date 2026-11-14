@@ -58,7 +58,9 @@ class AccountsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -126,7 +128,9 @@ class AccountsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );

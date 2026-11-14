@@ -60,13 +60,16 @@ final class CategoryProviderTest extends ProviderTestCase
         $this->assertRequest('GET', '/rest/categories', ['page' => '4']);
     }
 
-    public function testAPageInTheQueryWinsOverThePageArgument(): void
+    public function testThePageArgumentWinsOverAPageInTheQuery(): void
     {
-        $this->respond(self::page(true, [7]));
+        $this->respond(self::page(false, [7]), self::page(true, [8]));
 
         $this->service->categories($this->config())->getAll(1, ['page' => 9]);
 
-        $this->assertRequest('GET', '/rest/categories', ['page' => '9']);
+        // Before #60 the query's page won, and every round asked for page 9 again.
+        $this->assertRequestCount(2);
+        $this->assertRequest('GET', '/rest/categories', ['page' => '1'], 0);
+        $this->assertRequest('GET', '/rest/categories', ['page' => '2'], 1);
     }
 
     public function testAnErrorOnTheFirstPageIsReturned(): void

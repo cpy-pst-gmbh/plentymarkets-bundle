@@ -44,7 +44,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -89,7 +91,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -111,7 +115,9 @@ class ItemsProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
@@ -381,7 +387,9 @@ class ItemsProvider extends BaseProvider
                         'page' => $page,
                         'itemsPerPage' => 200,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );

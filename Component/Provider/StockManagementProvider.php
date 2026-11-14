@@ -113,7 +113,9 @@ class StockManagementProvider extends BaseProvider
                     [
                         'page' => $page,
                     ],
-                    $query
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
                 ),
             ]
         );
