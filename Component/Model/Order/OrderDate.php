@@ -9,39 +9,22 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderDate
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderDate
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $date;
+    /** @var \DateTime|null */
+    private ?\DateTime $date = null;
 
     /**
      * @return int

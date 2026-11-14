@@ -4,7 +4,6 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Account;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Config\CountryIdType;
 
 /**
@@ -12,144 +11,58 @@ use PM\PlentyMarketsBundle\Component\Config\CountryIdType;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Account
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Address
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $gender;
+    /** @var string|null */
+    private ?string $gender = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name1;
+    /** @var string|null */
+    private ?string $name1 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name2;
+    /** @var string|null */
+    private ?string $name2 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name3;
+    /** @var string|null */
+    private ?string $name3 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name4;
+    /** @var string|null */
+    private ?string $name4 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address1;
+    /** @var string|null */
+    private ?string $address1 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address2;
+    /** @var string|null */
+    private ?string $address2 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address3;
+    /** @var string|null */
+    private ?string $address3 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address4;
+    /** @var string|null */
+    private ?string $address4 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $postalCode;
+    /** @var string|null */
+    private ?string $postalCode = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $town;
+    /** @var string|null */
+    private ?string $town = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $countryId;
+    /** @var int|null */
+    private ?int $countryId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $contactPerson;
+    /** @var string|null */
+    private ?string $contactPerson = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $checkedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $checkedAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     public function getId(): int
     {

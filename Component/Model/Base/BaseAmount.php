@@ -8,41 +8,24 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Base;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class BaseAmount
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Base
  */
-#[JMS\ExclusionPolicy('ALL')]
 class BaseAmount
 {
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isSystemCurrency;
+    /** @var bool|null */
+    private ?bool $isSystemCurrency = null;
 
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $currency;
+    /** @var string|null */
+    private ?string $currency = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $exchangeRate;
+    /** @var float|null */
+    private ?float $exchangeRate = null;
 
     /**
      * @return boolean

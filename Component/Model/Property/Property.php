@@ -2,39 +2,25 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Property;
 
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class Property
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $propertyId = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $cast = '';
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $typeIdentifier = '';
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $propertyGroupId = null;
 
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\PropertyName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Property\PropertyName> */
     private array $names = [];
 
     public function getId(): ?int

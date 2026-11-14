@@ -8,47 +8,25 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemImageName
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemImageName
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $imageId;
+    /** @var int|null */
+    private ?int $imageId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lang;
+    /** @var string|null */
+    private ?string $lang = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $alternate;
+    /** @var string|null */
+    private ?string $alternate = null;
 
     /**
      * @return int

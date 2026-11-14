@@ -10,47 +10,25 @@ namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class SalesPriceOnlineStore
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class SalesPriceOnlineStore
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $salesPriceId;
+    /** @var int|null */
+    private ?int $salesPriceId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('int')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $plentyId;
+    /** @var int|null */
+    private ?int $plentyId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @return int

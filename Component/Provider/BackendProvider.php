@@ -34,7 +34,7 @@ class BackendProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', User::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), User::class.'[]', 'json');
     }
 
     /**

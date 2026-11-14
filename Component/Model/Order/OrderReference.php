@@ -9,71 +9,34 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderReference
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderReference
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $originOrderId;
+    /** @var int|null */
+    private ?int $originOrderId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referenceOrderId;
+    /** @var int|null */
+    private ?int $referenceOrderId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referenceType;
+    /** @var string|null */
+    private ?string $referenceType = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @return int

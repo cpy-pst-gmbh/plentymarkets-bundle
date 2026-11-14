@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemImageAvailability
@@ -17,29 +16,14 @@ use JMS\Serializer\Annotation as JMS;
  */
 class ItemImageAvailability
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $imageId;
+    /** @var int|null */
+    private ?int $imageId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $type;
+    /** @var string|null */
+    private ?string $type = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $value;
+    /** @var float|null */
+    private ?float $value = null;
 
     /**
      * @return int

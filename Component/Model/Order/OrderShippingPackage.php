@@ -8,87 +8,40 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderShippingPackage
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderShippingPackage
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packageId;
+    /** @var int|null */
+    private ?int $packageId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $weight;
+    /** @var int|null */
+    private ?int $weight = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packageNumber;
+    /** @var string|null */
+    private ?string $packageNumber = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $labelPath;
+    /** @var string|null */
+    private ?string $labelPath = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $labelBase64;
+    /** @var string|null */
+    private ?string $labelBase64 = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packageType;
+    /** @var int|null */
+    private ?int $packageType = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $volume;
+    /** @var float|null */
+    private ?float $volume = null;
 
     /**
      * @return int

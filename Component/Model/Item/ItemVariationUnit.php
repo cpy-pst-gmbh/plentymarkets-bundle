@@ -2,30 +2,22 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Unit and content of a variation, with=unit.
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationUnit
 {
     /**
      * Id of the combination of unit and content.
+     * @var int|null
      */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?int $id = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $unitId = null;
 
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var float|null */
     private ?float $content = null;
 
     public function getId(): ?int

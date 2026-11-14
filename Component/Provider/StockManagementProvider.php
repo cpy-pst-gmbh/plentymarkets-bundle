@@ -39,7 +39,7 @@ class StockManagementProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', Warehouse::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), Warehouse::class.'[]', 'json');
     }
 
     /**

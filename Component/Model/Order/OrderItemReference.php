@@ -3,41 +3,27 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class OrderItemReference
 {
     public const TYPE_BUNDLE = 'bundle';
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private readonly int $id;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $orderItemId;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $referenceOrderItemId;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $referenceType;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime */
     private DateTimeInterface $createdAt;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime */
     private DateTimeInterface $updatedAt;
 
 

@@ -165,7 +165,7 @@ class OrdersProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', OrderShippingPackage::class),
+            OrderShippingPackage::class.'[]',
             'json'
         );
     }
@@ -179,7 +179,7 @@ class OrdersProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', StatusHistoryEntry::class),
+            StatusHistoryEntry::class.'[]',
             'json'
         );
     }
@@ -242,7 +242,7 @@ class OrdersProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', OrderShippingPreset::class),
+            OrderShippingPreset::class.'[]',
             'json'
         );
     }
@@ -261,7 +261,7 @@ class OrdersProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', OrderReferrer::class),
+            OrderReferrer::class.'[]',
             'json'
         );
     }
@@ -280,7 +280,7 @@ class OrdersProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', OrderDateType::class),
+            OrderDateType::class.'[]',
             'json'
         );
     }

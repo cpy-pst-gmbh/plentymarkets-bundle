@@ -8,14 +8,12 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderProperty
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderProperty
 {
     public const TYPE_WAREHOUSE = 1;
@@ -40,29 +38,14 @@ class OrderProperty
     public const TYPE_SALES_TAX_ID_NUMBER = 34;
     public const TYPE_MAIN_DOCUMENT_NUMBER = 33;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $value;
+    /** @var string|null */
+    private ?string $value = null;
 
     /**
      * @return int

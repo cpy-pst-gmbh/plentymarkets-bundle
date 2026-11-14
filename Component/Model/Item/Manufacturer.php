@@ -9,168 +9,71 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Manufacturer
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Manufacturer
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $externalName;
+    /** @var string|null */
+    private ?string $externalName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $logo;
+    /** @var string|null */
+    private ?string $logo = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $street;
+    /** @var string|null */
+    private ?string $street = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $houseNo;
+    /** @var string|null */
+    private ?string $houseNo = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $postcode;
+    /** @var string|null */
+    private ?string $postcode = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $town;
+    /** @var string|null */
+    private ?string $town = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $phoneNumber;
+    /** @var string|null */
+    private ?string $phoneNumber = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $faxNumber;
+    /** @var string|null */
+    private ?string $faxNumber = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $email;
+    /** @var string|null */
+    private ?string $email = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $countryId;
+    /** @var int|null */
+    private ?int $countryId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $pixmaniaBrandId;
+    /** @var int|null */
+    private ?int $pixmaniaBrandId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $neckermannAtEpBrandId;
+    /** @var int|null */
+    private ?int $neckermannAtEpBrandId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $laRedouteBrandId;
+    /** @var int|null */
+    private ?int $laRedouteBrandId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $comment;
+    /** @var string|null */
+    private ?string $comment = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
 
-    /**
-     * @var ManufacturerCommission[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ManufacturerCommission>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $commissions;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ManufacturerCommission>|null */
+    private ?array $commissions = null;
 
     /**
      * @return int

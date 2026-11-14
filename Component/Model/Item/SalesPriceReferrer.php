@@ -10,47 +10,25 @@ namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class SalesPriceReferrer
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class SalesPriceReferrer
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $salesPriceId;
+    /** @var int|null */
+    private ?int $salesPriceId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referrerId;
+    /** @var float|null */
+    private ?float $referrerId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @return int

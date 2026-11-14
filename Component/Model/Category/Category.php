@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Category;
 
-use JMS\Serializer\Annotation as JMS;
 use LogicException;
 
 /**
@@ -13,60 +12,31 @@ use LogicException;
  *
  * @TODO    Include all properties
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Category
 {
     public const TYPE_ITEM = 'item';
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $parentCategoryId;
+    /** @var int|null */
+    private ?int $parentCategoryId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $level;
+    /** @var int|null */
+    private ?int $level = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $type;
+    /** @var string|null */
+    private ?string $type = null;
 
 
-    /**
-     * @var array|CategoryDetail[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Category\CategoryDetail>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $details;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Category\CategoryDetail>|null */
+    private ?array $details = null;
 
     /**
      * Only filled when requested with "with=clients"
      *
-     * @var CategoryClient[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Category\CategoryClient>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Category\CategoryClient>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $clients = null;
 
     public function getId(): int

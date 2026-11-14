@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Traits\HasConstantsTrait;
 
 /**
@@ -16,7 +15,6 @@ use PM\PlentyMarketsBundle\Component\Traits\HasConstantsTrait;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderDateType
 {
     use HasConstantsTrait;
@@ -34,37 +32,17 @@ class OrderDateType
     const TYPE_DELIVERY_POSSIBLE = 11;
     const TYPE_MARKET_TRANSFER = 12;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isErasable;
+    /** @var bool|null */
+    private ?bool $isErasable = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var array|OrderDateTypeName[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderDateTypeName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $names;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderDateTypeName>|null */
+    private ?array $names = null;
 
     /**
      * @return int

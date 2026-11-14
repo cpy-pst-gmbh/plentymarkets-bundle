@@ -33,7 +33,7 @@ class PaymentsProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', PaymentMethod::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), PaymentMethod::class.'[]', 'json');
     }
 
 }

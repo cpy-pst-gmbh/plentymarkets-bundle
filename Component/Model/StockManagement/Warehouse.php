@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\StockManagement;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Base\BaseAddress;
 
 
@@ -17,112 +16,46 @@ use PM\PlentyMarketsBundle\Component\Model\Base\BaseAddress;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\StockManagement
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Warehouse
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $note;
+    /** @var string|null */
+    private ?string $note = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $onStockAvailability;
+    /** @var int|null */
+    private ?int $onStockAvailability = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $outOfStockAvailability;
+    /** @var int|null */
+    private ?int $outOfStockAvailability = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $splitByShippingProfile;
+    /** @var bool|null */
+    private ?bool $splitByShippingProfile = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageLocationType;
+    /** @var string|null */
+    private ?string $storageLocationType = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageLocationZone;
+    /** @var int|null */
+    private ?int $storageLocationZone = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $repairWarehouseId;
+    /** @var int|null */
+    private ?int $repairWarehouseId = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isInventoryModeActive;
+    /** @var bool|null */
+    private ?bool $isInventoryModeActive = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $logisticsType;
+    /** @var string|null */
+    private ?string $logisticsType = null;
 
-    /**
-     * @var BaseAddress[]
-     */
-    #[JMS\Type(\PM\PlentyMarketsBundle\Component\Model\Base\BaseAddress::class)]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address;
+    /** @var \PM\PlentyMarketsBundle\Component\Model\Base\BaseAddress|null */
+    private ?\PM\PlentyMarketsBundle\Component\Model\Base\BaseAddress $address = null;
 
     /**
      * @return int

@@ -2,19 +2,13 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class UnitName
 {
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string|null */
     private ?string $lang = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string|null */
     private ?string $name = null;
 
     public function getLang(): ?string

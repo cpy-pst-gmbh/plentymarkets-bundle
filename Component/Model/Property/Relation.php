@@ -3,64 +3,40 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Property;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class Relation
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $propertyId = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $relationTypeIdentifier = '';
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $relationTargetId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $selectionRelationId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $groupId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $markup = null;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $createdAt = null;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $updatedAt = null;
 
-    #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Property\Property')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \PM\PlentyMarketsBundle\Component\Model\Property\Property|null */
     private ?Property $property = null;
 
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\RelationValue>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Property\RelationValue> */
     private array $relationValues = [];
 
     public function getId(): ?int

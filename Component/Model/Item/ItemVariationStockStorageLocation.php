@@ -9,79 +9,37 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemVariationStockStorageLocation
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationStockStorageLocation
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageLocationId;
+    /** @var int|null */
+    private ?int $storageLocationId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemId;
+    /** @var int|null */
+    private ?int $itemId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseId;
+    /** @var int|null */
+    private ?int $warehouseId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $quantity;
+    /** @var int|null */
+    private ?int $quantity = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $batch;
+    /** @var string|null */
+    private ?string $batch = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $bestBeforeDate;
+    /** @var string|null */
+    private ?string $bestBeforeDate = null;
 
     /**
      * @return int

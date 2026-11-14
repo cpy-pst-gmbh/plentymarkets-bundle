@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemVariationMarket
@@ -12,24 +11,13 @@ use JMS\Serializer\Annotation as JMS;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationMarket
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $marketId;
+    /** @var float|null */
+    private ?float $marketId = null;
 
     /**
      * @return int

@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Category;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class CategoryDetail
@@ -12,42 +11,22 @@ use JMS\Serializer\Annotation as JMS;
  *
  * @TODO    Include all properties
  */
-#[JMS\ExclusionPolicy('ALL')]
 class CategoryDetail
 {
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $categoryId;
+    /** @var int|null */
+    private ?int $categoryId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lang;
+    /** @var string|null */
+    private ?string $lang = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $plentyId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $position = null;
 
     public function getCategoryId(): int

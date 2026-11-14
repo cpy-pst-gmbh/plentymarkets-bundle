@@ -3,194 +3,77 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class ItemImage
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemId;
+    /** @var int|null */
+    private ?int $itemId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $width;
+    /** @var int|null */
+    private ?int $width = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $height;
+    /** @var int|null */
+    private ?int $height = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $size;
+    /** @var int|null */
+    private ?int $size = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $documentUploadPreviewWidth;
+    /** @var int|null */
+    private ?int $documentUploadPreviewWidth = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $documentUploadPreviewHeight;
+    /** @var int|null */
+    private ?int $documentUploadPreviewHeight = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $type;
+    /** @var string|null */
+    private ?string $type = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $fileType;
+    /** @var string|null */
+    private ?string $fileType = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $path;
+    /** @var string|null */
+    private ?string $path = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageProviderId;
+    /** @var string|null */
+    private ?string $storageProviderId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $md5Checksum;
+    /** @var string|null */
+    private ?string $md5Checksum = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $md5ChecksumOriginal;
+    /** @var string|null */
+    private ?string $md5ChecksumOriginal = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $cleanImageName;
+    /** @var string|null */
+    private ?string $cleanImageName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $url;
+    /** @var string|null */
+    private ?string $url = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $urlMiddle;
+    /** @var string|null */
+    private ?string $urlMiddle = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $urlPreview;
+    /** @var string|null */
+    private ?string $urlPreview = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $urlSecondPreview;
+    /** @var string|null */
+    private ?string $urlSecondPreview = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var ItemImageName[]|array
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImageName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $names;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemImageName>|null */
+    private ?array $names = null;
 
-    /**
-     * @var ItemImageAvailability[]|array
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImageAvailability>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $availabilities;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemImageAvailability>|null */
+    private ?array $availabilities = null;
 
     /**
      * @return int

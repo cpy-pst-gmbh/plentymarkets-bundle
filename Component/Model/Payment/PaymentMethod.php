@@ -8,47 +8,25 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Payment;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class PaymentMethod
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Payment
  */
-#[JMS\ExclusionPolicy('ALL')]
 class PaymentMethod
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $pluginKey;
+    /** @var string|null */
+    private ?string $pluginKey = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $paymentKey;
+    /** @var string|null */
+    private ?string $paymentKey = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
     /**
      * @return int

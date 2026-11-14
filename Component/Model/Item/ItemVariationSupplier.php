@@ -3,110 +3,47 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 class ItemVariationSupplier
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $id;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $supplierId;
+    /** @var int|null */
+    private ?int $supplierId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $purchasePrice;
+    /** @var float|null */
+    private ?float $purchasePrice = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $minimumPurchase;
+    /** @var int|null */
+    private ?int $minimumPurchase = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemNumber;
+    /** @var string|null */
+    private ?string $itemNumber = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastPriceQuery;
+    /** @var string|null */
+    private ?string $lastPriceQuery = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $deliveryTimeInDays;
+    /** @var int|null */
+    private ?int $deliveryTimeInDays = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $discount;
+    /** @var float|null */
+    private ?float $discount = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isDiscountable;
+    /** @var bool|null */
+    private ?bool $isDiscountable = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packagingUnit;
+    /** @var int|null */
+    private ?int $packagingUnit = null;
 
-    /**
-     * @var \DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastUpdateTimestamp;
+    /** @var \DateTime|null */
+    private ?\DateTime $lastUpdateTimestamp = null;
 
-    /**
-     * @var \DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
     public function getId(): int
     {

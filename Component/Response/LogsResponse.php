@@ -2,18 +2,11 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Backend\Log;
 
-#[JMS\ExclusionPolicy('ALL')]
 class LogsResponse extends PaginationResponse
 {
-    /**
-     * @var Log[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Backend\Log>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Backend\Log> */
     private array $entries = [];
 
     /**

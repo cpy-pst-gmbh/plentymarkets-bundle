@@ -8,50 +8,28 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderRelation
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderRelation
 {
     public const REFERENCE_TYPE_CONTACT = 'contact';
     public const RELATION_RECEIVER = 'receiver';
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referenceType;
+    /** @var string|null */
+    private ?string $referenceType = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referenceId;
+    /** @var int|null */
+    private ?int $referenceId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $relation;
+    /** @var string|null */
+    private ?string $relation = null;
 
     /**
      * @return int

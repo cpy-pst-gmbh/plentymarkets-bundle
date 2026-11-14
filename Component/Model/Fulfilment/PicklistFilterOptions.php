@@ -2,11 +2,10 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Fulfilment;
 
-use JMS\Serializer\Annotation as JMS;
 
 class PicklistFilterOptions
 {
-    #[JMS\Type("array")]
+    /** @var array */
     private array $orderIds = [];
 
     public function getOrderIds(): array

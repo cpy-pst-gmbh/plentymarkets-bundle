@@ -1,58 +1,67 @@
 # Plentymarketsbundle
 
-## Config
+## Einrichtung
 
-### services.yaml
+```bash
+composer require cpy-pst-gmbh/plentymarkets-bundle
+```
 
-Mongo:
+Das Bundle in `config/bundles.php` **nach** dem DoctrineBundle eintragen. Die Extension
+erkennt am Doctrine-Bundle, ob Tokens, Sperren und Limits mit dem ORM oder mit MongoDB (ODM)
+gespeichert werden, und lädt `Resources/config/services_orm.yml` bzw. `services_odm.yml`.
 
-    PM\PlentyMarketsBundle\Services\Twig\AccountsTwigExtension:
-        tags: [ { name: twig.extension } ]
-    
-    PM\PlentyMarketsBundle\Services\Twig\ApiTwigExtension:
-        arguments:
-            $apiLockRepository: '@PM\PlentyMarketsBundle\DocumentRepository\ApiLockRepository'
+```php
+Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+PM\PlentyMarketsBundle\PMPlentyMarketsBundle::class => ['all' => true],
+```
 
-    jms_serializer.serialized_name_annotation_strategy:
-        class: JMS\Serializer\Naming\SerializedNameAnnotationStrategy
-        arguments:
-            - '@jms_serializer.identical_property_naming_strategy'
-        
-    PM\PlentyMarketsBundle\Services\RestfulService:
-        arguments:
-            $accessTokenRepository: '@PM\PlentyMarketsBundle\DocumentRepository\AccessTokenRepository'
-            $apiHitsRepository: '@PM\PlentyMarketsBundle\DocumentRepository\ApiHitsRepository'
-            $apiLockRepository: '@PM\PlentyMarketsBundle\DocumentRepository\ApiLockRepository'
-            $limitHistoryRepository: '@PM\PlentyMarketsBundle\DocumentRepository\LimitHistoryRepository'
-            $serializer: '@jms_serializer.serializer'
-            $objectManager: '@Doctrine\ODM\MongoDB\DocumentManager'
-            $logger: '@logger'
-            $parameterGuzzleVerifySsl: '%pm__plenty_market.configuration.guzzle.verify_ssl%'
+Optional, `config/packages/pm_plenty_markets.yaml`:
 
-Sql:
+```yaml
+pm_plenty_markets:
+    guzzle:
+        verify_ssl: true   # Standard
+```
 
-    PM\PlentyMarketsBundle\Services\Twig\AccountsTwigExtension:
-        tags: [ { name: twig.extension } ]
-    
-    PM\PlentyMarketsBundle\Services\Twig\ApiTwigExtension:
-        arguments:
-            $apiLockRepository: '@PM\PlentyMarketsBundle\Repository\ApiLockRepository'
+Die Tabellen (`pm_plenty_markets_access_token`, `_api_hits`, `_api_lock`, `_limit_history`)
+bringt die App mit ihren Migrationen an, aus dem Mapping der Entities in `Entity/`.
 
-    jms_serializer.serialized_name_annotation_strategy:
-        class: JMS\Serializer\Naming\SerializedNameAnnotationStrategy
-        arguments:
-            - '@jms_serializer.identical_property_naming_strategy'
-        
-    PM\PlentyMarketsBundle\Services\RestfulService:
-        arguments:
-            $accessTokenRepository: '@PM\PlentyMarketsBundle\Repository\AccessTokenRepository'
-            $apiHitsRepository: '@PM\PlentyMarketsBundle\Repository\ApiHitsRepository'
-            $apiLockRepository: '@PM\PlentyMarketsBundle\Repository\ApiLockRepository'
-            $limitHistoryRepository: '@PM\PlentyMarketsBundle\Repository\LimitHistoryRepository'
-            $serializer: '@jms_serializer.serializer'
-            $objectManager: '@Doctrine\ORM\EntityManagerInterface'
-            $logger: '@logger'
-            $parameterGuzzleVerifySsl: '%pm__plenty_market.configuration.guzzle.verify_ssl%'
+Abgefragt wird über `RestfulService` mit einer `Component\Config` je plentymarkets-Zugang:
+
+```php
+$orders = $restfulService->orders(new Config($url, $user, $password, 0.3, 0.2));
+```
+
+Die beiden Anteile sind die Sperrgrenzen: Bleiben weniger als 30 % des Stundenlimits oder
+20 % des kurzen Limits, nimmt das Bundle keine weiteren Aufrufe an, bis das Limit sich erholt
+hat. In einer Web-Anfrage `->setWait(false)` setzen: Dann kehrt jeder Aufruf sofort zurück
+statt bei einer Sperre, einem 429, einem Verbindungsfehler oder einem 5xx zu warten (#54).
+
+## Serializer
+
+Die Antworten liest der Symfony Serializer, den das Bundle selbst baut
+(`Component\Serializer\SerializerFactory`, Dienst `pm_plenty_markets.serializer`); die App
+muss keinen konfigurieren, und ihr eigener bleibt unberührt.
+
+- Die Typen kommen allein aus den Properties der Modelle: Deklaration und `@var`
+  (`list<Klasse>` für Listen), auch bei Properties einer Elternklasse.
+- Geschrieben wird per Reflection, an Settern vorbei (`ModelNormalizer`), Namen wie die
+  Property oder `#[SerializedName]`, ein Datumsformat über `#[Context]`.
+- Nachsichtig wie zuvor JMS: `"5"` wird zu `5`, `7` zu `7.0`; ein `null` für eine Property,
+  die keins halten kann, wird ausgelassen; unbekannte Felder werden ignoriert.
+
+## Upgrade von 1.x auf 2.0
+
+- **JMS entfällt** (#58). `RestfulService::getSerializer()` gibt
+  `Symfony\Component\Serializer\SerializerInterface` zurück, der Konstruktor erwartet ihn.
+  Die App kann `jms/serializer-bundle` und seine Konfiguration entfernen, wenn sie JMS sonst
+  nicht nutzt.
+- Das Bundle überschreibt den Dienst `jms_serializer.serialized_name_annotation_strategy` nicht
+  mehr. Nutzt die App JMS selbst, gilt dort wieder ihre eigene Namensstrategie.
+- Modelle: Aus `#[JMS\Type]` sind typisierte, nullbare Properties geworden; die Getter und
+  Setter sind unverändert.
+- Abhängigkeiten stehen jetzt vollständig in `require`, darunter `symfony/yaml` (#66).
+- Symfony 8 ist Voraussetzung.
 
 ## Tests
 

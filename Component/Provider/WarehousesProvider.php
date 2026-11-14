@@ -122,7 +122,7 @@ class WarehousesProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', Dimension::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), Dimension::class.'[]', 'json');
     }
 
     /**
@@ -140,7 +140,7 @@ class WarehousesProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', Level::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), Level::class.'[]', 'json');
     }
 
 }

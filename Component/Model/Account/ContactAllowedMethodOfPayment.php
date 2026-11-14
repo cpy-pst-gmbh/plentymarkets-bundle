@@ -2,19 +2,13 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Account;
 
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class ContactAllowedMethodOfPayment
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $methodOfPaymentId = null;
 
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var bool|null */
     private ?bool $allowed = null;
 
     public function getMethodOfPaymentId(): ?int

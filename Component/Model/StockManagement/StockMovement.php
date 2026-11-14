@@ -9,155 +9,68 @@
 namespace PM\PlentyMarketsBundle\Component\Model\StockManagement;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class StockMovement
  *
  * @package PM\PlentyMarketsBundle\Component\Model\StockManagement
  */
-#[JMS\ExclusionPolicy('ALL')]
 class StockMovement
 {
     const PROCESS_ROW_TYPE_INCOMING = 1;
     const PROCESS_ROW_TYPE_ORDER = 2;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $processRowId;
+    /** @var int|null */
+    private ?int $processRowId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemId;
+    /** @var int|null */
+    private ?int $itemId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseId;
+    /** @var int|null */
+    private ?int $warehouseId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $reason;
+    /** @var int|null */
+    private ?int $reason = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $userId;
+    /** @var int|null */
+    private ?int $userId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $processRowType;
+    /** @var int|null */
+    private ?int $processRowType = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $purchasePrice;
+    /** @var float|null */
+    private ?float $purchasePrice = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $quantity;
+    /** @var int|null */
+    private ?int $quantity = null;
 
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $reasonString;
+    /** @var string|null */
+    private ?string $reasonString = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $attributeValues;
+    /** @var string|null */
+    private ?string $attributeValues = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $warehouseName;
+    /** @var string|null */
+    private ?string $warehouseName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $storageLocationName;
+    /** @var string|null */
+    private ?string $storageLocationName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $batch;
+    /** @var string|null */
+    private ?string $batch = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Since('1.0')]
-    #[JMS\Expose]
-    private $bestBeforeDate;
+    /** @var string|null */
+    private ?string $bestBeforeDate = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
     /**
      * @return int

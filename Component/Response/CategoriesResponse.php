@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Category\Category;
 
 /**
@@ -13,12 +12,7 @@ use PM\PlentyMarketsBundle\Component\Model\Category\Category;
  */
 class CategoriesResponse extends PaginationResponse
 {
-    /**
-     * @var Category[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Category\Category>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Category\Category> */
     private array $entries = [];
 
     /**

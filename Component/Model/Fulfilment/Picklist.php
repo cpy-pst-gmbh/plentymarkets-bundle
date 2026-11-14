@@ -3,32 +3,31 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Fulfilment;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as JMS;
 
 class Picklist
 {
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $id;
 
-    #[JMS\Type("DateTime")]
+    /** @var \DateTime */
     private readonly DateTimeInterface $createdAt;
 
-    #[JMS\Type("DateTime")]
+    /** @var \DateTime|null */
     private ?DateTimeInterface $processDate = null;
 
-    #[JMS\Type("DateTime")]
+    /** @var \DateTime|null */
     private ?DateTimeInterface $doneDate = null;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $ownerId;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $processUserId = null;
 
-    #[JMS\Type("string")]
+    /** @var string */
     private string $processState = '';
 
-    #[JMS\Type(PicklistFilterOptions::class)]
+    /** @var \PicklistFilterOptions */
     private readonly PicklistFilterOptions $filterOptions;
 
     public function getId(): int

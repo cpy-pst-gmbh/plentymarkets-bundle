@@ -9,72 +9,35 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemVariationSalesPrice
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationSalesPrice
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $salesPriceId;
+    /** @var int|null */
+    private ?int $salesPriceId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $price;
+    /** @var float|null */
+    private ?float $price = null;
 
-    /**
-     * @var float|null
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lowestPrice;
+    /** @var float|null */
+    private ?float $lowestPrice = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lowestPriceCalculation;
+    /** @var bool|null */
+    private ?bool $lowestPriceCalculation = null;
 
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @return int

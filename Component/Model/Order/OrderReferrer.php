@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderReferrer
@@ -17,61 +16,26 @@ use JMS\Serializer\Annotation as JMS;
  */
 class OrderReferrer
 {
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var float|null */
+    private ?float $id = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isEditable;
+    /** @var bool|null */
+    private ?bool $isEditable = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isFilterable;
+    /** @var bool|null */
+    private ?bool $isFilterable = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $backendName;
+    /** @var string|null */
+    private ?string $backendName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $origin;
+    /** @var string|null */
+    private ?string $origin = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderOwnerId;
+    /** @var int|null */
+    private ?int $orderOwnerId = null;
 
     /**
      * @return float

@@ -3,7 +3,6 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Account\Address;
 use PM\PlentyMarketsBundle\Component\Model\Mixed\Tag;
 
@@ -23,176 +22,73 @@ class Order
     public const TYPE_REORDER = 12;
     public const TYPE_DELIVERY_PARTIAL = 13;
 
-    /**
-     * @var OrderItem[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderItem>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderItems;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderItem>|null */
+    private ?array $orderItems = null;
 
-    /**
-     * @var OrderProperty[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderProperty>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $properties;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderProperty>|null */
+    private ?array $properties = null;
 
-    /**
-     * @var Address[]|array
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\Address>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $addresses = [];
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Account\Address>|null */
+    private ?array $addresses = [];
 
-    /**
-     * @var OrderAddressRelation[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderAddressRelation>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $addressRelations;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderAddressRelation>|null */
+    private ?array $addressRelations = null;
 
-    /**
-     * @var OrderRelation[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderRelation>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $relations;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderRelation>|null */
+    private ?array $relations = null;
 
-    /**
-     * @var OrderAmount[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderAmount>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $amounts;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderAmount>|null */
+    private ?array $amounts = null;
 
-    /**
-     * @var OrderDate[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderDate>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $dates;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderDate>|null */
+    private ?array $dates = null;
 
-    /**
-     * @var OrderReference[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderReference>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderReferences;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderReference>|null */
+    private ?array $orderReferences = null;
 
-    /**
-     * @var OrderReference[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderReference>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $originOrderReferences;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderReference>|null */
+    private ?array $originOrderReferences = null;
 
-    /**
-     * @var null|OrderShippingPackage[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderShippingPackage>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $shippingPackages;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderShippingPackage>|null */
+    private ?array $shippingPackages = null;
 
-    /**
-     * @var array|Tag[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Mixed\Tag>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $tags;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Mixed\Tag>|null */
+    private ?array $tags = null;
 
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('int')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $plentyId;
+    /** @var int|null */
+    private ?int $plentyId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $locationId;
+    /** @var int|null */
+    private ?int $locationId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $statusId;
+    /** @var float|null */
+    private ?float $statusId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $statusName;
+    /** @var string|null */
+    private ?string $statusName = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $ownerId;
+    /** @var int|null */
+    private ?int $ownerId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('int')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
     /**
      * Herkuenfte haben Nachkommastellen, 4.01 ist Amazon Deutschland, 2.08 eBay Deutschland.
      *
      * @var float|null
      */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referrerId;
+    private ?float $referrerId = null;
 
 
     /**

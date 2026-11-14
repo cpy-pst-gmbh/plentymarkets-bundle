@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemVariationCharacteristic
@@ -12,88 +11,37 @@ use JMS\Serializer\Annotation as JMS;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationCharacteristic
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemId;
+    /** @var int|null */
+    private ?int $itemId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $propertyId;
+    /** @var int|null */
+    private ?int $propertyId = null;
 
-    /**
-     * @var int|null
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $propertySelectionId;
+    /** @var int|null */
+    private ?int $propertySelectionId = null;
 
-    /**
-     * @var int|null
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $valueInt;
+    /** @var int|null */
+    private ?int $valueInt = null;
 
-    /**
-     * @var float|null
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $valueFloat;
+    /** @var float|null */
+    private ?float $valueFloat = null;
 
-    /**
-     * @var string|null
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $valueFile;
+    /** @var string|null */
+    private ?string $valueFile = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $surcharge;
+    /** @var float|null */
+    private ?float $surcharge = null;
 
-    /**
-     * @var array|ItemVariationCharacteristicName[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristicName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $names = [];
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristicName>|null */
+    private ?array $names = [];
 
     /**
      * @return int

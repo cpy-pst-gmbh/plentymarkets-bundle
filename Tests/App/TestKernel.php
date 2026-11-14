@@ -3,7 +3,6 @@
 namespace PM\PlentyMarketsBundle\Tests\App;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use JMS\SerializerBundle\JMSSerializerBundle;
 use PM\PlentyMarketsBundle\PMPlentyMarketsBundle;
 use PM\PlentyMarketsBundle\Services\RestfulService;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -18,8 +17,8 @@ use function dirname;
 
 /**
  * An application as small as it gets, with the bundle set up as the shop and the helpdesk set
- * it up: Doctrine ORM (here on SQLite in memory), the JMS serializer with the names as they are,
- * and the bundle's own configuration. Only plentymarkets is played: RestfulService makes its
+ * it up: Doctrine ORM (here on SQLite in memory) and the bundle's own configuration; the bundle
+ * brings its serializer itself (#58). Only plentymarkets is played: RestfulService makes its
  * Guzzle clients with KernelRestfulService's MockHandler.
  *
  * The environment "no_verify" sets pm_plenty_markets.guzzle.verify_ssl to false.
@@ -32,7 +31,6 @@ final class TestKernel extends Kernel implements CompilerPassInterface
     {
         yield new FrameworkBundle();
         yield new DoctrineBundle();
-        yield new JMSSerializerBundle();
         // After Doctrine: the bundle's extension looks for its parameters to choose ORM or ODM.
         yield new PMPlentyMarketsBundle();
     }
@@ -68,14 +66,6 @@ final class TestKernel extends Kernel implements CompilerPassInterface
             'orm' => [
                 // As the shop and the helpdesk have it: the bundle's entities are found by itself.
                 'auto_mapping' => true,
-            ],
-        ]);
-
-        $container->extension('jms_serializer', [
-            'property_naming' => [
-                'id' => 'jms_serializer.identical_property_naming_strategy',
-                'separator' => '',
-                'lower_case' => false,
             ],
         ]);
 

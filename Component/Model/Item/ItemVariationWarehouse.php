@@ -9,120 +9,53 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class ItemVariationWarehouse
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariationWarehouse
 {
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $variationId;
+    /** @var int|null */
+    private ?int $variationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseId;
+    /** @var int|null */
+    private ?int $warehouseId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseZoneId;
+    /** @var int|null */
+    private ?int $warehouseZoneId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $reorderLevel;
+    /** @var int|null */
+    private ?int $reorderLevel = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $maximumStock;
+    /** @var int|null */
+    private ?int $maximumStock = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $stuckTurnoverInDays;
+    /** @var int|null */
+    private ?int $stuckTurnoverInDays = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageLocation;
+    /** @var int|null */
+    private ?int $storageLocation = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $stockBuffer;
+    /** @var int|null */
+    private ?int $stockBuffer = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageLocationType;
+    /** @var string|null */
+    private ?string $storageLocationType = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastUpdateTimestamp;
+    /** @var \DateTime|null */
+    private ?\DateTime $lastUpdateTimestamp = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isBatch;
+    /** @var bool|null */
+    private ?bool $isBatch = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isBestBeforeDate;
+    /** @var bool|null */
+    private ?bool $isBestBeforeDate = null;
 
     /**
      * @return int
