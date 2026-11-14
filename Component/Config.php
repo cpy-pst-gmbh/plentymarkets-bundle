@@ -32,7 +32,8 @@ class Config
         private $password,
         private readonly float $limitLock,
         private readonly float $shortLimitLock,
-        private bool $priority = false
+        private bool $priority = false,
+        private bool $wait = true
     ){
     }
 
@@ -84,6 +85,23 @@ class Config
     public function setPriority(bool $priority): Config
     {
         $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Whether a request waits: for a lock that ends within a minute, out a short period limit
+     * (70 seconds), and before trying again after a failed connection or a server error. Right
+     * for an import; a web request turns it off and gets the exception at once.
+     */
+    public function isWait(): bool
+    {
+        return $this->wait;
+    }
+
+    public function setWait(bool $wait): Config
+    {
+        $this->wait = $wait;
 
         return $this;
     }

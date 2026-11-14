@@ -9,7 +9,8 @@
 namespace PM\PlentyMarketsBundle\Component\Helper;
 
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\BadResponseException;
+use JsonException;
 use Throwable;
 
 
@@ -27,10 +28,11 @@ class ResponseHelper
      */
     public static function getErrorString(Throwable $input): string
     {
-        if ($input instanceof RequestException && null !== $input->getResponse()) {
+        /* Guzzle 8 has getResponse() only on exceptions that came with a response */
+        if ($input instanceof BadResponseException) {
             try {
-                $json = \GuzzleHttp\json_decode($input->getResponse()->getBody()->getContents(), true);
-            } catch (\InvalidArgumentException) {
+                $json = json_decode($input->getResponse()->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
+            } catch (JsonException) {
                 return 'No valid API response';
             }
 

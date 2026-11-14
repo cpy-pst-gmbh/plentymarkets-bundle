@@ -89,6 +89,9 @@ class BaseProvider
             $ignoreLock = true;
         }
 
+        /* Without waiting, a lock, a short period limit, a failed connection or a server error is returned at once (Config::setWait()) */
+        $wait = $this->getService()->getConfig()->isWait();
+
         /* Check for lock */
         $requestHeaders = $this->getClient()->getConfig('headers');
 
@@ -99,7 +102,7 @@ class BaseProvider
             $currentLock = $apiLockRepository->getActive($internalApiId);
             $oneMinuteLater = new DateTime('+61 seconds');
 
-            if ($oneMinuteLater > $currentLock->getValidUntil()) {
+            if (true === $wait && $oneMinuteLater > $currentLock->getValidUntil()) {
                 sleep($currentLock->getValidUntil()->getTimestamp() - time());
 
                 return $this->getResponse($method, $path, $options, $final, false, $flushEntities);
@@ -135,13 +138,17 @@ class BaseProvider
 
                 $this->saveRequestLimits($e->getResponse()->getHeaders(), $path, true);
 
+                if (false === $wait) {
+                    return $e;
+                }
+
                 sleep(70);
 
                 return $this->getResponse($method, $path, $options, true, $flushEntities);
             }
 
             /* Timeout or connection refused */
-            if (false === $final && $e instanceof ConnectException) {
+            if (true === $wait && false === $final && $e instanceof ConnectException) {
                 sleep(10);
 
                 return $this->getResponse($method, $path, $options, true, $flushEntities);
@@ -149,7 +156,7 @@ class BaseProvider
 
             /* Server error */
             if (
-                false === $final && $e instanceof ServerException &&
+                true === $wait && false === $final && $e instanceof ServerException &&
                 (Response::HTTP_BAD_GATEWAY === $e->getResponse()->getStatusCode() || Response::HTTP_INTERNAL_SERVER_ERROR === $e->getResponse()->getStatusCode())
             ) {
                 sleep(2);

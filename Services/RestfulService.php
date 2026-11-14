@@ -32,6 +32,7 @@ use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use PM\PlentyMarketsBundle\Entity\AccessToken;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use SensitiveParameter;
 use Symfony\Component\HttpFoundation\Request;
 use Throwable;
 
@@ -195,7 +196,7 @@ class RestfulService
 
         $uri = self::getBaseUri($config->getUri());
 
-        return new Client(
+        return $this->createClient(
             [
                 'base_uri' => $uri,
                 'verify' => $this->parameterGuzzleVerifySsl,
@@ -219,9 +220,13 @@ class RestfulService
         );
     }
 
-    public function getLoginResponse(string $uri, string $username, string $password): Throwable|ResponseInterface
+    /**
+     * The credentials go in the body: in the query they would be part of the URL, which Guzzle
+     * puts into every exception message and proxies write into their logs.
+     */
+    public function getLoginResponse(string $uri, string $username, #[SensitiveParameter] string $password): Throwable|ResponseInterface
     {
-        $client = new Client(
+        $client = $this->createClient(
             [
                 'base_uri' => $uri,
                 'verify' => $this->parameterGuzzleVerifySsl,
@@ -233,7 +238,7 @@ class RestfulService
                 Request::METHOD_POST,
                 RestfulUrl::LOGIN,
                 [
-                    RequestOptions::QUERY => [
+                    RequestOptions::FORM_PARAMS => [
                         'username' => $username,
                         'password' => $password,
                     ],
@@ -262,7 +267,7 @@ class RestfulService
             throw $response;
         }
 
-        $json = \GuzzleHttp\json_decode($response->getBody()->getContents(), true);
+        $json = json_decode($response->getBody()->getContents(), true, 512, JSON_THROW_ON_ERROR);
         $token = $json['access_token'];
 
         $this->saveAccessToken($api, $token, intval($json['expires_in']));
@@ -312,6 +317,16 @@ class RestfulService
         }
 
         return sprintf('%srest/', $uri);
+    }
+
+    /**
+     * The Guzzle client of the login and of the providers; a test can give it a handler.
+     *
+     * @param array<string, mixed> $config
+     */
+    protected function createClient(array $config): Client
+    {
+        return new Client($config);
     }
 
     private function saveObject($object): void
