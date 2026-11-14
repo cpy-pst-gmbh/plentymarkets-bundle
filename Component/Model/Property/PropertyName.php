@@ -3,43 +3,28 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Property;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 class PropertyName
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $propertyId = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $lang = '';
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $name = '';
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $description = '';
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $createdAt = null;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $updatedAt = null;
 
     public function getId(): ?int

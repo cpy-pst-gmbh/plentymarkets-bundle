@@ -16,17 +16,17 @@ services:
     arguments:
       $apiLockRepository: '@PM\PlentyMarketsBundle\DocumentRepository\ApiLockRepository'
 
-  jms_serializer.serialized_name_annotation_strategy:
-    class: JMS\Serializer\Naming\SerializedNameAnnotationStrategy
-    arguments:
-      - '@jms_serializer.identical_property_naming_strategy'
+  # The bundle's own serializer (Symfony), independent of the application's (#58).
+  pm_plenty_markets.serializer:
+    class: Symfony\Component\Serializer\SerializerInterface
+    factory: ['PM\PlentyMarketsBundle\Component\Serializer\SerializerFactory', 'create']
 
   PM\PlentyMarketsBundle\Services\RestfulService:
     arguments:
       $accessTokenRepository: '@PM\PlentyMarketsBundle\DocumentRepository\AccessTokenRepository'
       $apiLockRepository: '@PM\PlentyMarketsBundle\DocumentRepository\ApiLockRepository'
       $limitHistoryRepository: '@PM\PlentyMarketsBundle\DocumentRepository\LimitHistoryRepository'
-      $serializer: '@jms_serializer.serializer'
+      $serializer: '@pm_plenty_markets.serializer'
       $objectManager: '@Doctrine\ODM\MongoDB\DocumentManager'
       $logger: '@logger'
       $parameterGuzzleVerifySsl: '%pm__plenty_market.configuration.guzzle.verify_ssl%'

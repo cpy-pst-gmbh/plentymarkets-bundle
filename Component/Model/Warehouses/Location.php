@@ -9,111 +9,49 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Warehouses;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class Location
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Warehouses
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Location
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $levelId;
+    /** @var int|null */
+    private ?int $levelId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $label;
+    /** @var string|null */
+    private ?string $label = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $purposeKey;
+    /** @var string|null */
+    private ?string $purposeKey = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $statusKey;
+    /** @var string|null */
+    private ?string $statusKey = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $type;
+    /** @var string|null */
+    private ?string $type = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $pickupPathPosition;
+    /** @var string|null */
+    private ?string $pickupPathPosition = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $fullLabel;
+    /** @var string|null */
+    private ?string $fullLabel = null;
 
-    /**
-     * @var Level
-     */
-    #[JMS\Type(\PM\PlentyMarketsBundle\Component\Model\Warehouses\Level::class)]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseLocationLevel;
+    /** @var \PM\PlentyMarketsBundle\Component\Model\Warehouses\Level|null */
+    private ?\PM\PlentyMarketsBundle\Component\Model\Warehouses\Level $warehouseLocationLevel = null;
 
     /**
      * @return int

@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use PM\PlentyMarketsBundle\Component\Config;
 use PM\PlentyMarketsBundle\Component\Helper\ServiceHelper;
 use PM\PlentyMarketsBundle\Component\Interfaces\AccessTokenRepositoryInterface;

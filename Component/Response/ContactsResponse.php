@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Account\Contact;
 use PM\PlentyMarketsBundle\Component\Model\Item\Item;
 
@@ -17,15 +16,9 @@ use PM\PlentyMarketsBundle\Component\Model\Item\Item;
  *
  * @package PM\PlentyMarketsBundle\Component\Response
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ContactsResponse extends PaginationResponse
 {
-    /**
-     * @var Contact[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\Contact>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Account\Contact> */
     private array $entries = [];
 
     /**

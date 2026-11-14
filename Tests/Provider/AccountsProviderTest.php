@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use JMS\Serializer\Exception\RuntimeException as SerializerRuntimeException;
+use Symfony\Component\Serializer\Exception\ExceptionInterface as SerializerRuntimeException;
 use PM\PlentyMarketsBundle\Component\Model\Account\Contact;
 use PM\PlentyMarketsBundle\Component\Provider\AccountsProvider;
 use PM\PlentyMarketsBundle\Component\Response\ContactsResponse;
@@ -32,14 +32,12 @@ final class AccountsProviderTest extends ProviderTestCase
         self::assertSame('2026-03-12T10:39:00+01:00', $contact->getUpdatedAt()->format(DATE_ATOM));
     }
 
-    public function testAContactDoesNotFixTheZeroDateAndThrowsOnIt(): void
+    public function testAContactReadsTheZeroDate(): void
     {
         $this->respond(['id' => 1018, 'birthdayAt' => '-0001-11-30T00:00:00+01:00']);
 
-        $this->expectException(SerializerRuntimeException::class);
-        $this->expectExceptionMessage('Invalid datetime "-0001-11-30T00:00:00+01:00"');
-
-        $this->provider()->getContact(1018);
+        // JMS refused it here, where getBodyContentsWithFixedDate() is not used; Symfony reads it (#58).
+        self::assertSame('-0001-11-30', $this->provider()->getContact(1018)->getBirthdayAt()->format('Y-m-d'));
     }
 
     public function testAContactGivesTheErrorBack(): void

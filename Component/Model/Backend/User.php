@@ -3,39 +3,22 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Backend;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class User
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Backend
  */
-#[JMS\ExclusionPolicy('ALL')]
 class User
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id = 0;
+    /** @var int|null */
+    private ?int $id = 0;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $realName = '';
+    /** @var string|null */
+    private ?string $realName = '';
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $email = '';
+    /** @var string|null */
+    private ?string $email = '';
 
     public function getId(): int
     {

@@ -8,39 +8,22 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Base;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class BaseVat
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Base
  */
-#[JMS\ExclusionPolicy('ALL')]
 class BaseVat
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $vatField;
+    /** @var int|null */
+    private ?int $vatField = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $vatAmount;
+    /** @var int|null */
+    private ?int $vatAmount = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $value;
+    /** @var float|null */
+    private ?float $value = null;
 
     /**
      * @return int

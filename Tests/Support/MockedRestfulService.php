@@ -8,7 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
-use JMS\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 use PHPUnit\Framework\TestCase;
 use PM\PlentyMarketsBundle\Component\Interfaces\AccessTokenRepositoryInterface;
 use PM\PlentyMarketsBundle\Component\Interfaces\ApiLockRepositoryInterface;

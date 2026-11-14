@@ -2,42 +2,28 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Listing;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Market listing of a variation, listings/markets. The id is the listing id at the market.
  */
-#[JMS\ExclusionPolicy('ALL')]
 class ListingMarket
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $listingId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $variationId = null;
 
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var float|null */
     private ?float $referrerId = null;
 
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var bool|null */
     private ?bool $enabled = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string|null */
     private ?string $verified = null;
 
     public function getId(): ?int

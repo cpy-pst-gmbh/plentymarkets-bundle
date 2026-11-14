@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Base;
 
-use JMS\Serializer\Annotation as JMS;
 
 
 /**
@@ -16,64 +15,28 @@ use JMS\Serializer\Annotation as JMS;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Base
  */
-#[JMS\ExclusionPolicy('ALL')]
 class BaseAddress
 {
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name1;
+    /** @var string|null */
+    private ?string $name1 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address1;
+    /** @var string|null */
+    private ?string $address1 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $address2;
+    /** @var string|null */
+    private ?string $address2 = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $postalCode;
+    /** @var string|null */
+    private ?string $postalCode = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $town;
+    /** @var string|null */
+    private ?string $town = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $countryId;
+    /** @var int|null */
+    private ?int $countryId = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $options;
+    /** @var array|null */
+    private ?array $options = null;
 
     /**
      * @return string

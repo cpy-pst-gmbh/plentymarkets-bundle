@@ -8,55 +8,28 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class OrderPropertyType
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderPropertyType
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isErasable;
+    /** @var bool|null */
+    private ?bool $isErasable = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $cast;
+    /** @var string|null */
+    private ?string $cast = null;
 
-    /**
-     * @var OrderPropertyTypeName[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\OrderPropertyTypeName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $names;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderPropertyTypeName>|null */
+    private ?array $names = null;
 
     /**
      * @return int

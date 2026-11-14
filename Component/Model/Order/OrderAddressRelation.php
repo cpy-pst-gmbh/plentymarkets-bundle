@@ -2,25 +2,20 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 class OrderAddressRelation
 {
     public const TYPE_ID_BILLING = 1;
     public const TYPE_ID_DELIVERY = 2;
 
-    #[JMS\Type('integer')]
-    #[JMS\Since('1.0')]
-    private $orderId;
+    /** @var int|null */
+    private ?int $orderId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $addressId;
+    /** @var int|null */
+    private ?int $addressId = null;
 
     /**
      * @return int

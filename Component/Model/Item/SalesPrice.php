@@ -9,127 +9,55 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class SalesPrice
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Item
  */
-#[JMS\ExclusionPolicy('ALL')]
 class SalesPrice
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $minimumOrderQuantity;
+    /** @var float|null */
+    private ?float $minimumOrderQuantity = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $type;
+    /** @var string|null */
+    private ?string $type = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isCustomerPrice;
+    /** @var bool|null */
+    private ?bool $isCustomerPrice = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isDisplayedByDefault;
+    /** @var bool|null */
+    private ?bool $isDisplayedByDefault = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isLiveConversion;
+    /** @var bool|null */
+    private ?bool $isLiveConversion = null;
 
-    /**
-     * @var SalesPriceName[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $names;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceName>|null */
+    private ?array $names = null;
 
-    /**
-     * @var SalesPriceAccount[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceAccount>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $accounts;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceAccount>|null */
+    private ?array $accounts = null;
 
-    /**
-     * @var SalesPriceCountry[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCountry>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $countries;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCountry>|null */
+    private ?array $countries = null;
 
-    /**
-     * @var SalesPriceCurrency[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCurrency>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $currencies;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCurrency>|null */
+    private ?array $currencies = null;
 
-    /**
-     * @var SalesPriceCustomerClass[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCustomerClass>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $customerClasses;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceCustomerClass>|null */
+    private ?array $customerClasses = null;
 
-    /**
-     * @var SalesPriceReferrer[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceReferrer>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referrers;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceReferrer>|null */
+    private ?array $referrers = null;
 
-    /**
-     * @var SalesPriceOnlineStore[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceOnlineStore>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $clients;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceOnlineStore>|null */
+    private ?array $clients = null;
 
     /**
      * @return int

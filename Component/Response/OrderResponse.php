@@ -3,7 +3,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Order\Order;
 
 /**
@@ -13,12 +12,7 @@ use PM\PlentyMarketsBundle\Component\Model\Order\Order;
  */
 class OrderResponse extends PaginationResponse
 {
-    /**
-     * @var Order[]|array
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\Order>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\Order> */
     private array $entries = [];
 
     /**

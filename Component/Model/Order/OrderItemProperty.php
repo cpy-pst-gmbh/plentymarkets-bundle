@@ -9,7 +9,6 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Traits\HasConstantsTrait;
 
 /**
@@ -17,7 +16,6 @@ use PM\PlentyMarketsBundle\Component\Traits\HasConstantsTrait;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderItemProperty
 {
     use HasConstantsTrait;
@@ -53,53 +51,23 @@ class OrderItemProperty
     const REORDER_ITEM_ID = 39;
     const LISTING_TYPE = 40;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $orderItemId;
+    /** @var int|null */
+    private ?int $orderItemId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $value;
+    /** @var string|null */
+    private ?string $value = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
     /**
      * @return int

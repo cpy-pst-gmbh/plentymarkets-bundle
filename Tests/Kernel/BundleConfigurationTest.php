@@ -27,7 +27,7 @@ final class BundleConfigurationTest extends BundleKernelTestCase
         self::assertSame($this->service(ApiLockRepository::class), $service->getApiLockRepository());
         self::assertSame($this->service(LimitHistoryRepository::class), $service->getLimitHistoryRepository());
         self::assertSame($this->entityManager(), $service->getObjectManager());
-        self::assertInstanceOf(\JMS\Serializer\SerializerInterface::class, $service->getSerializer());
+        self::assertInstanceOf(\Symfony\Component\Serializer\SerializerInterface::class, $service->getSerializer());
         self::assertInstanceOf(AccessTokenRepository::class, $this->service(AccessTokenRepository::class));
         self::assertInstanceOf(ApiTwigExtension::class, $this->service(ApiTwigExtension::class));
         self::assertInstanceOf(AccountsTwigExtension::class, $this->service(AccountsTwigExtension::class));

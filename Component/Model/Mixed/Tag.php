@@ -3,33 +3,22 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Mixed;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 
 class Tag
 {
-    #[JMS\Type('int')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $tagName = '';
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string */
     private string $color = '';
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $createdAt = null;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime|null */
     private ?DateTime $updatedAt = null;
 
     public function getId(): ?int

@@ -274,7 +274,7 @@ class ItemsProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', ItemShippingProfile::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemShippingProfile::class.'[]', 'json');
     }
 
     public function getUpdatedSince(?DateTimeInterface $since): array
@@ -321,7 +321,7 @@ class ItemsProvider extends BaseProvider
             return $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', ItemVariationDescription::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemVariationDescription::class.'[]', 'json');
     }
 
     public function getVariationImages(int $itemId, int $variationId): array
@@ -331,7 +331,7 @@ class ItemsProvider extends BaseProvider
             throw $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', ItemImage::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemImage::class.'[]', 'json');
     }
 
     public function getVariationStock(int $itemId, int $variationId, bool $flushEntities = true): array
@@ -348,7 +348,7 @@ class ItemsProvider extends BaseProvider
             throw $response;
         }
 
-        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), sprintf('array<%s>', ItemVariationStock::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemVariationStock::class.'[]', 'json');
     }
 
     public function getVariationWarehouses(int $itemId, int $variationId): array|Throwable
@@ -360,7 +360,7 @@ class ItemsProvider extends BaseProvider
 
         $body = $this->getBodyContentsWithFixedDate($response);
 
-        return $this->getService()->getSerializer()->deserialize($body, sprintf('array<%s>', ItemVariationWarehouse::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($body, ItemVariationWarehouse::class.'[]', 'json');
     }
 
     public function getVariationBarcodes(int $itemId, int $variationId): array
@@ -372,7 +372,7 @@ class ItemsProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', ItemVariationBarcode::class),
+            ItemVariationBarcode::class.'[]',
             'json'
         );
     }
@@ -435,7 +435,7 @@ class ItemsProvider extends BaseProvider
 
         return $this->getService()->getSerializer()->deserialize(
             $response->getBody()->getContents(),
-            sprintf('array<%s>', ItemVariationSalesPrice::class),
+            ItemVariationSalesPrice::class.'[]',
             'json'
         );
     }
@@ -449,7 +449,7 @@ class ItemsProvider extends BaseProvider
 
         $body = $this->getBodyContentsWithFixedDate($response);
 
-        return $this->getService()->getSerializer()->deserialize($body, sprintf('array<%s>', ItemVariationSupplier::class), 'json');
+        return $this->getService()->getSerializer()->deserialize($body, ItemVariationSupplier::class.'[]', 'json');
     }
 
     public function getVariationsUpdatedSince(?DateTimeInterface $since, array $with = []): array

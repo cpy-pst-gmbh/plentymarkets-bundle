@@ -4,7 +4,9 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Warehouses;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
+use Symfony\Component\Serializer\Attribute\Context;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 
 /**
  * Class LocationStock
@@ -14,115 +16,51 @@ use JMS\Serializer\Annotation as JMS;
 class LocationStock
 {
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('storage_location')]
-    private $storageLocation;
+    /** @var int|null */
+    #[SerializedName('storage_location')]
+    private ?int $storageLocation = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('item_id')]
-    private $itemId;
+    /** @var int|null */
+    #[SerializedName('item_id')]
+    private ?int $itemId = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('attribute_value_set')]
-    private $attributeValueSet;
+    /** @var int|null */
+    #[SerializedName('attribute_value_set')]
+    private ?int $attributeValueSet = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('warehouse_id')]
-    private $warehouseId;
+    /** @var int|null */
+    #[SerializedName('warehouse_id')]
+    private ?int $warehouseId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $quantity;
+    /** @var float|null */
+    private ?float $quantity = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $reserved;
+    /** @var float|null */
+    private ?float $reserved = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('variation_id')]
-    private $variationId;
+    /** @var int|null */
+    #[SerializedName('variation_id')]
+    private ?int $variationId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type("DateTime<'Y-m-d H:i:s'>")]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    #[JMS\SerializedName('last_update')]
-    private $lastUpdate;
+    /** @var \DateTime|null */
+    #[SerializedName('last_update')]
+    #[Context(denormalizationContext: [DateTimeNormalizer::FORMAT_KEY => 'Y-m-d H:i:s'])]
+    private ?\DateTime $lastUpdate = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $batchBestBeforeDateId;
+    /** @var int|null */
+    private ?int $batchBestBeforeDateId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $fullLabel;
+    /** @var string|null */
+    private ?string $fullLabel = null;
 
-    /**
-     * @var integer|null
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseLocationLevel;
+    /** @var int|null */
+    private ?int $warehouseLocationLevel = null;
 
     public function getId(): int
     {

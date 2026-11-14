@@ -91,13 +91,12 @@ final class ItemsProviderTest extends ProviderTestCase
         self::assertSame([], $this->items()->getAll());
     }
 
-    public function testTheZeroDateOfAnItemIsNotFixedAndRefused(): void
+    public function testTheZeroDateOfAnItemIsRead(): void
     {
         $this->respond(self::page([['id' => 1, 'updatedAt' => self::ZERO_DATE]], true));
 
-        $this->expectException(RuntimeException::class);
-
-        $this->items()->getAll();
+        // JMS refused it here, where getBodyContentsWithFixedDate() is not used; Symfony reads it (#58).
+        self::assertSame('-0001-11-30', $this->items()->getAll()[0]->getUpdatedAt()->format('Y-m-d'));
     }
 
     // getVariationsPage()
@@ -462,13 +461,11 @@ final class ItemsProviderTest extends ProviderTestCase
         ));
     }
 
-    public function testTheZeroDateOfASalesPriceIsNotFixedAndRefused(): void
+    public function testTheZeroDateOfASalesPriceIsRead(): void
     {
         $this->respond([['variationId' => 2, 'salesPriceId' => 1, 'updatedAt' => self::ZERO_DATE]]);
 
-        $this->expectException(RuntimeException::class);
-
-        $this->items()->getVariationSalesPrices(1, 2);
+        self::assertSame('-0001-11-30', $this->items()->getVariationSalesPrices(1, 2)[0]->getUpdatedAt()->format('Y-m-d'));
     }
 
     // getVariationSuppliers()

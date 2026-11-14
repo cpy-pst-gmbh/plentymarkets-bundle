@@ -9,7 +9,6 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Account;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Config\CountryIdType;
 
 /**
@@ -17,319 +16,128 @@ use PM\PlentyMarketsBundle\Component\Config\CountryIdType;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Account
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Contact
 {
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $number;
+    /** @var string|null */
+    private ?string $number = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $externalId;
+    /** @var string|null */
+    private ?string $externalId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $typeId;
+    /** @var int|null */
+    private ?int $typeId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $firstName;
+    /** @var string|null */
+    private ?string $firstName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastName;
+    /** @var string|null */
+    private ?string $lastName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $gender;
+    /** @var string|null */
+    private ?string $gender = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $title;
+    /** @var string|null */
+    private ?string $title = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $formOfAddress;
+    /** @var string|null */
+    private ?string $formOfAddress = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $newsletterAllowanceAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $newsletterAllowanceAt = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $classId;
+    /** @var int|null */
+    private ?int $classId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $blocked;
+    /** @var int|null */
+    private ?int $blocked = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $rating;
+    /** @var int|null */
+    private ?int $rating = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $bookAccount;
+    /** @var string|null */
+    private ?string $bookAccount = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lang;
+    /** @var string|null */
+    private ?string $lang = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $referrerId;
+    /** @var float|null */
+    private ?float $referrerId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $userId;
+    /** @var int|null */
+    private ?int $userId = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $birthdayAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $birthdayAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastLoginAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $lastLoginAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastOrderAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $lastOrderAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $plentyId;
+    /** @var int|null */
+    private ?int $plentyId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $email;
+    /** @var string|null */
+    private ?string $email = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $ebayName;
+    /** @var string|null */
+    private ?string $ebayName = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $privatePhone;
+    /** @var string|null */
+    private ?string $privatePhone = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $privateFax;
+    /** @var string|null */
+    private ?string $privateFax = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $privateMobile;
+    /** @var string|null */
+    private ?string $privateMobile = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $paypalEmail;
+    /** @var string|null */
+    private ?string $paypalEmail = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $paypalPayerId;
+    /** @var string|null */
+    private ?string $paypalPayerId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $klarnaPersonalId;
+    /** @var string|null */
+    private ?string $klarnaPersonalId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $dhlPostIdent;
+    /** @var string|null */
+    private ?string $dhlPostIdent = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $singleAccess;
+    /** @var string|null */
+    private ?string $singleAccess = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $contactPerson;
+    /** @var string|null */
+    private ?string $contactPerson = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $marketplacePartner;
+    /** @var string|null */
+    private ?string $marketplacePartner = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $fullName;
+    /** @var string|null */
+    private ?string $fullName = null;
 
 
-    /**
-     * @var ContactOption
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\ContactOption>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $options;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Account\ContactOption>|null */
+    private ?array $options = null;
 
     /**
      * Payment settings, with=allowedMethodsOfPayment. Null when not requested.
      *
-     * @var ContactAllowedMethodOfPayment[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Account\ContactAllowedMethodOfPayment>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Account\ContactAllowedMethodOfPayment>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $allowedMethodsOfPayment = null;
 
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var bool|null */
     private ?bool $isAnonymized = null;
 
     /**

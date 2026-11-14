@@ -4,7 +4,6 @@
 namespace PM\PlentyMarketsBundle\Component\Response;
 
 use PM\PlentyMarketsBundle\Component\Model\Warehouses\LocationStock;
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class LocationStockResponse
@@ -14,12 +13,7 @@ use JMS\Serializer\Annotation as JMS;
 class LocationStockResponse extends PaginationResponse
 {
 
-    /**
-     * @var LocationStock[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Warehouses\LocationStock>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Warehouses\LocationStock> */
     private array $entries = [];
 
     /**

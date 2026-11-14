@@ -3,24 +3,19 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as JMS;
 
 class ItemShippingProfile
 {
-    #[JMS\Type('integer')]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $id;
 
-    #[JMS\Type('integer')]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $itemId;
 
-    #[JMS\Type('integer')]
-    #[JMS\Since('1.0')]
+    /** @var int */
     private int $profileId;
 
-    #[JMS\Type('DateTime')]
-    #[JMS\Since('1.0')]
+    /** @var \DateTime */
     private DateTimeInterface $updatedAt;
 
     public function getId(): int

@@ -3,649 +3,283 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
 use DateTime;
-use JMS\Serializer\Annotation as JMS;
+use Symfony\Component\Serializer\Attribute\SerializedName;
 use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
 
-#[JMS\ExclusionPolicy('ALL')]
 class ItemVariation
 {
     public const BUNDLE_TYPE_BUNDLE = 'bundle';
     public const BUNDLE_TYPE_ITEM = 'bundle_item';
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
+    /** @var int|null */
+    private ?int $id = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isMain;
+    /** @var bool|null */
+    private ?bool $isMain = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $mainVariationId;
+    /** @var int|null */
+    private ?int $mainVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemId;
+    /** @var int|null */
+    private ?int $itemId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $categoryVariationId;
+    /** @var int|null */
+    private ?int $categoryVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $marketVariationId;
+    /** @var int|null */
+    private ?int $marketVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $clientVariationId;
+    /** @var int|null */
+    private ?int $clientVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $salesPriceVariationId;
+    /** @var int|null */
+    private ?int $salesPriceVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $supplierVariationId;
+    /** @var int|null */
+    private ?int $supplierVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $warehouseVariationId;
+    /** @var int|null */
+    private ?int $warehouseVariationId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $position;
+    /** @var int|null */
+    private ?int $position = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isActive;
+    /** @var bool|null */
+    private ?bool $isActive = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $number;
+    /** @var string|null */
+    private ?string $number = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $model;
+    /** @var string|null */
+    private ?string $model = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $externalId;
+    /** @var string|null */
+    private ?string $externalId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $availability;
+    /** @var int|null */
+    private ?int $availability = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $estimatedAvailableAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $estimatedAvailableAt = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $purchasePrice;
+    /** @var float|null */
+    private ?float $purchasePrice = null;
 
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var float|null */
     private ?float $movingAveragePrice = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $createdAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $createdAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $updatedAt = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $relatedUpdatedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $relatedUpdatedAt = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $priceCalculationId;
+    /** @var int|null */
+    private ?int $priceCalculationId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $picking;
+    /** @var string|null */
+    private ?string $picking = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $stockLimitation;
+    /** @var int|null */
+    private ?int $stockLimitation = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isVisibleIfNetStockIsPositive;
+    /** @var bool|null */
+    private ?bool $isVisibleIfNetStockIsPositive = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isInvisibleIfNetStockIsNotPositive;
+    /** @var bool|null */
+    private ?bool $isInvisibleIfNetStockIsNotPositive = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isVisibleInListIfNetStockIsPositive;
+    /** @var bool|null */
+    private ?bool $isVisibleInListIfNetStockIsPositive = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isInvisibleInListIfNetStockIsNotPositive;
+    /** @var bool|null */
+    private ?bool $isInvisibleInListIfNetStockIsNotPositive = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isAvailableIfNetStockIsPositive;
+    /** @var bool|null */
+    private ?bool $isAvailableIfNetStockIsPositive = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isUnavailableIfNetStockIsNotPositive;
+    /** @var bool|null */
+    private ?bool $isUnavailableIfNetStockIsNotPositive = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $mainWarehouseId;
+    /** @var int|null */
+    private ?int $mainWarehouseId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $maximumOrderQuantity;
+    /** @var int|null */
+    private ?int $maximumOrderQuantity = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $minimumOrderQuantity;
+    /** @var int|null */
+    private ?int $minimumOrderQuantity = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $intervalOrderQuantity;
+    /** @var int|null */
+    private ?int $intervalOrderQuantity = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $availableUntil;
+    /** @var string|null */
+    private ?string $availableUntil = null;
 
-    /**
-     * @var DateTime
-     */
-    #[JMS\Type('DateTime')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $releasedAt;
+    /** @var \DateTime|null */
+    private ?\DateTime $releasedAt = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $name;
+    /** @var string|null */
+    private ?string $name = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $weightG;
+    /** @var int|null */
+    private ?int $weightG = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $weightNetG;
+    /** @var int|null */
+    private ?int $weightNetG = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $widthMM;
+    /** @var int|null */
+    private ?int $widthMM = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lengthMM;
+    /** @var int|null */
+    private ?int $lengthMM = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $heightMM;
+    /** @var int|null */
+    private ?int $heightMM = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $extraShippingCharge1;
+    /** @var float|null */
+    private ?float $extraShippingCharge1 = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $extraShippingCharge2;
+    /** @var float|null */
+    private ?float $extraShippingCharge2 = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $unitsContained;
+    /** @var int|null */
+    private ?int $unitsContained = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $palletTypeId;
+    /** @var int|null */
+    private ?int $palletTypeId = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packingUnits;
+    /** @var int|null */
+    private ?int $packingUnits = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $packingUnitTypeId;
+    /** @var int|null */
+    private ?int $packingUnitTypeId = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $transportationCosts;
+    /** @var float|null */
+    private ?float $transportationCosts = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $storageCosts;
+    /** @var float|null */
+    private ?float $storageCosts = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $customs;
+    /** @var float|null */
+    private ?float $customs = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $operatingCosts;
+    /** @var float|null */
+    private ?float $operatingCosts = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $vatId;
+    /** @var int|null */
+    private ?int $vatId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $bundleType;
+    /** @var string|null */
+    private ?string $bundleType = null;
 
-    /**
-     * @var int
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $automaticClientVisibility;
+    /** @var int|null */
+    private ?int $automaticClientVisibility = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isHiddenInCategoryList;
+    /** @var bool|null */
+    private ?bool $isHiddenInCategoryList = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $defaultShippingCosts;
+    /** @var float|null */
+    private ?float $defaultShippingCosts = null;
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $mayShowUnitPrice;
+    /** @var bool|null */
+    private ?bool $mayShowUnitPrice = null;
 
-    /**
-     * @var array|ItemImage[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImage>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemImage> */
     private array $images = [];
 
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemImage>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemImage> */
     private array $itemImages = [];
 
-    /**
-     * @var array|ItemVariationBarcode[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBarcode>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBarcode> */
     private array $variationBarcodes = [];
 
-    /**
-     * @var array|ItemVariationBarcode[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCategory>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCategory> */
     private array $variationCategories = [];
 
-    /**
-     * @var array|ItemVariationSalesPrice[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSalesPrice>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSalesPrice> */
     private array $variationSalesPrices = [];
 
-    /**
-     * @var array|ItemVariationMarket[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarket>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarket> */
     private array $variationMarkets = [];
 
-    /**
-     * @var array|ItemVariationMarketNumber[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarketNumber>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationMarketNumber> */
     private array $marketItemNumbers = [];
 
-    /**
-     * @var array|ItemVariationBundleComponent[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBundleComponent>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationBundleComponent> */
     private array $variationBundleComponents = [];
 
     /**
      * Merkmale (alte Eigenschaften), with=variationProperties
      *
-     * @var array|ItemVariationCharacteristic[]
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristic>
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationCharacteristic>')]
-    #[JMS\Expose]
-    #[JMS\SerializedName('variationProperties')]
-    #[JMS\Since('1.0')]
+    #[SerializedName('variationProperties')]
     private array $variationCharacteristics = [];
 
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku> */
     private array $variationSkus = [];
 
-    /**
-     * @var array|ItemVariationSupplier[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSupplier>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSupplier> */
     private array $variationSuppliers = [];
 
-    /**
-     * @var array|Relation[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\Relation>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Property\Relation> */
     private array $properties = [];
 
     /**
      * Tags, with=tags. Null when not requested.
      *
-     * @var ItemVariationTag[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationTag>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationTag>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $tags = null;
 
     /**
      * Clients, with=variationClients. Null when not requested.
      *
-     * @var ItemVariationClient[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationClient>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationClient>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $variationClients = null;
 
     /**
      * Default categories, with=variationDefaultCategory. Null when not requested.
      *
-     * @var ItemVariationDefaultCategory[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationDefaultCategory>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationDefaultCategory>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $variationDefaultCategory = null;
 
     /**
      * Stock per warehouse, with=stock. Null when not requested.
      *
-     * @var ItemVariationStock[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationStock>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationStock>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $stock = null;
 
     /**
      * Reorder levels and more per warehouse, with=variationWarehouses. Null when not requested.
      *
-     * @var ItemVariationWarehouse[]|null
+     * @var list<\PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationWarehouse>|null
      */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationWarehouse>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?array $variationWarehouses = null;
 
     /**
      * Unit and content, with=unit. Null when not requested.
+     * @var \PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationUnit|null
      */
-    #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationUnit')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?ItemVariationUnit $unit = null;
 
     /**
      * Item, with=item. Null when not requested.
+     * @var \PM\PlentyMarketsBundle\Component\Model\Item\Item|null
      */
-    #[JMS\Type('PM\PlentyMarketsBundle\Component\Model\Item\Item')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?Item $item = null;
 
     /**
      * Customs tariff number, plenty keeps it at the variation. Writing the field of the item has no effect.
+     * @var string|null
      */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
     private ?string $customsTariffNumber = null;
 
     public function getId(): ?int

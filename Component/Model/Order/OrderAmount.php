@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Base\BaseAmount;
 use PM\PlentyMarketsBundle\Component\Model\Base\BaseVat;
 
@@ -17,73 +16,31 @@ use PM\PlentyMarketsBundle\Component\Model\Base\BaseVat;
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderAmount extends BaseAmount
 {
 
-    /**
-     * @var bool
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isNet;
+    /** @var bool|null */
+    private ?bool $isNet = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $netTotal;
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $grossTotal;
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $vatTotal;
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $invoiceTotal;
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $paidAmount;
+    /** @var float|null */
+    private ?float $netTotal = null;
+    /** @var float|null */
+    private ?float $grossTotal = null;
+    /** @var float|null */
+    private ?float $vatTotal = null;
+    /** @var float|null */
+    private ?float $invoiceTotal = null;
+    /** @var float|null */
+    private ?float $paidAmount = null;
 
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var float|null */
     private ?float $shippingCostsGross = null;
 
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var float|null */
     private ?float $shippingCostsNet = null;
 
-    /**
-     * @var BaseVat
-     *
-     *
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Base\BaseVat>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $vats;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Base\BaseVat>|null */
+    private ?array $vats = null;
 
     /**
      * @return boolean

@@ -3,15 +3,11 @@
 namespace PM\PlentyMarketsBundle\Component\Response;
 
 use AppBundle\Entity\Property\Property;
-use JMS\Serializer\Annotation as JMS;
 
-#[JMS\ExclusionPolicy('ALL')]
 class PropertiesResponse extends PaginationResponse
 {
 
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Property\Property>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Property\Property> */
     private array $entries = [];
 
     /**

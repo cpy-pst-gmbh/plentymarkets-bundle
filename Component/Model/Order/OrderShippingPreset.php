@@ -8,201 +8,86 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\Order\ParcelServiceName;
 /**
  * Class OrderShippingPreset
  *
  * @package PM\PlentyMarketsBundle\Component\Model\Order
  */
-#[JMS\ExclusionPolicy('ALL')]
 class OrderShippingPreset
 {
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $id;
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $parcelServiceId;
+    /** @var int|null */
+    private ?int $id = null;
+    /** @var int|null */
+    private ?int $parcelServiceId = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $backendName;
+    /** @var string|null */
+    private ?string $backendName = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $flag;
+    /** @var int|null */
+    private ?int $flag = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $priority;
+    /** @var int|null */
+    private ?int $priority = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $category;
+    /** @var int|null */
+    private ?int $category = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $useArticlePorto;
+    /** @var int|null */
+    private ?int $useArticlePorto = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isInsured;
+    /** @var int|null */
+    private ?int $isInsured = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isExpress;
+    /** @var int|null */
+    private ?int $isExpress = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isPostident;
+    /** @var int|null */
+    private ?int $isPostident = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isDefaultEnabled;
+    /** @var int|null */
+    private ?int $isDefaultEnabled = null;
 
-    /**
-     * @var float
-     */
-    #[JMS\Type('float')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $islandFee;
+    /** @var float|null */
+    private ?float $islandFee = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $shippingGroup;
+    /** @var string|null */
+    private ?string $shippingGroup = null;
 
-    /**
-     * @var string
-     */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $dispatchIdentifier;
+    /** @var string|null */
+    private ?string $dispatchIdentifier = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $auctionType;
+    /** @var int|null */
+    private ?int $auctionType = null;
 
     /**
      * Warning: string, not DateTime!
      *
-     * @var string
      *      *
+     * @var string|null
      */
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $updatedAt;
+    private ?string $updatedAt = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $supportedMultishop;
+    /** @var list<string>|null */
+    private ?array $supportedMultishop = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $supportedReferrer;
+    /** @var list<string>|null */
+    private ?array $supportedReferrer = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $subreferrerSupport;
+    /** @var list<string>|null */
+    private ?array $subreferrerSupport = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $excludedPaymentMethods;
+    /** @var list<string>|null */
+    private ?array $excludedPaymentMethods = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $excludedCustomerGroups;
+    /** @var list<string>|null */
+    private ?array $excludedCustomerGroups = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<string>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $supportedLoyaltyPrograms;
+    /** @var list<string>|null */
+    private ?array $supportedLoyaltyPrograms = null;
 
-    /**
-     * @var array
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Order\ParcelServiceName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $parcelServiceNames;
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\ParcelServiceName>|null */
+    private ?array $parcelServiceNames = null;
 
 
     /**

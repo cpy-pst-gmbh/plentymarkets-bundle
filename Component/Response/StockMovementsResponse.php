@@ -8,7 +8,6 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 use PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement;
 
 /**
@@ -16,15 +15,9 @@ use PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement;
  *
  * @package PM\PlentyMarketsBundle\Component\Response
  */
-#[JMS\ExclusionPolicy('ALL')]
 class StockMovementsResponse extends PaginationResponse
 {
-    /**
-     * @var StockMovement[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement> */
     private array $entries = [];
 
     /**

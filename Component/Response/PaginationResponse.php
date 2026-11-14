@@ -8,72 +8,35 @@
 
 namespace PM\PlentyMarketsBundle\Component\Response;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Class PaginationResponse
  *
  * @package PM\PlentyMarketsBundle\Component\Response
  */
-#[JMS\ExclusionPolicy('ALL')]
 class PaginationResponse
 {
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $page;
+    /** @var int|null */
+    private ?int $page = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $totalsCount;
+    /** @var int|null */
+    private ?int $totalsCount = null;
 
-    /**
-     * @var boolean
-     */
-    #[JMS\Type('boolean')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $isLastPage;
+    /** @var bool|null */
+    private ?bool $isLastPage = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastPageNumber;
+    /** @var int|null */
+    private ?int $lastPageNumber = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $firstOnPage;
+    /** @var int|null */
+    private ?int $firstOnPage = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $lastOnPage;
+    /** @var int|null */
+    private ?int $lastOnPage = null;
 
-    /**
-     * @var integer
-     */
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
-    private $itemsPerPage;
+    /** @var int|null */
+    private ?int $itemsPerPage = null;
 
     /**
      * @return int

@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use JMS\Serializer\Exception\RuntimeException as SerializerRuntimeException;
+use Symfony\Component\Serializer\Exception\ExceptionInterface as SerializerRuntimeException;
 use PM\PlentyMarketsBundle\Component\Model\Order\Order;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderDateType;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderItem;
@@ -363,14 +363,12 @@ final class OrdersProviderTest extends ProviderTestCase
         self::assertSame('2026-03-15T10:58:00+01:00', $history[0]->getCreatedAt()->format(DATE_ATOM));
     }
 
-    public function testTheStatusHistoryOfAnOrderDoesNotFixTheZeroDateAndThrowsOnIt(): void
+    public function testTheStatusHistoryOfAnOrderReadsTheZeroDate(): void
     {
         $this->respond([['createdAt' => '-0001-11-30T00:00:00+01:00'] + self::fixture('Model/Order/StatusHistoryEntry')]);
 
-        $this->expectException(SerializerRuntimeException::class);
-        $this->expectExceptionMessage('Invalid datetime "-0001-11-30T00:00:00+01:00"');
-
-        $this->provider()->getStatusHistory(2916);
+        // JMS refused it here, where getBodyContentsWithFixedDate() is not used; Symfony reads it (#58).
+        self::assertSame('-0001-11-30', $this->provider()->getStatusHistory(2916)[0]->getCreatedAt()->format('Y-m-d'));
     }
 
     public function testTheStatusHistoryOfAnOrderGivesTheErrorBack(): void

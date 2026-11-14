@@ -10,12 +10,34 @@
     ],
     "require": {
         "php": "^8.4",
+        "ext-json": "*",
         "ext-xml": "*",
-        "jms/serializer": "*",
+        "doctrine/persistence": "^3.4 || ^4.0",
+        "guzzlehttp/guzzle": "^7.4 || ^8.0",
+        "phpstan/phpdoc-parser": "^2.0",
+        "psr/log": "^2.0 || ^3.0",
+        "symfony/config": "^8.0",
+        "symfony/dependency-injection": "^8.0",
+        "symfony/form": "^8.0",
+        "symfony/http-foundation": "^8.0",
+        "symfony/http-kernel": "^8.0",
         "symfony/polyfill-php86": "*",
-        "symfony/form": "*",
-        "symfony/dependency-injection": "*",
-        "guzzlehttp/guzzle": "^7.4 || ^8.0"
+        "symfony/property-info": "^8.0",
+        "symfony/serializer": "^8.0",
+        "symfony/type-info": "^8.0",
+        "symfony/yaml": "^8.0",
+        "twig/twig": "^3.0",
+        "phpdocumentor/type-resolver": "^1.10 || ^2.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "^3.0",
+        "doctrine/orm": "^3.0",
+        "phpunit/phpunit": "^12.0 || ^13.0",
+        "symfony/framework-bundle": "^8.0"
+    },
+    "suggest": {
+        "doctrine/orm": "To keep tokens, API locks and limits in a relational database",
+        "doctrine/mongodb-odm": "To keep them in MongoDB instead"
     },
     "autoload": {
         "psr-4": {
@@ -24,18 +46,6 @@
         "exclude-from-classmap": [
             "/Tests/"
         ]
-    },
-    "require-dev": {
-        "doctrine/doctrine-bundle": "^2.13 || ^3.0",
-        "doctrine/orm": "*",
-        "doctrine/persistence": "*",
-        "jms/serializer-bundle": "^5.5",
-        "phpunit/phpunit": "^12.0 || ^13.0",
-        "psr/log": "*",
-        "symfony/framework-bundle": "^7.3 || ^8.0",
-        "symfony/http-foundation": "*",
-        "symfony/yaml": "^7.3 || ^8.0",
-        "twig/twig": "^3.0"
     },
     "autoload-dev": {
         "psr-4": {

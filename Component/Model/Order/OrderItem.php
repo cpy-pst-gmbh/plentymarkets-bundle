@@ -3,7 +3,6 @@
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as JMS;
 
 class OrderItem
 {
@@ -19,59 +18,59 @@ class OrderItem
     const TYPE_DEPOSIT = 10;
     const TYPE_ORDER = 11;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $id;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $orderId;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $typeId = null;
 
     /* Herkuenfte haben Nachkommastellen, 4.01 ist Amazon Deutschland. */
-    #[JMS\Type("float")]
+    /** @var float|null */
     private ?float $referrerId = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $itemVariationId = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $quantity = null;
 
-    #[JMS\Type("string")]
+    /** @var string|null */
     private ?string $orderItemName = null;
 
-    #[JMS\Type("string")]
+    /** @var string|null */
     private ?string $attributeValues = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $shippingProfileId = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $vatField = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $vatRate = null;
 
-    #[JMS\Type("DateTime")]
+    /** @var \DateTime|null */
     private ?DateTimeInterface $createdAt = null;
 
-    #[JMS\Type("DateTime")]
+    /** @var \DateTime|null */
     private ?DateTimeInterface $updatedAt = null;
 
-    #[JMS\Type("integer")]
+    /** @var int|null */
     private ?int $warehouseId = null;
 
-    #[JMS\Type("array<PM\PlentyMarketsBundle\Component\Model\Order\OrderItemAmount>")]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderItemAmount> */
     private array $amounts = [];
 
-    #[JMS\Type("array<PM\PlentyMarketsBundle\Component\Model\Order\OrderItemProperty>")]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderItemProperty> */
     private array $properties = [];
 
-    #[JMS\Type("array<PM\PlentyMarketsBundle\Component\Model\Order\OrderItemReference>")]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderItemReference> */
     private array $references = [];
 
-    #[JMS\Type("array<PM\PlentyMarketsBundle\Component\Model\Order\OrderItemWarehouseLocation>")]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderItemWarehouseLocation> */
     private array $warehouseLocations = [];
 
     public function getId(): int

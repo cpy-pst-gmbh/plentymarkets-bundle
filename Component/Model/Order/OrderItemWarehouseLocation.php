@@ -2,30 +2,29 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
-use JMS\Serializer\Annotation as JMS;
 
 class OrderItemWarehouseLocation
 {
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $orderItemId;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $quantity;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $warehouseLocationId;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $batchBestBeforeDateId;
 
-    #[JMS\Type("integer")]
+    /** @var int */
     private readonly int $originalQuantity;
 
-    #[JMS\Type("string")]
+    /** @var string */
     private readonly string $batch;
 
-    #[JMS\Type("string")]
+    /** @var string */
     private readonly string $bestBeforeDate;
 
     public function getOrderItemId(): int

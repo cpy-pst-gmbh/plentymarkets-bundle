@@ -2,30 +2,19 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Item;
 
-use JMS\Serializer\Annotation as JMS;
 
 /**
  * Unit of measurement such as C62 (piece) or KGM (kilogram), items/units.
  */
-#[JMS\ExclusionPolicy('ALL')]
 class Unit
 {
-    #[JMS\Type('integer')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var int|null */
     private ?int $id = null;
 
-    #[JMS\Type('string')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var string|null */
     private ?string $unitOfMeasurement = null;
 
-    /**
-     * @var UnitName[]
-     */
-    #[JMS\Type('array<PM\PlentyMarketsBundle\Component\Model\Item\UnitName>')]
-    #[JMS\Expose]
-    #[JMS\Since('1.0')]
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Item\UnitName> */
     private array $names = [];
 
     public function getId(): ?int
