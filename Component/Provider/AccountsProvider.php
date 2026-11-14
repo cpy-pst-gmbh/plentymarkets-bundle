@@ -8,6 +8,7 @@
 
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
+use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
 use GuzzleHttp\RequestOptions;
@@ -107,7 +108,10 @@ class AccountsProvider extends BaseProvider
         ];
 
         if (null !== $since) {
-            $query['updatedAtAfter'] = $since->format('Y-m-d');
+            // plentymarkets takes a day only (yyyy-mm-dd). The day before that of $since, so that
+            // no change is missed, whatever zone plentymarkets compares in and whether it counts
+            // the day itself (#61); a contact changed that day comes once more.
+            $query['updatedAtAfter'] = DateTimeImmutable::createFromInterface($since)->modify('-1 day')->format('Y-m-d');
         } else {
             $query['updatedAtAfter'] = '2020-01-01';
         }
