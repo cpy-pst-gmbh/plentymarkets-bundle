@@ -1,0 +1,132 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ContactsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\Contact",
+            "allowedMethodsOfPayment": [],
+            "birthdayAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-16T10:43:00.000000+01:00 +01:00"
+            },
+            "blocked": 3137,
+            "bookAccount": "value-2139",
+            "classId": 3136,
+            "contactPerson": "value-2159",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-19T10:46:00.000000+01:00 +01:00"
+            },
+            "dhlPostIdent": "value-2157",
+            "ebayName": "value-2150",
+            "email": "value-2149",
+            "externalId": "value-2128",
+            "firstName": "value-2130",
+            "formOfAddress": "value-2134",
+            "fullName": "value-2161",
+            "gender": "value-2132",
+            "id": 3126,
+            "isAnonymized": true,
+            "klarnaPersonalId": "value-2156",
+            "lang": "value-2140",
+            "lastLoginAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-17T10:44:00.000000+01:00 +01:00"
+            },
+            "lastName": "value-2131",
+            "lastOrderAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-18T10:45:00.000000+01:00 +01:00"
+            },
+            "marketplacePartner": "value-2160",
+            "newsletterAllowanceAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-08T10:35:00.000000+01:00 +01:00"
+            },
+            "number": "value-2127",
+            "options": [],
+            "paypalEmail": "value-2154",
+            "paypalPayerId": "value-2155",
+            "plentyId": 3148,
+            "privateFax": "value-2152",
+            "privateMobile": "value-2153",
+            "privatePhone": "value-2151",
+            "rating": 3138,
+            "referrerId": 3141.25,
+            "singleAccess": "value-2158",
+            "title": "value-2133",
+            "typeId": 3129,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-20T10:47:00.000000+01:00 +01:00"
+            },
+            "userId": 3142
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\Contact",
+            "allowedMethodsOfPayment": [],
+            "birthdayAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:27:00.000000+01:00 +01:00"
+            },
+            "blocked": 3181,
+            "bookAccount": "value-2183",
+            "classId": 3180,
+            "contactPerson": "value-2203",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-07T10:30:00.000000+01:00 +01:00"
+            },
+            "dhlPostIdent": "value-2201",
+            "ebayName": "value-2194",
+            "email": "value-2193",
+            "externalId": "value-2172",
+            "firstName": "value-2174",
+            "formOfAddress": "value-2178",
+            "fullName": "value-2205",
+            "gender": "value-2176",
+            "id": 3170,
+            "isAnonymized": true,
+            "klarnaPersonalId": "value-2200",
+            "lang": "value-2184",
+            "lastLoginAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-05T10:28:00.000000+01:00 +01:00"
+            },
+            "lastName": "value-2175",
+            "lastOrderAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-06T10:29:00.000000+01:00 +01:00"
+            },
+            "marketplacePartner": "value-2204",
+            "newsletterAllowanceAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-24T10:19:00.000000+01:00 +01:00"
+            },
+            "number": "value-2171",
+            "options": [],
+            "paypalEmail": "value-2198",
+            "paypalPayerId": "value-2199",
+            "plentyId": 3192,
+            "privateFax": "value-2196",
+            "privateMobile": "value-2197",
+            "privatePhone": "value-2195",
+            "rating": 3182,
+            "referrerId": 3185.25,
+            "singleAccess": "value-2202",
+            "title": "value-2177",
+            "typeId": 3173,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-08T10:31:00.000000+01:00 +01:00"
+            },
+            "userId": 3186
+        }
+    ],
+    "firstOnPage": 3121,
+    "isLastPage": false,
+    "itemsPerPage": 3123,
+    "lastOnPage": 3122,
+    "lastPageNumber": 3120,
+    "page": 3117,
+    "totalsCount": 3118
+}

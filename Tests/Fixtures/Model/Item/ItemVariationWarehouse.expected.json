@@ -1,0 +1,22 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationWarehouse",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-21T10:24:00.000000+01:00 +01:00"
+    },
+    "isBatch": false,
+    "isBestBeforeDate": true,
+    "lastUpdateTimestamp": {
+        "@class": "DateTime",
+        "@value": "2026-03-20T10:23:00.000000+01:00 +01:00"
+    },
+    "maximumStock": 2218,
+    "reorderLevel": 2217,
+    "stockBuffer": 2221,
+    "storageLocation": 2220,
+    "storageLocationType": "value-1222",
+    "stuckTurnoverInDays": 2219,
+    "variationId": 2214,
+    "warehouseId": 2215,
+    "warehouseZoneId": 2216
+}

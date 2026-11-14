@@ -6,6 +6,11 @@
          colors="true"
          failOnRisky="true"
          failOnWarning="true">
+    <php>
+        <!-- A date without zone (LocationStock::$lastUpdate) is read in the default zone, and
+             the recorded states name it. -->
+        <ini name="date.timezone" value="UTC"/>
+    </php>
     <testsuites>
         <testsuite name="plentymarkets-bundle">
             <directory>Tests</directory>

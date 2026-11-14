@@ -1,0 +1,8 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ManufacturerCommission",
+    "commission": 2262.25,
+    "id": 2258,
+    "manufacturerId": 2259,
+    "plentyId": 2260,
+    "referrerId": 2261.25
+}

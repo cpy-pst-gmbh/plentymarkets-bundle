@@ -1,0 +1,525 @@
+{
+    "id": 1598,
+    "isMain": false,
+    "mainVariationId": 1600,
+    "itemId": 1601,
+    "categoryVariationId": 1602,
+    "marketVariationId": 1603,
+    "clientVariationId": 1604,
+    "salesPriceVariationId": 1605,
+    "supplierVariationId": 1606,
+    "warehouseVariationId": 1607,
+    "position": 1608,
+    "isActive": false,
+    "number": "value-610",
+    "model": "value-611",
+    "externalId": "value-612",
+    "availability": 1613,
+    "estimatedAvailableAt": "2026-03-27T10:14:00+01:00",
+    "purchasePrice": 1615.25,
+    "movingAveragePrice": 1616.25,
+    "createdAt": "2026-03-02T10:17:00+01:00",
+    "updatedAt": "2026-03-03T10:18:00+01:00",
+    "relatedUpdatedAt": "2026-03-04T10:19:00+01:00",
+    "priceCalculationId": 1620,
+    "picking": "value-621",
+    "stockLimitation": 1622,
+    "isVisibleIfNetStockIsPositive": false,
+    "isInvisibleIfNetStockIsNotPositive": true,
+    "isVisibleInListIfNetStockIsPositive": false,
+    "isInvisibleInListIfNetStockIsNotPositive": true,
+    "isAvailableIfNetStockIsPositive": false,
+    "isUnavailableIfNetStockIsNotPositive": true,
+    "mainWarehouseId": 1629,
+    "maximumOrderQuantity": 1630,
+    "minimumOrderQuantity": 1631,
+    "intervalOrderQuantity": 1632,
+    "availableUntil": "value-633",
+    "releasedAt": "2026-03-19T10:34:00+01:00",
+    "name": "value-635",
+    "weightG": 1636,
+    "weightNetG": 1637,
+    "widthMM": 1638,
+    "lengthMM": 1639,
+    "heightMM": 1640,
+    "extraShippingCharge1": 1641.25,
+    "extraShippingCharge2": 1642.25,
+    "unitsContained": 1643,
+    "palletTypeId": 1644,
+    "packingUnits": 1645,
+    "packingUnitTypeId": 1646,
+    "transportationCosts": 1647.25,
+    "storageCosts": 1648.25,
+    "customs": 1649.25,
+    "operatingCosts": 1650.25,
+    "vatId": 1651,
+    "bundleType": "value-652",
+    "automaticClientVisibility": 1653,
+    "isHiddenInCategoryList": true,
+    "defaultShippingCosts": 1655.25,
+    "mayShowUnitPrice": true,
+    "images": [
+        {
+            "id": 1659,
+            "itemId": 1660,
+            "position": 1661,
+            "width": 1662,
+            "height": 1663,
+            "size": 1664,
+            "documentUploadPreviewWidth": 1665,
+            "documentUploadPreviewHeight": 1666,
+            "type": "value-667",
+            "fileType": "value-668",
+            "path": "value-669",
+            "storageProviderId": "value-670",
+            "md5Checksum": "value-671",
+            "md5ChecksumOriginal": "value-672",
+            "cleanImageName": "value-673",
+            "url": "value-674",
+            "urlMiddle": "value-675",
+            "urlPreview": "value-676",
+            "urlSecondPreview": "value-677",
+            "createdAt": "2026-03-07T10:18:00+01:00",
+            "updatedAt": "2026-03-08T10:19:00+01:00",
+            "names": [],
+            "availabilities": []
+        },
+        {
+            "id": 1687,
+            "itemId": 1688,
+            "position": 1689,
+            "width": 1690,
+            "height": 1691,
+            "size": 1692,
+            "documentUploadPreviewWidth": 1693,
+            "documentUploadPreviewHeight": 1694,
+            "type": "value-695",
+            "fileType": "value-696",
+            "path": "value-697",
+            "storageProviderId": "value-698",
+            "md5Checksum": "value-699",
+            "md5ChecksumOriginal": "value-700",
+            "cleanImageName": "value-701",
+            "url": "value-702",
+            "urlMiddle": "value-703",
+            "urlPreview": "value-704",
+            "urlSecondPreview": "value-705",
+            "createdAt": "2026-03-07T10:46:00+01:00",
+            "updatedAt": "2026-03-08T10:47:00+01:00",
+            "names": [],
+            "availabilities": []
+        }
+    ],
+    "itemImages": [
+        {
+            "id": 1716,
+            "itemId": 1717,
+            "position": 1718,
+            "width": 1719,
+            "height": 1720,
+            "size": 1721,
+            "documentUploadPreviewWidth": 1722,
+            "documentUploadPreviewHeight": 1723,
+            "type": "value-724",
+            "fileType": "value-725",
+            "path": "value-726",
+            "storageProviderId": "value-727",
+            "md5Checksum": "value-728",
+            "md5ChecksumOriginal": "value-729",
+            "cleanImageName": "value-730",
+            "url": "value-731",
+            "urlMiddle": "value-732",
+            "urlPreview": "value-733",
+            "urlSecondPreview": "value-734",
+            "createdAt": "2026-03-08T10:15:00+01:00",
+            "updatedAt": "2026-03-09T10:16:00+01:00",
+            "names": [],
+            "availabilities": []
+        },
+        {
+            "id": 1744,
+            "itemId": 1745,
+            "position": 1746,
+            "width": 1747,
+            "height": 1748,
+            "size": 1749,
+            "documentUploadPreviewWidth": 1750,
+            "documentUploadPreviewHeight": 1751,
+            "type": "value-752",
+            "fileType": "value-753",
+            "path": "value-754",
+            "storageProviderId": "value-755",
+            "md5Checksum": "value-756",
+            "md5ChecksumOriginal": "value-757",
+            "cleanImageName": "value-758",
+            "url": "value-759",
+            "urlMiddle": "value-760",
+            "urlPreview": "value-761",
+            "urlSecondPreview": "value-762",
+            "createdAt": "2026-03-08T10:43:00+01:00",
+            "updatedAt": "2026-03-09T10:44:00+01:00",
+            "names": [],
+            "availabilities": []
+        }
+    ],
+    "variationBarcodes": [
+        {
+            "barcodeId": 1773,
+            "variationId": 1774,
+            "code": "value-775",
+            "createdAt": "2026-03-21T10:56:00+01:00"
+        },
+        {
+            "barcodeId": 1778,
+            "variationId": 1779,
+            "code": "value-780",
+            "createdAt": "2026-03-26T10:01:00+01:00"
+        }
+    ],
+    "variationCategories": [
+        {
+            "variationId": 1784,
+            "categoryId": 1785,
+            "position": 1786,
+            "isNeckermannPrimary": false
+        },
+        {
+            "variationId": 1789,
+            "categoryId": 1790,
+            "position": 1791,
+            "isNeckermannPrimary": true
+        }
+    ],
+    "variationSalesPrices": [
+        {
+            "variationId": 1795,
+            "salesPriceId": 1796,
+            "price": 1797.25,
+            "lowestPrice": 1798.25,
+            "lowestPriceCalculation": false,
+            "createdAt": "2026-03-17T10:20:00+01:00",
+            "updatedAt": "2026-03-18T10:21:00+01:00"
+        },
+        {
+            "variationId": 1803,
+            "salesPriceId": 1804,
+            "price": 1805.25,
+            "lowestPrice": 1806.25,
+            "lowestPriceCalculation": false,
+            "createdAt": "2026-03-25T10:28:00+01:00",
+            "updatedAt": "2026-03-26T10:29:00+01:00"
+        }
+    ],
+    "variationMarkets": [
+        {
+            "variationId": 1812,
+            "marketId": 1813.25
+        },
+        {
+            "variationId": 1815,
+            "marketId": 1816.25
+        }
+    ],
+    "marketItemNumbers": [
+        {
+            "id": 1819,
+            "variationId": 1820,
+            "countryId": 1821,
+            "type": "value-822",
+            "position": 1823,
+            "value": "value-824"
+        },
+        {
+            "id": 1826,
+            "variationId": 1827,
+            "countryId": 1828,
+            "type": "value-829",
+            "position": 1830,
+            "value": "value-831"
+        }
+    ],
+    "variationBundleComponents": [
+        {
+            "id": 1834,
+            "variationId": 1835,
+            "componentVariationId": 1836,
+            "componentQuantity": 1837
+        },
+        {
+            "id": 1839,
+            "variationId": 1840,
+            "componentVariationId": 1841,
+            "componentQuantity": 1842
+        }
+    ],
+    "variationProperties": [
+        {
+            "id": 1845,
+            "itemId": 1846,
+            "variationId": 1847,
+            "propertyId": 1848,
+            "propertySelectionId": 1849,
+            "valueInt": 1850,
+            "valueFloat": 1851.25,
+            "valueFile": "value-852",
+            "surcharge": 1853.25,
+            "names": []
+        },
+        {
+            "id": 1858,
+            "itemId": 1859,
+            "variationId": 1860,
+            "propertyId": 1861,
+            "propertySelectionId": 1862,
+            "valueInt": 1863,
+            "valueFloat": 1864.25,
+            "valueFile": "value-865",
+            "surcharge": 1866.25,
+            "names": []
+        }
+    ],
+    "variationSkus": [
+        {
+            "id": 1872,
+            "variationId": 1873,
+            "marketId": 1874,
+            "accountId": 1875,
+            "initialSku": "value-876",
+            "sku": "value-877",
+            "parentSku": "value-878",
+            "status": "value-879",
+            "additionalInformation": "value-880",
+            "isActive": false,
+            "createdAt": "2026-03-15T10:42:00+01:00",
+            "updatedAt": "2026-03-16T10:43:00+01:00",
+            "exportedAt": "2026-03-17T10:44:00+01:00",
+            "stockUpdatedAt": "2026-03-18T10:45:00+01:00",
+            "deletedAt": "2026-03-19T10:46:00+01:00"
+        },
+        {
+            "id": 1888,
+            "variationId": 1889,
+            "marketId": 1890,
+            "accountId": 1891,
+            "initialSku": "value-892",
+            "sku": "value-893",
+            "parentSku": "value-894",
+            "status": "value-895",
+            "additionalInformation": "value-896",
+            "isActive": false,
+            "createdAt": "2026-03-03T10:58:00+01:00",
+            "updatedAt": "2026-03-04T10:59:00+01:00",
+            "exportedAt": "2026-03-05T10:00:00+01:00",
+            "stockUpdatedAt": "2026-03-06T10:01:00+01:00",
+            "deletedAt": "2026-03-07T10:02:00+01:00"
+        }
+    ],
+    "variationSuppliers": [
+        {
+            "id": 1905,
+            "variationId": 1906,
+            "supplierId": 1907,
+            "purchasePrice": 1908.25,
+            "minimumPurchase": 1909,
+            "itemNumber": "value-910",
+            "lastPriceQuery": "value-911",
+            "deliveryTimeInDays": 1912,
+            "discount": 1913.25,
+            "isDiscountable": true,
+            "packagingUnit": 1915,
+            "lastUpdateTimestamp": "2026-03-21T10:16:00+01:00",
+            "createdAt": "2026-03-22T10:17:00+01:00"
+        },
+        {
+            "id": 1919,
+            "variationId": 1920,
+            "supplierId": 1921,
+            "purchasePrice": 1922.25,
+            "minimumPurchase": 1923,
+            "itemNumber": "value-924",
+            "lastPriceQuery": "value-925",
+            "deliveryTimeInDays": 1926,
+            "discount": 1927.25,
+            "isDiscountable": true,
+            "packagingUnit": 1929,
+            "lastUpdateTimestamp": "2026-03-07T10:30:00+01:00",
+            "createdAt": "2026-03-08T10:31:00+01:00"
+        }
+    ],
+    "properties": [
+        {
+            "id": 1934,
+            "propertyId": 1935,
+            "relationTypeIdentifier": "value-936",
+            "relationTargetId": 1937,
+            "selectionRelationId": 1938,
+            "groupId": 1939,
+            "markup": 1940,
+            "createdAt": "2026-03-18T10:41:00+01:00",
+            "updatedAt": "2026-03-19T10:42:00+01:00",
+            "relationValues": []
+        },
+        {
+            "id": 1948,
+            "propertyId": 1949,
+            "relationTypeIdentifier": "value-950",
+            "relationTargetId": 1951,
+            "selectionRelationId": 1952,
+            "groupId": 1953,
+            "markup": 1954,
+            "createdAt": "2026-03-04T10:55:00+01:00",
+            "updatedAt": "2026-03-05T10:56:00+01:00",
+            "relationValues": []
+        }
+    ],
+    "tags": [
+        {
+            "tagId": 1963
+        },
+        {
+            "tagId": 1965
+        }
+    ],
+    "variationClients": [
+        {
+            "plentyId": 1968
+        },
+        {
+            "plentyId": 1970
+        }
+    ],
+    "variationDefaultCategory": [
+        {
+            "plentyId": 1973,
+            "branchId": 1974
+        },
+        {
+            "plentyId": 1976,
+            "branchId": 1977
+        }
+    ],
+    "stock": [
+        {
+            "itemId": 1980,
+            "variationId": 1981,
+            "warehouseId": 1982,
+            "purchasePrice": 1983.25,
+            "reservedListing": 1984.25,
+            "reservedBundles": 1985.25,
+            "physicalStock": 1986.25,
+            "reservedStock": 1987.25,
+            "netStock": 1988.25,
+            "reorderLevel": 1989.25,
+            "deltaReorderLevel": 1990.25
+        },
+        {
+            "itemId": 1992,
+            "variationId": 1993,
+            "warehouseId": 1994,
+            "purchasePrice": 1995.25,
+            "reservedListing": 1996.25,
+            "reservedBundles": 1997.25,
+            "physicalStock": 1998.25,
+            "reservedStock": 1999.25,
+            "netStock": 2000.25,
+            "reorderLevel": 2001.25,
+            "deltaReorderLevel": 2002.25
+        }
+    ],
+    "variationWarehouses": [
+        {
+            "variationId": 2005,
+            "warehouseId": 2006,
+            "warehouseZoneId": 2007,
+            "reorderLevel": 2008,
+            "maximumStock": 2009,
+            "stuckTurnoverInDays": 2010,
+            "storageLocation": 2011,
+            "stockBuffer": 2012,
+            "storageLocationType": "value-1013",
+            "lastUpdateTimestamp": "2026-03-07T10:54:00+01:00",
+            "createdAt": "2026-03-08T10:55:00+01:00",
+            "isBatch": true,
+            "isBestBeforeDate": false
+        },
+        {
+            "variationId": 2019,
+            "warehouseId": 2020,
+            "warehouseZoneId": 2021,
+            "reorderLevel": 2022,
+            "maximumStock": 2023,
+            "stuckTurnoverInDays": 2024,
+            "storageLocation": 2025,
+            "stockBuffer": 2026,
+            "storageLocationType": "value-1027",
+            "lastUpdateTimestamp": "2026-03-21T10:08:00+01:00",
+            "createdAt": "2026-03-22T10:09:00+01:00",
+            "isBatch": true,
+            "isBestBeforeDate": false
+        }
+    ],
+    "unit": {
+        "id": 2033,
+        "unitId": 2034,
+        "content": 2035.25
+    },
+    "item": {
+        "id": 2037,
+        "position": 2038,
+        "itemType": "value-1039",
+        "stockType": 2040,
+        "storeSpecial": 2041,
+        "ownerId": 2042,
+        "manufacturerId": 2043,
+        "producingCountryId": 2044,
+        "mainVariationId": 2045,
+        "customsTariffNumber": "value-1046",
+        "revenueAccount": 2047,
+        "couponRestriction": 2048,
+        "condition": 2049,
+        "conditionApi": 2050,
+        "createdAt": "2026-03-16T10:31:00+01:00",
+        "updatedAt": "2026-03-17T10:32:00+01:00",
+        "isSubscribable": false,
+        "isSerialNumber": true,
+        "amazonFbaPlatform": 2055,
+        "isShippableByAmazon": true,
+        "amazonProductType": 2057,
+        "amazonFedas": "value-1058",
+        "ebayPresetId": 2059,
+        "ebayCategory": 2060,
+        "ebayCategory2": 2061,
+        "ebayStoreCategory": 2062,
+        "ebayStoreCategory2": 2063,
+        "rakutenCategoryId": 2064,
+        "flagOne": 2065,
+        "flagTwo": 2066,
+        "ageRestriction": 2067,
+        "feedback": 2068,
+        "free1": "value-1069",
+        "free2": "value-1070",
+        "free3": "value-1071",
+        "free4": "value-1072",
+        "free5": "value-1073",
+        "free6": "value-1074",
+        "free7": "value-1075",
+        "free8": "value-1076",
+        "free9": "value-1077",
+        "free10": "value-1078",
+        "free11": "value-1079",
+        "free12": "value-1080",
+        "free13": "value-1081",
+        "free14": "value-1082",
+        "free15": "value-1083",
+        "free16": "value-1084",
+        "free17": "value-1085",
+        "free18": "value-1086",
+        "free19": "value-1087",
+        "free20": "value-1088",
+        "texts": [],
+        "itemCrossSelling": [],
+        "variations": [],
+        "itemImages": []
+    },
+    "customsTariffNumber": "value-1101"
+}

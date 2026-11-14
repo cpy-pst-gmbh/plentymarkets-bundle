@@ -1,0 +1,42 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Manufacturer",
+    "comment": "value-1243",
+    "commissions": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ManufacturerCommission",
+            "commission": 2251.25,
+            "id": 2247,
+            "manufacturerId": 2248,
+            "plentyId": 2249,
+            "referrerId": 2250.25
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ManufacturerCommission",
+            "commission": 2257.25,
+            "id": 2253,
+            "manufacturerId": 2254,
+            "plentyId": 2255,
+            "referrerId": 2256.25
+        }
+    ],
+    "countryId": 2238,
+    "email": "value-1237",
+    "externalName": "value-1229",
+    "faxNumber": "value-1236",
+    "houseNo": "value-1232",
+    "id": 2227,
+    "laRedouteBrandId": 2241,
+    "logo": "value-1230",
+    "name": "value-1228",
+    "neckermannAtEpBrandId": 2240,
+    "phoneNumber": "value-1235",
+    "pixmaniaBrandId": 2239,
+    "position": 2242,
+    "postcode": "value-1233",
+    "street": "value-1231",
+    "town": "value-1234",
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-13T10:44:00.000000+01:00 +01:00"
+    }
+}

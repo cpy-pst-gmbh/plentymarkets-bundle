@@ -1,0 +1,71 @@
+{
+    "id": 1018,
+    "number": "value-19",
+    "externalId": "value-20",
+    "typeId": 1021,
+    "firstName": "value-22",
+    "lastName": "value-23",
+    "gender": "value-24",
+    "title": "value-25",
+    "formOfAddress": "value-26",
+    "newsletterAllowanceAt": "2026-03-28T10:27:00+01:00",
+    "classId": 1028,
+    "blocked": 1029,
+    "rating": 1030,
+    "bookAccount": "value-31",
+    "lang": "value-32",
+    "referrerId": 1033.25,
+    "userId": 1034,
+    "birthdayAt": "2026-03-08T10:35:00+01:00",
+    "lastLoginAt": "2026-03-09T10:36:00+01:00",
+    "lastOrderAt": "2026-03-10T10:37:00+01:00",
+    "createdAt": "2026-03-11T10:38:00+01:00",
+    "updatedAt": "2026-03-12T10:39:00+01:00",
+    "plentyId": 1040,
+    "email": "value-41",
+    "ebayName": "value-42",
+    "privatePhone": "value-43",
+    "privateFax": "value-44",
+    "privateMobile": "value-45",
+    "paypalEmail": "value-46",
+    "paypalPayerId": "value-47",
+    "klarnaPersonalId": "value-48",
+    "dhlPostIdent": "value-49",
+    "singleAccess": "value-50",
+    "contactPerson": "value-51",
+    "marketplacePartner": "value-52",
+    "fullName": "value-53",
+    "options": [
+        {
+            "id": 1056,
+            "contactId": 1057,
+            "typeId": 1058,
+            "subTypeId": 1059,
+            "value": "value-60",
+            "priority": 1061,
+            "createdAt": "2026-03-07T10:02:00+01:00",
+            "updatedAt": "2026-03-08T10:03:00+01:00"
+        },
+        {
+            "id": 1065,
+            "contactId": 1066,
+            "typeId": 1067,
+            "subTypeId": 1068,
+            "value": "value-69",
+            "priority": 1070,
+            "createdAt": "2026-03-16T10:11:00+01:00",
+            "updatedAt": "2026-03-17T10:12:00+01:00"
+        }
+    ],
+    "allowedMethodsOfPayment": [
+        {
+            "methodOfPaymentId": 1075,
+            "allowed": true
+        },
+        {
+            "methodOfPaymentId": 1078,
+            "allowed": false
+        }
+    ],
+    "isAnonymized": true
+}

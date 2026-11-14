@@ -1,0 +1,32 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ItemsBarcodesResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Barcode",
+            "id": 3248,
+            "name": "value-2249",
+            "type": "value-2250",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-12T10:31:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\Barcode",
+            "id": 3253,
+            "name": "value-2254",
+            "type": "value-2255",
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-17T10:36:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "firstOnPage": 3243,
+    "isLastPage": false,
+    "itemsPerPage": 3245,
+    "lastOnPage": 3244,
+    "lastPageNumber": 3242,
+    "page": 3239,
+    "totalsCount": 3240
+}

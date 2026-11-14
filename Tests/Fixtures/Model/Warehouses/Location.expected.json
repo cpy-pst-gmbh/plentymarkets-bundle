@@ -1,0 +1,38 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\Location",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-18T10:21:00.000000+01:00 +01:00"
+    },
+    "fullLabel": "value-2063",
+    "id": 3053,
+    "label": "value-2055",
+    "levelId": 3054,
+    "pickupPathPosition": "value-2060",
+    "position": 3058,
+    "purposeKey": "value-2056",
+    "statusKey": "value-2057",
+    "type": "value-2059",
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-19T10:22:00.000000+01:00 +01:00"
+    },
+    "warehouseLocationLevel": {
+        "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\Level",
+        "createdAt": {
+            "@class": "DateTime",
+            "@value": "2026-03-01T10:32:00.000000+01:00 +01:00"
+        },
+        "dimensionId": 3067,
+        "id": 3065,
+        "name": "value-2071",
+        "parentId": 3066,
+        "pathName": "value-2069",
+        "pickupPathPosition": "value-2070",
+        "position": 3068,
+        "updatedAt": {
+            "@class": "DateTime",
+            "@value": "2026-03-02T10:33:00.000000+01:00 +01:00"
+        }
+    }
+}

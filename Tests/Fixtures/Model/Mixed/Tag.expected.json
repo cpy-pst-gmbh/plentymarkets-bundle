@@ -1,0 +1,14 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Mixed\\Tag",
+    "color": "value-1403",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-05T10:24:00.000000+01:00 +01:00"
+    },
+    "id": 2401,
+    "tagName": "value-1402",
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-06T10:25:00.000000+01:00 +01:00"
+    }
+}

@@ -53,3 +53,26 @@ Sql:
             $objectManager: '@Doctrine\ORM\EntityManagerInterface'
             $logger: '@logger'
             $parameterGuzzleVerifySsl: '%pm__plenty_market.configuration.guzzle.verify_ssl%'
+
+## Tests
+
+```bash
+composer install
+vendor/bin/phpunit
+```
+
+Die CI (`.github/workflows/ci.yml`) führt sie auf jedem Push und Pull Request aus, unter PHP 8.4
+und 8.5, jeweils mit Guzzle 7 und 8, auf GitHubs eigenen Runnern (das Repo ist öffentlich).
+
+- **Modelle** (`ModelDeserializationTest`): Für jede Klasse unter `Component/Model` und
+  `Component/Response` liegt in `Tests/Fixtures` eine Antwort, die jedes Feld setzt
+  (`<Klasse>.json`), und das Objekt, das daraus werden muss (`<Klasse>.expected.json`, jede
+  Property per Reflection). Die Werte sind erfunden, keine echten Daten.
+  - Ein neues Modell braucht eine Fixture, sonst schlägt der Test fehl. Erzeugt wird sie mit
+    `php Tests/bin/generate-model-fixtures.php` aus den Serializer-Metadaten des Modells.
+  - Die `.expected.json` sind der Sollzustand: einmal erzeugt, im Diff geprüft, dann
+    committet. Ändert ein Umbau sie, sagt der Diff, was anders gelesen wird. Neu schreiben nur
+    mit Absicht: `--expected` (nur Sollzustände) oder `--all` (auch die Antworten).
+- **Provider** (`ProviderTest`): Pfad, Query und eingelesene Modelle für Auftrag, Artikelseiten
+  und Batch, mit Guzzles `MockHandler` statt plentymarkets (`Tests/Support/MockedRestfulService`).
+- **Login, Fehlertexte, Warten** (`LoginTest`, `ResponseHelperTest`, `WaitTest`).

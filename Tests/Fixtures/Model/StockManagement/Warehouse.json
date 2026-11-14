@@ -1,0 +1,25 @@
+{
+    "id": 3013,
+    "name": "value-2014",
+    "note": "value-2015",
+    "typeId": 3016,
+    "onStockAvailability": 3017,
+    "outOfStockAvailability": 3018,
+    "splitByShippingProfile": false,
+    "storageLocationType": "value-2020",
+    "storageLocationZone": 3021,
+    "repairWarehouseId": 3022,
+    "isInventoryModeActive": false,
+    "logisticsType": "value-2024",
+    "address": {
+        "name1": "value-2026",
+        "address1": "value-2027",
+        "address2": "value-2028",
+        "postalCode": "value-2029",
+        "town": "value-2030",
+        "countryId": 3031,
+        "options": {
+            "key-2032": "value-2032"
+        }
+    }
+}

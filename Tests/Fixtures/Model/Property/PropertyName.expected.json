@@ -1,0 +1,16 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\PropertyName",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-21T10:32:00.000000+01:00 +01:00"
+    },
+    "description": "value-1951",
+    "id": 2947,
+    "lang": "value-1949",
+    "name": "value-1950",
+    "propertyId": 2948,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-22T10:33:00.000000+01:00 +01:00"
+    }
+}

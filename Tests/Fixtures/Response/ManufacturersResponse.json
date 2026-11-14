@@ -1,0 +1,53 @@
+{
+    "page": 3749,
+    "totalsCount": 3750,
+    "isLastPage": false,
+    "lastPageNumber": 3752,
+    "firstOnPage": 3753,
+    "lastOnPage": 3754,
+    "itemsPerPage": 3755,
+    "entries": [
+        {
+            "id": 3758,
+            "name": "value-2759",
+            "externalName": "value-2760",
+            "logo": "value-2761",
+            "street": "value-2762",
+            "houseNo": "value-2763",
+            "postcode": "value-2764",
+            "town": "value-2765",
+            "phoneNumber": "value-2766",
+            "faxNumber": "value-2767",
+            "email": "value-2768",
+            "countryId": 3769,
+            "pixmaniaBrandId": 3770,
+            "neckermannAtEpBrandId": 3771,
+            "laRedouteBrandId": 3772,
+            "position": 3773,
+            "comment": "value-2774",
+            "updatedAt": "2026-03-04T10:15:00+01:00",
+            "commissions": []
+        },
+        {
+            "id": 3780,
+            "name": "value-2781",
+            "externalName": "value-2782",
+            "logo": "value-2783",
+            "street": "value-2784",
+            "houseNo": "value-2785",
+            "postcode": "value-2786",
+            "town": "value-2787",
+            "phoneNumber": "value-2788",
+            "faxNumber": "value-2789",
+            "email": "value-2790",
+            "countryId": 3791,
+            "pixmaniaBrandId": 3792,
+            "neckermannAtEpBrandId": 3793,
+            "laRedouteBrandId": 3794,
+            "position": 3795,
+            "comment": "value-2796",
+            "updatedAt": "2026-03-26T10:37:00+01:00",
+            "commissions": []
+        }
+    ]
+}

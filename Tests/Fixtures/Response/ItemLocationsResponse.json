@@ -1,0 +1,31 @@
+{
+    "page": 3213,
+    "totalsCount": 3214,
+    "isLastPage": false,
+    "lastPageNumber": 3216,
+    "firstOnPage": 3217,
+    "lastOnPage": 3218,
+    "itemsPerPage": 3219,
+    "entries": [
+        {
+            "storageLocationId": 3222,
+            "itemId": 3223,
+            "warehouseId": 3224,
+            "quantity": 3225,
+            "variationId": 3226,
+            "updatedAt": "2026-03-16T10:07:00+01:00",
+            "batch": "value-2228",
+            "bestBeforeDate": "value-2229"
+        },
+        {
+            "storageLocationId": 3231,
+            "itemId": 3232,
+            "warehouseId": 3233,
+            "quantity": 3234,
+            "variationId": 3235,
+            "updatedAt": "2026-03-25T10:16:00+01:00",
+            "batch": "value-2237",
+            "bestBeforeDate": "value-2238"
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPrice",
+    "accounts": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceAccount",
+            "accountId": 2289,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-03T10:30:00.000000+01:00 +01:00"
+            },
+            "referrerId": 2288,
+            "salesPriceId": 2287,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:31:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceAccount",
+            "accountId": 2295,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-09T10:36:00.000000+01:00 +01:00"
+            },
+            "referrerId": 2294,
+            "salesPriceId": 2293,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-10T10:37:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "clients": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceOnlineStore",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-03T10:26:00.000000+01:00 +01:00"
+            },
+            "plentyId": 2345,
+            "salesPriceId": 2344,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:27:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceOnlineStore",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-08T10:31:00.000000+01:00 +01:00"
+            },
+            "plentyId": 2350,
+            "salesPriceId": 2349,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-09T10:32:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "countries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCountry",
+            "countryId": 2301,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-15T10:42:00.000000+01:00 +01:00"
+            },
+            "salesPriceId": 2300,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-16T10:43:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCountry",
+            "countryId": 2306,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-20T10:47:00.000000+01:00 +01:00"
+            },
+            "salesPriceId": 2305,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-21T10:48:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "currencies": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCurrency",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-26T10:53:00.000000+01:00 +01:00"
+            },
+            "currency": "value-1312",
+            "salesPriceId": 2311,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-27T10:54:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCurrency",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-03T10:58:00.000000+01:00 +01:00"
+            },
+            "currency": "value-1317",
+            "salesPriceId": 2316,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-04T10:59:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "customerClasses": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCustomerClass",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-09T10:04:00.000000+01:00 +01:00"
+            },
+            "customerClassId": 2323,
+            "salesPriceId": 2322,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-10T10:05:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceCustomerClass",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-14T10:09:00.000000+01:00 +01:00"
+            },
+            "customerClassId": 2328,
+            "salesPriceId": 2327,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-15T10:10:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "id": 2263,
+    "isCustomerPrice": false,
+    "isDisplayedByDefault": true,
+    "isLiveConversion": false,
+    "minimumOrderQuantity": 2265.25,
+    "names": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceName",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-17T10:16:00.000000+01:00 +01:00"
+            },
+            "lang": "value-1273",
+            "nameExternal": "value-1275",
+            "nameInternal": "value-1274",
+            "salesPriceId": 2272,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-18T10:17:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceName",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-24T10:23:00.000000+01:00 +01:00"
+            },
+            "lang": "value-1280",
+            "nameExternal": "value-1282",
+            "nameInternal": "value-1281",
+            "salesPriceId": 2279,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-25T10:24:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "position": 2264,
+    "referrers": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceReferrer",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-20T10:15:00.000000+01:00 +01:00"
+            },
+            "referrerId": 2334.25,
+            "salesPriceId": 2333,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-21T10:16:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceReferrer",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-25T10:20:00.000000+01:00 +01:00"
+            },
+            "referrerId": 2339.25,
+            "salesPriceId": 2338,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-26T10:21:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "type": "value-1266"
+}

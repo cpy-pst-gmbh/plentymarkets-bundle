@@ -1,0 +1,5 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\ContactAllowedMethodOfPayment",
+    "allowed": true,
+    "methodOfPaymentId": 1081
+}

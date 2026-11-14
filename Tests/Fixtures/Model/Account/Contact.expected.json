@@ -1,0 +1,106 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\Contact",
+    "allowedMethodsOfPayment": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\ContactAllowedMethodOfPayment",
+            "allowed": true,
+            "methodOfPaymentId": 1075
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\ContactAllowedMethodOfPayment",
+            "allowed": false,
+            "methodOfPaymentId": 1078
+        }
+    ],
+    "birthdayAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-08T10:35:00.000000+01:00 +01:00"
+    },
+    "blocked": 1029,
+    "bookAccount": "value-31",
+    "classId": 1028,
+    "contactPerson": "value-51",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-11T10:38:00.000000+01:00 +01:00"
+    },
+    "dhlPostIdent": "value-49",
+    "ebayName": "value-42",
+    "email": "value-41",
+    "externalId": "value-20",
+    "firstName": "value-22",
+    "formOfAddress": "value-26",
+    "fullName": "value-53",
+    "gender": "value-24",
+    "id": 1018,
+    "isAnonymized": true,
+    "klarnaPersonalId": "value-48",
+    "lang": "value-32",
+    "lastLoginAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-09T10:36:00.000000+01:00 +01:00"
+    },
+    "lastName": "value-23",
+    "lastOrderAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-10T10:37:00.000000+01:00 +01:00"
+    },
+    "marketplacePartner": "value-52",
+    "newsletterAllowanceAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-28T10:27:00.000000+01:00 +01:00"
+    },
+    "number": "value-19",
+    "options": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\ContactOption",
+            "contactId": 1057,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-07T10:02:00.000000+01:00 +01:00"
+            },
+            "id": 1056,
+            "priority": 1061,
+            "subTypeId": 1059,
+            "typeId": 1058,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-08T10:03:00.000000+01:00 +01:00"
+            },
+            "value": "value-60"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\ContactOption",
+            "contactId": 1066,
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-16T10:11:00.000000+01:00 +01:00"
+            },
+            "id": 1065,
+            "priority": 1070,
+            "subTypeId": 1068,
+            "typeId": 1067,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-17T10:12:00.000000+01:00 +01:00"
+            },
+            "value": "value-69"
+        }
+    ],
+    "paypalEmail": "value-46",
+    "paypalPayerId": "value-47",
+    "plentyId": 1040,
+    "privateFax": "value-44",
+    "privateMobile": "value-45",
+    "privatePhone": "value-43",
+    "rating": 1030,
+    "referrerId": 1033.25,
+    "singleAccess": "value-50",
+    "title": "value-25",
+    "typeId": 1021,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-12T10:39:00.000000+01:00 +01:00"
+    },
+    "userId": 1034
+}

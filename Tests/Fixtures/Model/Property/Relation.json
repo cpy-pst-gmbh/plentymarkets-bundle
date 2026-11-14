@@ -1,0 +1,39 @@
+{
+    "id": 2954,
+    "propertyId": 2955,
+    "relationTypeIdentifier": "value-1956",
+    "relationTargetId": 2957,
+    "selectionRelationId": 2958,
+    "groupId": 2959,
+    "markup": 2960,
+    "createdAt": "2026-03-02T10:41:00+01:00",
+    "updatedAt": "2026-03-03T10:42:00+01:00",
+    "property": {
+        "id": 2964,
+        "propertyId": 2965,
+        "cast": "value-1966",
+        "typeIdentifier": "value-1967",
+        "propertyGroupId": 2968,
+        "names": []
+    },
+    "relationValues": [
+        {
+            "id": 2974,
+            "propertyRelationId": 2975,
+            "lang": "value-1976",
+            "value": "value-1977",
+            "description": "value-1978",
+            "createdAt": "2026-03-20T10:59:00+01:00",
+            "updatedAt": "2026-03-21T10:00:00+01:00"
+        },
+        {
+            "id": 2982,
+            "propertyRelationId": 2983,
+            "lang": "value-1984",
+            "value": "value-1985",
+            "description": "value-1986",
+            "createdAt": "2026-03-28T10:07:00+01:00",
+            "updatedAt": "2026-03-01T10:08:00+01:00"
+        }
+    ]
+}

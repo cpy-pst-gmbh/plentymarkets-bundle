@@ -1,0 +1,7 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemCrossSelling",
+    "crossItemId": 1533,
+    "isDynamic": false,
+    "itemId": 1532,
+    "relationship": "value-534"
+}

@@ -1,0 +1,27 @@
+{
+    "page": 3904,
+    "totalsCount": 3905,
+    "isLastPage": true,
+    "lastPageNumber": 3907,
+    "firstOnPage": 3908,
+    "lastOnPage": 3909,
+    "itemsPerPage": 3910,
+    "entries": [
+        {
+            "id": 3913,
+            "propertyId": 3914,
+            "cast": "value-2915",
+            "typeIdentifier": "value-2916",
+            "propertyGroupId": 3917,
+            "names": []
+        },
+        {
+            "id": 3922,
+            "propertyId": 3923,
+            "cast": "value-2924",
+            "typeIdentifier": "value-2925",
+            "propertyGroupId": 3926,
+            "names": []
+        }
+    ]
+}

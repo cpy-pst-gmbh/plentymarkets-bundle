@@ -1,0 +1,23 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderPropertyType",
+    "cast": "value-1823",
+    "id": 2820,
+    "isErasable": false,
+    "names": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderPropertyTypeName",
+            "id": 2826,
+            "lang": "value-1829",
+            "name": "value-1828",
+            "typeId": 2827
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderPropertyTypeName",
+            "id": 2831,
+            "lang": "value-1834",
+            "name": "value-1833",
+            "typeId": 2832
+        }
+    ],
+    "position": 2822
+}

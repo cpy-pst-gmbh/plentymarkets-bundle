@@ -1,0 +1,11 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\Log",
+    "callerFunction": "value-96",
+    "code": "value-94",
+    "codeMessage": "value-95",
+    "createdAt": "value-97",
+    "identifier": "value-91",
+    "integration": "value-92",
+    "level": "value-93",
+    "trace": "value-98"
+}

@@ -1,0 +1,22 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderDateType",
+    "id": 2671,
+    "isErasable": true,
+    "names": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderDateTypeName",
+            "id": 2676,
+            "lang": "value-1678",
+            "name": "value-1679",
+            "typeId": 2677
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderDateTypeName",
+            "id": 2681,
+            "lang": "value-1683",
+            "name": "value-1684",
+            "typeId": 2682
+        }
+    ],
+    "position": 2673
+}

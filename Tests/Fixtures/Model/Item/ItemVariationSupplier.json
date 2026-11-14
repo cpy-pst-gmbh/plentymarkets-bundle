@@ -1,0 +1,15 @@
+{
+    "id": 2197,
+    "variationId": 2198,
+    "supplierId": 2199,
+    "purchasePrice": 2200.25,
+    "minimumPurchase": 2201,
+    "itemNumber": "value-1202",
+    "lastPriceQuery": "value-1203",
+    "deliveryTimeInDays": 2204,
+    "discount": 2205.25,
+    "isDiscountable": true,
+    "packagingUnit": 2207,
+    "lastUpdateTimestamp": "2026-03-05T10:08:00+01:00",
+    "createdAt": "2026-03-06T10:09:00+01:00"
+}

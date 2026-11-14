@@ -1,0 +1,42 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Property",
+    "cast": "value-1927",
+    "id": 2925,
+    "names": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\PropertyName",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-06T10:17:00.000000+01:00 +01:00"
+            },
+            "description": "value-1936",
+            "id": 2932,
+            "lang": "value-1934",
+            "name": "value-1935",
+            "propertyId": 2933,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-07T10:18:00.000000+01:00 +01:00"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\PropertyName",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-14T10:25:00.000000+01:00 +01:00"
+            },
+            "description": "value-1944",
+            "id": 2940,
+            "lang": "value-1942",
+            "name": "value-1943",
+            "propertyId": 2941,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-15T10:26:00.000000+01:00 +01:00"
+            }
+        }
+    ],
+    "propertyGroupId": 2929,
+    "propertyId": 2926,
+    "typeIdentifier": "value-1928"
+}

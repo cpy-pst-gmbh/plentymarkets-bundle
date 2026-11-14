@@ -1,0 +1,22 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationSupplier",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-06T10:09:00.000000+01:00 +01:00"
+    },
+    "deliveryTimeInDays": 2204,
+    "discount": 2205.25,
+    "id": 2197,
+    "isDiscountable": true,
+    "itemNumber": "value-1202",
+    "lastPriceQuery": "value-1203",
+    "lastUpdateTimestamp": {
+        "@class": "DateTime",
+        "@value": "2026-03-05T10:08:00.000000+01:00 +01:00"
+    },
+    "minimumPurchase": 2201,
+    "packagingUnit": 2207,
+    "purchasePrice": 2200.25,
+    "supplierId": 2199,
+    "variationId": 2198
+}

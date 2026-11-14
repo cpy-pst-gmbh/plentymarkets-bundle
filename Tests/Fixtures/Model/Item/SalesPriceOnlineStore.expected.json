@@ -1,0 +1,13 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\SalesPriceOnlineStore",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-07T10:58:00.000000+01:00 +01:00"
+    },
+    "plentyId": 2377,
+    "salesPriceId": 2376,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-08T10:59:00.000000+01:00 +01:00"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ListingMarketsResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Listing\\ListingMarket",
+            "enabled": true,
+            "id": 3640,
+            "listingId": 3641,
+            "referrerId": 3643.25,
+            "variationId": 3642,
+            "verified": "value-2645"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Listing\\ListingMarket",
+            "enabled": false,
+            "id": 3647,
+            "listingId": 3648,
+            "referrerId": 3650.25,
+            "variationId": 3649,
+            "verified": "value-2652"
+        }
+    ],
+    "firstOnPage": 3635,
+    "isLastPage": false,
+    "itemsPerPage": 3637,
+    "lastOnPage": 3636,
+    "lastPageNumber": 3634,
+    "page": 3631,
+    "totalsCount": 3632
+}

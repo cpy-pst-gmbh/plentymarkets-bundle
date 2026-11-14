@@ -1,0 +1,59 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderShippingPreset",
+    "auctionType": 2880,
+    "backendName": "value-1868",
+    "category": 2871,
+    "dispatchIdentifier": "value-1879",
+    "excludedCustomerGroups": [
+        "value-1895",
+        "value-1896"
+    ],
+    "excludedPaymentMethods": [
+        "value-1892",
+        "value-1893"
+    ],
+    "flag": 2869,
+    "id": 2866,
+    "isDefaultEnabled": 2876,
+    "isExpress": 2874,
+    "isInsured": 2873,
+    "isPostident": 2875,
+    "islandFee": 2877.25,
+    "parcelServiceId": 2867,
+    "parcelServiceNames": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\ParcelServiceName",
+            "id": 2902,
+            "lang": "value-1903",
+            "name": "value-1904",
+            "parcelServiceId": "value-1905"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\ParcelServiceName",
+            "id": 2907,
+            "lang": "value-1908",
+            "name": "value-1909",
+            "parcelServiceId": "value-1910"
+        }
+    ],
+    "priority": 2870,
+    "shippingGroup": "value-1878",
+    "subreferrerSupport": [
+        "value-1889",
+        "value-1890"
+    ],
+    "supportedLoyaltyPrograms": [
+        "value-1898",
+        "value-1899"
+    ],
+    "supportedMultishop": [
+        "value-1883",
+        "value-1884"
+    ],
+    "supportedReferrer": [
+        "value-1886",
+        "value-1887"
+    ],
+    "updatedAt": "value-1881",
+    "useArticlePorto": 2872
+}

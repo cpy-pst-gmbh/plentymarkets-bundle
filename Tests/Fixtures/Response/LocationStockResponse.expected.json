@@ -1,0 +1,50 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\LocationStockResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\LocationStock",
+            "attributeValueSet": 3665,
+            "batchBestBeforeDateId": 3671,
+            "fullLabel": "value-2673",
+            "id": 3662,
+            "itemId": 3664,
+            "lastUpdate": {
+                "@class": "DateTime",
+                "@value": "2026-03-11T10:30:00.000000+00:00 UTC"
+            },
+            "name": "value-2672",
+            "quantity": 3667.25,
+            "reserved": 3668.25,
+            "storageLocation": 3663,
+            "variationId": 3669,
+            "warehouseId": 3666,
+            "warehouseLocationLevel": 3674
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Warehouses\\LocationStock",
+            "attributeValueSet": 3679,
+            "batchBestBeforeDateId": 3685,
+            "fullLabel": "value-2687",
+            "id": 3676,
+            "itemId": 3678,
+            "lastUpdate": {
+                "@class": "DateTime",
+                "@value": "2026-03-25T10:44:00.000000+00:00 UTC"
+            },
+            "name": "value-2686",
+            "quantity": 3681.25,
+            "reserved": 3682.25,
+            "storageLocation": 3677,
+            "variationId": 3683,
+            "warehouseId": 3680,
+            "warehouseLocationLevel": 3688
+        }
+    ],
+    "firstOnPage": 3657,
+    "isLastPage": false,
+    "itemsPerPage": 3659,
+    "lastOnPage": 3658,
+    "lastPageNumber": 3656,
+    "page": 3653,
+    "totalsCount": 3654
+}

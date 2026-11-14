@@ -21,7 +21,8 @@ use Psr\Log\NullLogger;
 /**
  * The RestfulService with Guzzle's MockHandler in place of plentymarkets: each client it makes
  * answers from $handler and notes its requests in $history. No token is stored, so the first
- * call of a provider logs in. An API lock is active while $lockedUntil is set.
+ * call of a provider logs in. An API lock is active while $lockedUntil is set. Given one, the
+ * serializer is a real one (Serializers::bundle()), for the tests that read models.
  */
 final class MockedRestfulService extends RestfulService
 {
@@ -32,7 +33,7 @@ final class MockedRestfulService extends RestfulService
 
     public ?DateTime $lockedUntil = null;
 
-    public function __construct(TestCase $test)
+    public function __construct(TestCase $test, ?SerializerInterface $serializer = null)
     {
         $service = $this;
 
@@ -64,7 +65,7 @@ final class MockedRestfulService extends RestfulService
                     return null;
                 }
             },
-            (fn (): SerializerInterface => $this->createStub(SerializerInterface::class))->call($test),
+            $serializer ?? (fn (): SerializerInterface => $this->createStub(SerializerInterface::class))->call($test),
             (fn (): EntityManagerInterface => $this->createStub(EntityManagerInterface::class))->call($test),
             new NullLogger(),
             true

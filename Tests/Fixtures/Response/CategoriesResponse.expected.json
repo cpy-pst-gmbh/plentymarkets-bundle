@@ -1,0 +1,30 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\CategoriesResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\Category",
+            "clients": [],
+            "details": [],
+            "id": 3096,
+            "level": 3098,
+            "parentCategoryId": 3097,
+            "type": "value-2099"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Category\\Category",
+            "clients": [],
+            "details": [],
+            "id": 3107,
+            "level": 3109,
+            "parentCategoryId": 3108,
+            "type": "value-2110"
+        }
+    ],
+    "firstOnPage": 3091,
+    "isLastPage": false,
+    "itemsPerPage": 3093,
+    "lastOnPage": 3092,
+    "lastPageNumber": 3090,
+    "page": 3087,
+    "totalsCount": 3088
+}

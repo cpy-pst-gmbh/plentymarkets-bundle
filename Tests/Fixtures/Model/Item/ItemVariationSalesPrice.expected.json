@@ -1,0 +1,16 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Item\\ItemVariationSalesPrice",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-14T10:21:00.000000+01:00 +01:00"
+    },
+    "lowestPrice": 2159.25,
+    "lowestPriceCalculation": true,
+    "price": 2158.25,
+    "salesPriceId": 2157,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-15T10:22:00.000000+01:00 +01:00"
+    },
+    "variationId": 2156
+}

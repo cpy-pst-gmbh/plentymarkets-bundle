@@ -1,0 +1,9 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Listing\\ListingMarket",
+    "enabled": false,
+    "id": 2395,
+    "listingId": 2396,
+    "referrerId": 2398.25,
+    "variationId": 2397,
+    "verified": "value-1400"
+}
