@@ -8,6 +8,7 @@
 
 namespace PM\PlentyMarketsBundle\Component\Model\Order;
 
+use DateTime;
 use DateTimeInterface;
 
 class StatusHistoryEntry
@@ -73,7 +74,8 @@ class StatusHistoryEntry
 
     public function setCreatedAt(DateTimeInterface $createdAt): self
     {
-        $this->createdAt = $createdAt;
+        // The setter takes any date as in 1.x, the property holds a DateTime since #58.
+        $this->createdAt = $createdAt instanceof DateTime ? $createdAt : DateTime::createFromInterface($createdAt);
 
         return $this;
     }

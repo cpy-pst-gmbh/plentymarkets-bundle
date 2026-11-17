@@ -1630,7 +1630,8 @@ class ItemVariation
      */
     public function setVariationSuppliers(?array $variationSuppliers = null)
     {
-        $this->variationSuppliers = $variationSuppliers;
+        // null as in 1.x, the property holds an array since #58.
+        $this->variationSuppliers = $variationSuppliers ?? [];
 
         return $this;
     }
@@ -1650,7 +1651,8 @@ class ItemVariation
      */
     public function setVariationCategories(?array $variationCategories = null)
     {
-        $this->variationCategories = $variationCategories;
+        // null as in 1.x, the property holds an array since #58.
+        $this->variationCategories = $variationCategories ?? [];
 
         return $this;
     }
