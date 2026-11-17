@@ -3,6 +3,7 @@
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use GuzzleHttp\RequestOptions;
+use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
 use PM\PlentyMarketsBundle\Component\Response\PropertiesResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,6 +73,41 @@ class PropertiesProvider extends BaseProvider
         }
 
         return true;
+    }
+
+    /**
+     * The relation of a property to a target, null without one. The answer is a plain list
+     * without pages. plentymarkets ignores filters it does not know and then answers with every
+     * relation, so the match is checked here once more.
+     */
+    public function getRelation(int $propertyId, string $relationTypeIdentifier, int $relationTargetId): Relation|Throwable|null
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::PROPERTIES_RELATIONS,
+            [
+                RequestOptions::QUERY => [
+                    'propertyId' => $propertyId,
+                    'relationTargetId' => $relationTargetId,
+                    'relationTypeIdentifier' => $relationTypeIdentifier,
+                ],
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        /** @var list<Relation> $relations */
+        $relations = $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), Relation::class.'[]', 'json');
+
+        foreach ($relations as $relation) {
+            if ($propertyId === $relation->getPropertyId() && $relationTypeIdentifier === $relation->getRelationTypeIdentifier() && $relationTargetId === $relation->getRelationTargetId()) {
+                return $relation;
+            }
+        }
+
+        return null;
     }
 
     public function postRelation(int $propertyId, string $relationTypeIdentifier, int $relationTargetId, ?int $selectionRelationId): int|Throwable
