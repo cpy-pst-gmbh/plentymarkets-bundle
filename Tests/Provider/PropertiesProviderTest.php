@@ -7,6 +7,8 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PM\PlentyMarketsBundle\Component\Model\Property\Property;
 use PM\PlentyMarketsBundle\Component\Model\Property\PropertyName;
+use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
+use PM\PlentyMarketsBundle\Component\Model\Property\RelationValue;
 
 /** The properties and their relations; the paths of this provider start with /rest/ themselves. */
 final class PropertiesProviderTest extends ProviderTestCase
@@ -98,6 +100,51 @@ final class PropertiesProviderTest extends ProviderTestCase
         $this->respond($error);
 
         self::assertSame($error, $this->service->properties($this->config())->putRelationValue(77, 'Rot'));
+    }
+
+    public function testARelationIsReadWithItsValues(): void
+    {
+        $this->respond([
+            ['id' => 991, 'propertyId' => 5, 'relationTypeIdentifier' => 'item', 'relationTargetId' => 1234, 'selectionRelationId' => null, 'groupId' => 2, 'markup' => 0, 'createdAt' => '2026-11-17T14:15:11+01:00', 'updatedAt' => '2026-11-17T14:15:11+01:00', 'relationValues' => [['id' => 4711, 'propertyRelationId' => 991, 'lang' => 'de', 'value' => 'Blau']]],
+        ]);
+
+        $relation = $this->service->properties($this->config())->getRelation(5, 'item', 1234);
+
+        $this->assertRequestCount(1);
+        $this->assertRequest('GET', '/rest/properties/relations', ['propertyId' => '5', 'relationTargetId' => '1234', 'relationTypeIdentifier' => 'item']);
+        self::assertInstanceOf(Relation::class, $relation);
+        self::assertSame(991, $relation->getId());
+        self::assertContainsOnlyInstancesOf(RelationValue::class, $relation->getRelationValues());
+        self::assertSame(4711, $relation->getRelationValues()[0]->getId());
+        self::assertSame('Blau', $relation->getRelationValues()[0]->getValue());
+    }
+
+    public function testOnlyTheExactRelationCounts(): void
+    {
+        // plentymarkets ignores filters it does not know and answers with every relation.
+        $this->respond([
+            ['id' => 1, 'propertyId' => 5, 'relationTypeIdentifier' => 'item', 'relationTargetId' => 999, 'relationValues' => []],
+            ['id' => 2, 'propertyId' => 6, 'relationTypeIdentifier' => 'item', 'relationTargetId' => 1234, 'relationValues' => []],
+            ['id' => 3, 'propertyId' => 5, 'relationTypeIdentifier' => 'category', 'relationTargetId' => 1234, 'relationValues' => []],
+            ['id' => 4, 'propertyId' => 5, 'relationTypeIdentifier' => 'item', 'relationTargetId' => 1234, 'relationValues' => []],
+        ]);
+
+        self::assertSame(4, $this->service->properties($this->config())->getRelation(5, 'item', 1234)?->getId());
+    }
+
+    public function testWithoutARelationNullIsReturned(): void
+    {
+        $this->respond([]);
+
+        self::assertNull($this->service->properties($this->config())->getRelation(5, 'item', 1234));
+    }
+
+    public function testReadingARelationReturnsTheError(): void
+    {
+        $error = ClientException::create(new Request('GET', '/rest/properties/relations'), new Response(404, [], '{}'));
+        $this->respond($error);
+
+        self::assertSame($error, $this->service->properties($this->config())->getRelation(5, 'item', 1234));
     }
 
     public function testARelationIsCreatedAndItsIdReturned(): void
