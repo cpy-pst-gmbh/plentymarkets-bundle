@@ -8,7 +8,7 @@
                 "@class": "DateTime",
                 "@value": "2026-03-03T10:30:00.000000+01:00 +01:00"
             },
-            "referrerId": 2288,
+            "referrerId": 2288.0,
             "salesPriceId": 2287,
             "updatedAt": {
                 "@class": "DateTime",
@@ -22,7 +22,7 @@
                 "@class": "DateTime",
                 "@value": "2026-03-09T10:36:00.000000+01:00 +01:00"
             },
-            "referrerId": 2294,
+            "referrerId": 2294.0,
             "salesPriceId": 2293,
             "updatedAt": {
                 "@class": "DateTime",

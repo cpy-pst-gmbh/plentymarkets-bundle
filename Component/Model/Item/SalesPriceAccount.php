@@ -21,8 +21,8 @@ class SalesPriceAccount
     /** @var int|null */
     private ?int $salesPriceId = null;
 
-    /** @var int|null */
-    private ?int $referrerId = null;
+    /** @var float|null Sub-referrers have decimals (102.01), like Order::$referrerId. */
+    private ?float $referrerId = null;
 
     /** @var int|null */
     private ?int $accountId = null;
@@ -54,7 +54,7 @@ class SalesPriceAccount
     }
 
     /**
-     * @return int
+     * @return float|null
      */
     public function getReferrerId()
     {
@@ -62,7 +62,7 @@ class SalesPriceAccount
     }
 
     /**
-     * @param int $referrerId
+     * @param float|int|null $referrerId
      *
      * @return SalesPriceAccount
      */

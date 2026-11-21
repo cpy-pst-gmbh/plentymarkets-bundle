@@ -4,6 +4,7 @@ namespace PM\PlentyMarketsBundle\Tests;
 
 use DateTime;
 use PHPUnit\Framework\TestCase;
+use PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceAccount;
 use PM\PlentyMarketsBundle\Component\Model\Order\Order;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderAmount;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderItem;
@@ -25,6 +26,33 @@ final class SerializerTest extends TestCase
         self::assertSame(2170042, $order->getId(), 'A string of digits for an int.');
         self::assertSame(7.0, $order->getStatusId(), 'An int for a float.');
         self::assertSame(9948, $order->getPlentyId(), 'A whole float for an int.');
+    }
+
+    /**
+     * PHP only warns about the lost decimals ("Implicit conversion from float 9.5 to int loses
+     * precision"), but Symfony's ErrorHandler turns that into an ErrorException and the whole
+     * answer fails. JMS cut them off, and so does the serializer now, without the notice.
+     */
+    public function testAFloatWithDecimalsForAnIntIsCutOffWithoutANotice(): void
+    {
+        set_error_handler(static function (int $level, string $message): never {
+            throw new \ErrorException($message, 0, $level);
+        });
+
+        try {
+            $item = $this->read('{"quantity":9.5}', OrderItem::class);
+        } finally {
+            restore_error_handler();
+        }
+
+        self::assertSame(9, $item->getQuantity());
+    }
+
+    public function testASubReferrerOfASalesPriceKeepsItsDecimals(): void
+    {
+        $account = $this->read('{"salesPriceId":1,"referrerId":102.01,"accountId":0}', SalesPriceAccount::class);
+
+        self::assertSame(102.01, $account->getReferrerId());
     }
 
     public function testANullWherePlentymarketsMeansNothingLeavesTheDefault(): void

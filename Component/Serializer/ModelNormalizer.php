@@ -3,7 +3,10 @@
 namespace PM\PlentyMarketsBundle\Component\Serializer;
 
 use ReflectionClass;
+use ReflectionNamedType;
 use ReflectionProperty;
+use ReflectionType;
+use ReflectionUnionType;
 use Symfony\Component\Serializer\Exception\LogicException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
@@ -78,11 +81,30 @@ final class ModelNormalizer extends AbstractObjectNormalizer
             return;
         }
 
+        // plentymarkets sends decimals where the model declares an int (9.5 for a quantity).
+        // PHP would cut them off as well, but with a notice that Symfony's ErrorHandler turns
+        // into an exception for the whole answer. JMS cut them off silently, and so do we.
+        if (is_float($value) && is_finite($value) && self::takesIntButNotFloat($property)) {
+            $value = (int) $value;
+        }
+
         try {
             $property->setValue($object, $value);
         } catch (TypeError $exception) {
             throw NotNormalizableValueException::createForUnexpectedDataType(sprintf('Failed to denormalize attribute "%s" value for class "%s": %s', $attribute, $object::class, $exception->getMessage()), $value, ['unknown'], $context['deserialization_path'] ?? null, false, $exception->getCode(), $exception);
         }
+    }
+
+    private static function takesIntButNotFloat(ReflectionProperty $property): bool
+    {
+        $type = $property->getType();
+        $names = match (true) {
+            $type instanceof ReflectionNamedType => [$type->getName()],
+            $type instanceof ReflectionUnionType => array_map(static fn (ReflectionType $t): string => $t instanceof ReflectionNamedType ? $t->getName() : '', $type->getTypes()),
+            default => [],
+        };
+
+        return in_array('int', $names, true) && !in_array('float', $names, true);
     }
 
     /** The property of that name, declared by the class or one of its parents. */
