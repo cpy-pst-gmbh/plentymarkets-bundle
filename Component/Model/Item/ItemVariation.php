@@ -107,14 +107,14 @@ class ItemVariation
     /** @var int|null */
     private ?int $mainWarehouseId = null;
 
-    /** @var int|null */
-    private ?int $maximumOrderQuantity = null;
+    /** @var float|null */
+    private ?float $maximumOrderQuantity = null;
 
-    /** @var int|null */
-    private ?int $minimumOrderQuantity = null;
+    /** @var float|null */
+    private ?float $minimumOrderQuantity = null;
 
-    /** @var int|null */
-    private ?int $intervalOrderQuantity = null;
+    /** @var float|null */
+    private ?float $intervalOrderQuantity = null;
 
     /** @var string|null */
     private ?string $availableUntil = null;
@@ -872,7 +872,7 @@ class ItemVariation
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getMaximumOrderQuantity()
     {
@@ -880,7 +880,7 @@ class ItemVariation
     }
 
     /**
-     * @param int $maximumOrderQuantity
+     * @param float $maximumOrderQuantity
      *
      * @return ItemVariation
      */
@@ -892,7 +892,7 @@ class ItemVariation
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getMinimumOrderQuantity()
     {
@@ -900,7 +900,7 @@ class ItemVariation
     }
 
     /**
-     * @param int $minimumOrderQuantity
+     * @param float $minimumOrderQuantity
      *
      * @return ItemVariation
      */
@@ -912,7 +912,7 @@ class ItemVariation
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getIntervalOrderQuantity()
     {
@@ -920,7 +920,7 @@ class ItemVariation
     }
 
     /**
-     * @param int $intervalOrderQuantity
+     * @param float $intervalOrderQuantity
      *
      * @return ItemVariation
      */

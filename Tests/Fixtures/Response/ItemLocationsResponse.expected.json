@@ -6,7 +6,7 @@
             "batch": "value-2228",
             "bestBeforeDate": "value-2229",
             "itemId": 3223,
-            "quantity": 3225,
+            "quantity": 3225.0,
             "storageLocationId": 3222,
             "updatedAt": {
                 "@class": "DateTime",
@@ -20,7 +20,7 @@
             "batch": "value-2237",
             "bestBeforeDate": "value-2238",
             "itemId": 3232,
-            "quantity": 3234,
+            "quantity": 3234.0,
             "storageLocationId": 3231,
             "updatedAt": {
                 "@class": "DateTime",

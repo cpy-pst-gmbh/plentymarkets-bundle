@@ -17,7 +17,7 @@
     "id": 2163,
     "initialSku": "value-1167",
     "isActive": true,
-    "marketId": 2165,
+    "marketId": 2165.0,
     "parentSku": "value-1169",
     "sku": "value-1168",
     "status": "value-1170",

@@ -36,8 +36,8 @@ class ItemVariationSupplier
     /** @var bool|null */
     private ?bool $isDiscountable = null;
 
-    /** @var int|null */
-    private ?int $packagingUnit = null;
+    /** @var float|null */
+    private ?float $packagingUnit = null;
 
     /** @var \DateTime|null */
     private ?\DateTime $lastUpdateTimestamp = null;
@@ -195,7 +195,7 @@ class ItemVariationSupplier
         return $this;
     }
 
-    public function getPackagingUnit(): ?int
+    public function getPackagingUnit(): ?float
     {
         return $this->packagingUnit;
     }
@@ -203,7 +203,7 @@ class ItemVariationSupplier
     /**
      * @return ItemVariationSupplier
      */
-    public function setPackagingUnit(int $packagingUnit): ItemVariationSupplier
+    public function setPackagingUnit(float $packagingUnit): ItemVariationSupplier
     {
         $this->packagingUnit = $packagingUnit;
 

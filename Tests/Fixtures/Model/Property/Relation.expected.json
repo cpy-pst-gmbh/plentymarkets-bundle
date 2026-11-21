@@ -6,7 +6,7 @@
     },
     "groupId": 2959,
     "id": 2954,
-    "markup": 2960,
+    "markup": 2960.0,
     "property": {
         "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Property",
         "cast": "value-1966",

@@ -494,7 +494,7 @@ class ItemsProvider extends BaseProvider
         return $result;
     }
 
-    public function putStockCorrection(int $itemId, int $variationId, int $quantity, int $warehouseId, int $storageLocationId, int $reason = Item::REASON_STOCK_CORRECTION): bool|Throwable
+    public function putStockCorrection(int $itemId, int $variationId, float $quantity, int $warehouseId, int $storageLocationId, int $reason = Item::REASON_STOCK_CORRECTION): bool|Throwable
     {
         $response = $this->getResponse(
             Request::METHOD_PUT,
@@ -516,7 +516,7 @@ class ItemsProvider extends BaseProvider
         return true;
     }
 
-    public function putBookIncomingItems(int $itemId, int $variationId, int $quantity, int $warehouseId, int $storageLocationId, int $reason = Item::REASON_INCOMING_ITEMS): bool|Throwable
+    public function putBookIncomingItems(int $itemId, int $variationId, float $quantity, int $warehouseId, int $storageLocationId, int $reason = Item::REASON_INCOMING_ITEMS): bool|Throwable
     {
         $response = $this->getResponse(
             Request::METHOD_PUT,
@@ -543,7 +543,7 @@ class ItemsProvider extends BaseProvider
     public function putStockRedistribute(
         int $itemId,
         int $variationId,
-        int $quantity,
+        float $quantity,
         ?int $currentStorageLocationId,
         ?int $currentWarehouseId,
         int $newStorageLocationId,

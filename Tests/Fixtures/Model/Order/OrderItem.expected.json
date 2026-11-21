@@ -91,7 +91,7 @@
             "value": "value-1748"
         }
     ],
-    "quantity": 2694,
+    "quantity": 2694.0,
     "references": [
         {
             "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\OrderItemReference",
@@ -132,7 +132,7 @@
         "@value": "2026-03-22T10:21:00.000000+01:00 +01:00"
     },
     "vatField": 2698,
-    "vatRate": 2699,
+    "vatRate": 2699.0,
     "warehouseId": 2702,
     "warehouseLocations": [
         {
