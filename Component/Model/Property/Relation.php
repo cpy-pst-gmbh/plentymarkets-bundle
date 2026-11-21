@@ -24,8 +24,8 @@ class Relation
     /** @var int|null */
     private ?int $groupId = null;
 
-    /** @var int|null */
-    private ?int $markup = null;
+    /** @var float|null */
+    private ?float $markup = null;
 
     /** @var \DateTime|null */
     private ?DateTime $createdAt = null;
@@ -111,12 +111,12 @@ class Relation
         return $this;
     }
 
-    public function getMarkup(): ?int
+    public function getMarkup(): ?float
     {
         return $this->markup;
     }
 
-    public function setMarkup(?int $markup): Relation
+    public function setMarkup(?float $markup): Relation
     {
         $this->markup = $markup;
 

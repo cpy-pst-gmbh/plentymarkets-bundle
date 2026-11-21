@@ -12,8 +12,8 @@ class ItemVariationSku
     /** @var int */
     private int $variationId;
 
-    /** @var int */
-    private int $marketId;
+    /** @var float */
+    private float $marketId;
 
     /** @var int */
     private int $accountId;
@@ -75,12 +75,12 @@ class ItemVariationSku
         return $this;
     }
 
-    public function getMarketId(): int
+    public function getMarketId(): float
     {
         return $this->marketId;
     }
 
-    public function setMarketId(int $marketId): ItemVariationSku
+    public function setMarketId(float $marketId): ItemVariationSku
     {
         $this->marketId = $marketId;
 

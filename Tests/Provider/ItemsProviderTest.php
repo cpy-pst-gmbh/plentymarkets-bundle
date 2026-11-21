@@ -418,7 +418,7 @@ final class ItemsProviderTest extends ProviderTestCase
         $this->assertRequest('GET', '/rest/items/1/variations/2/stock/storageLocations', ['page' => '1', 'itemsPerPage' => '200', 'warehouseId' => '3'], 0);
         $this->assertRequest('GET', '/rest/items/1/variations/2/stock/storageLocations', ['page' => '2', 'itemsPerPage' => '200', 'warehouseId' => '3'], 1);
         self::assertContainsOnlyInstancesOf(ItemVariationStockStorageLocation::class, $locations);
-        self::assertSame([[2189, 2192], [9, 4]], array_map(
+        self::assertSame([[2189, 2192.0], [9, 4.0]], array_map(
             static fn (ItemVariationStockStorageLocation $location): array => [$location->getStorageLocationId(), $location->getQuantity()],
             $locations,
         ));

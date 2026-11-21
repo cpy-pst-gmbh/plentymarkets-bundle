@@ -26,8 +26,8 @@ class ItemVariationStockStorageLocation
     /** @var int|null */
     private ?int $warehouseId = null;
 
-    /** @var int|null */
-    private ?int $quantity = null;
+    /** @var float|null */
+    private ?float $quantity = null;
 
     /** @var int|null */
     private ?int $variationId = null;
@@ -102,7 +102,7 @@ class ItemVariationStockStorageLocation
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getQuantity()
     {
@@ -110,7 +110,7 @@ class ItemVariationStockStorageLocation
     }
 
     /**
-     * @param int $quantity
+     * @param float $quantity
      *
      * @return ItemVariationStockStorageLocation
      */

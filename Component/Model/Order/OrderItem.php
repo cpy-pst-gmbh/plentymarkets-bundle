@@ -34,8 +34,8 @@ class OrderItem
     /** @var int|null */
     private ?int $itemVariationId = null;
 
-    /** @var int|null */
-    private ?int $quantity = null;
+    /** @var float|null */
+    private ?float $quantity = null;
 
     /** @var string|null */
     private ?string $orderItemName = null;
@@ -49,8 +49,8 @@ class OrderItem
     /** @var int|null */
     private ?int $vatField = null;
 
-    /** @var int|null */
-    private ?int $vatRate = null;
+    /** @var float|null */
+    private ?float $vatRate = null;
 
     /** @var \DateTime|null */
     private ?DateTimeInterface $createdAt = null;
@@ -98,7 +98,7 @@ class OrderItem
         return $this->itemVariationId;
     }
 
-    public function getQuantity(): ?int
+    public function getQuantity(): ?float
     {
         return $this->quantity;
     }
@@ -123,7 +123,7 @@ class OrderItem
         return $this->vatField;
     }
 
-    public function getVatRate(): ?int
+    public function getVatRate(): ?float
     {
         return $this->vatRate;
     }

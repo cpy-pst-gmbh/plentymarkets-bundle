@@ -81,7 +81,7 @@ final class ModelNormalizer extends AbstractObjectNormalizer
             return;
         }
 
-        // plentymarkets sends decimals where the model declares an int (9.5 for a quantity).
+        // plentymarkets may send decimals where the model declares an int.
         // PHP would cut them off as well, but with a notice that Symfony's ErrorHandler turns
         // into an exception for the whole answer. JMS cut them off silently, and so do we.
         if (is_float($value) && is_finite($value) && self::takesIntButNotFloat($property)) {

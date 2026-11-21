@@ -4,7 +4,7 @@ namespace PM\PlentyMarketsBundle\Tests;
 
 use DateTime;
 use PHPUnit\Framework\TestCase;
-use PM\PlentyMarketsBundle\Component\Model\Item\SalesPriceAccount;
+use PM\PlentyMarketsBundle\Component\Model\Item\ItemVariationSku;
 use PM\PlentyMarketsBundle\Component\Model\Order\Order;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderAmount;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderItem;
@@ -29,7 +29,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * PHP only warns about the lost decimals ("Implicit conversion from float 9.5 to int loses
+     * PHP only warns about lost decimals ("Implicit conversion from float 9.5 to int loses
      * precision"), but Symfony's ErrorHandler turns that into an ErrorException and the whole
      * answer fails. JMS cut them off, and so does the serializer now, without the notice.
      */
@@ -40,19 +40,22 @@ final class SerializerTest extends TestCase
         });
 
         try {
-            $item = $this->read('{"quantity":9.5}', OrderItem::class);
+            $item = $this->read('{"warehouseId":9.5}', OrderItem::class);
         } finally {
             restore_error_handler();
         }
 
-        self::assertSame(9, $item->getQuantity());
+        self::assertSame(9, $item->getWarehouseId());
     }
 
-    public function testASubReferrerOfASalesPriceKeepsItsDecimals(): void
+    /** The fields plentymarkets documents as number (OpenAPI spec) keep their decimals. */
+    public function testDecimalsWherePlentymarketsSendsThemAreKept(): void
     {
-        $account = $this->read('{"salesPriceId":1,"referrerId":102.01,"accountId":0}', SalesPriceAccount::class);
+        $sku = $this->read('{"id":1,"variationId":2,"marketId":102.01,"accountId":0,"sku":"A"}', ItemVariationSku::class);
+        $item = $this->read('{"quantity":9.5,"vatRate":7.7}', OrderItem::class);
 
-        self::assertSame(102.01, $account->getReferrerId());
+        self::assertSame(102.01, $sku->getMarketId(), 'A sub-referrer.');
+        self::assertSame([9.5, 7.7], [$item->getQuantity(), $item->getVatRate()]);
     }
 
     public function testANullWherePlentymarketsMeansNothingLeavesTheDefault(): void
