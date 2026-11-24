@@ -241,6 +241,26 @@
             "updatedAt": "2026-03-11T10:14:00+01:00"
         }
     ],
+    "comments": [
+        {
+            "id": 2685,
+            "referenceType": "value-1686",
+            "referenceValue": 2687,
+            "userId": 2688,
+            "text": "value-1689",
+            "isVisibleForContact": true,
+            "createdAt": "2026-03-12T10:11:00+01:00"
+        },
+        {
+            "id": 2693,
+            "referenceType": "value-1694",
+            "referenceValue": 2695,
+            "userId": 2696,
+            "text": "value-1697",
+            "isVisibleForContact": true,
+            "createdAt": "2026-03-20T10:19:00+01:00"
+        }
+    ],
     "typeId": 2635,
     "plentyId": 2636,
     "locationId": 2637,

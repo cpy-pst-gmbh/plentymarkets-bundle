@@ -189,4 +189,13 @@ class PropertiesProvider extends BaseProvider
         return $responseJson['id'];
     }
 
+    /**
+     * Deletes a relation of a property to a record, its values go with it.
+     */
+    public function deleteRelation(int $relationId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_DELETE, sprintf(RestfulUrl::PROPERTIES_RELATION, $relationId));
+
+        return $response instanceof Throwable ? $response : null;
+    }
 }

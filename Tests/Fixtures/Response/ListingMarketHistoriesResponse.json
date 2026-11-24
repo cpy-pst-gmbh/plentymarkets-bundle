@@ -1,0 +1,45 @@
+{
+    "page": 1016,
+    "totalsCount": 1017,
+    "isLastPage": true,
+    "lastPageNumber": 1019,
+    "firstOnPage": 1020,
+    "lastOnPage": 1021,
+    "itemsPerPage": 1022,
+    "entries": [
+        {
+            "id": 1025,
+            "listingMarketId": 1026,
+            "referrerId": 1027.25,
+            "externalId": "value-28",
+            "quantity": 1029.25,
+            "quantityRemain": 1030.25,
+            "quantitySold": 1031.25,
+            "quantitySoldDelta": 1032.25,
+            "statusId": 1033,
+            "price": 1034.25,
+            "sku": "value-35",
+            "hasStockReservationForEbay": 1036,
+            "currency": "value-37",
+            "createdAt": "2026-03-11 10:38:00",
+            "updatedAt": "2026-03-12 10:39:00"
+        },
+        {
+            "id": 1041,
+            "listingMarketId": 1042,
+            "referrerId": 1043.25,
+            "externalId": "value-44",
+            "quantity": 1045.25,
+            "quantityRemain": 1046.25,
+            "quantitySold": 1047.25,
+            "quantitySoldDelta": 1048.25,
+            "statusId": 1049,
+            "price": 1050.25,
+            "sku": "value-51",
+            "hasStockReservationForEbay": 1052,
+            "currency": "value-53",
+            "createdAt": "2026-03-27 10:54:00",
+            "updatedAt": "2026-03-28 10:55:00"
+        }
+    ]
+}

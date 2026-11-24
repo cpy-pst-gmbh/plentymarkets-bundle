@@ -14,6 +14,7 @@ use PM\PlentyMarketsBundle\Component\Model\StockManagement\StockMovement;
 use PM\PlentyMarketsBundle\Component\Model\StockManagement\Warehouse;
 use PM\PlentyMarketsBundle\Component\Response\ItemLocationsResponse;
 use PM\PlentyMarketsBundle\Component\Response\StockMovementsResponse;
+use PM\PlentyMarketsBundle\Component\Response\StockResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
 use Throwable;
@@ -125,5 +126,60 @@ class StockManagementProvider extends BaseProvider
         }
 
         return $this->getService()->getSerializer()->deserialize($this->getBodyContentsWithFixedDate($response), ItemLocationsResponse::class, 'json');
+    }
+
+    /**
+     * One page of the stock movements of a warehouse, for callers that stop early.
+     */
+    public function getMovementsPage(int $warehouseId, int $page = 1, array $query = []): StockMovementsResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            sprintf(RestfulUrl::STOCK_MANAGEMENT_WAREHOUSE_STOCK_MOVEMENTS, $warehouseId),
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), StockMovementsResponse::class, 'json');
+    }
+
+    /**
+     * One page of the stock per variation and warehouse over all warehouses, filtered for
+     * example by variationId (a comma separated list) or updatedAtFrom.
+     */
+    public function getStockPage(int $page = 1, array $query = []): StockResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::STOCK_MANAGEMENT_STOCK,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), StockResponse::class, 'json');
     }
 }

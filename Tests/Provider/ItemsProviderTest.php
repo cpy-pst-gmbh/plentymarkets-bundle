@@ -822,6 +822,54 @@ final class ItemsProviderTest extends ProviderTestCase
         self::assertSame($error, $this->items()->deleteImage(546534, 1));
     }
 
+    /**
+     * @return iterable<string, array{callable(ItemsProvider): ?\Throwable, string, string, mixed}>
+     */
+    public static function writes(): iterable
+    {
+        yield 'image names' => [static fn (ItemsProvider $items): ?\Throwable => $items->putImage(546534, 433501, ['names' => [['lang' => 'de', 'name' => '', 'alternate' => 'Lein']]]), 'PUT', '/rest/items/546534/images/433501', ['names' => [['lang' => 'de', 'name' => '', 'alternate' => 'Lein']]]];
+        yield 'item fields' => [static fn (ItemsProvider $items): ?\Throwable => $items->putItemFields(546534, ['flagOne' => 0, 'storeSpecial' => 2]), 'PUT', '/rest/items/546534', ['flagOne' => 0, 'storeSpecial' => 2]];
+        yield 'description' => [static fn (ItemsProvider $items): ?\Throwable => $items->putVariationDescription(546534, 27303, 'de', ['name2' => 'MHD']), 'PUT', '/rest/items/546534/variations/27303/descriptions/de', ['name2' => 'MHD']];
+        yield 'new sales price' => [static fn (ItemsProvider $items): ?\Throwable => $items->postVariationSalesPrice(546534, 27303, 7, 2.5), 'POST', '/rest/items/546534/variations/27303/variation_sales_prices', ['salesPriceId' => 7, 'price' => 2.5]];
+        yield 'sales price' => [static fn (ItemsProvider $items): ?\Throwable => $items->putVariationSalesPrice(546534, 27303, 7, ['price' => 3.0, 'lowestPriceCalculation' => true]), 'PUT', '/rest/items/546534/variations/27303/variation_sales_prices/7', ['price' => 3, 'lowestPriceCalculation' => true]];
+        yield 'no sales price' => [static fn (ItemsProvider $items): ?\Throwable => $items->deleteVariationSalesPrice(546534, 27303, 7), 'DELETE', '/rest/items/546534/variations/27303/variation_sales_prices/7', null];
+        yield 'category' => [static fn (ItemsProvider $items): ?\Throwable => $items->postVariationCategory(546534, 27303, 412), 'POST', '/rest/items/546534/variations/27303/variation_categories', ['categoryId' => 412]];
+        yield 'no category' => [static fn (ItemsProvider $items): ?\Throwable => $items->deleteVariationCategory(546534, 27303, 412), 'DELETE', '/rest/items/546534/variations/27303/variation_categories/412', null];
+        yield 'market' => [static fn (ItemsProvider $items): ?\Throwable => $items->postVariationMarket(546534, 27303, 4.01), 'POST', '/rest/items/546534/variations/27303/variation_markets', ['marketId' => 4.01]];
+        yield 'no sub-market' => [static fn (ItemsProvider $items): ?\Throwable => $items->deleteVariationMarket(546534, 27303, 4.01), 'DELETE', '/rest/items/546534/variations/27303/variation_markets/4.01', null];
+        yield 'no market' => [static fn (ItemsProvider $items): ?\Throwable => $items->deleteVariationMarket(546534, 27303, 4.0), 'DELETE', '/rest/items/546534/variations/27303/variation_markets/4', null];
+        yield 'supplier' => [static fn (ItemsProvider $items): ?\Throwable => $items->putVariationSupplier(546534, 27303, 88, ['deliveryTimeInDays' => 5]), 'PUT', '/rest/items/546534/variations/27303/variation_suppliers/88', ['deliveryTimeInDays' => 5]];
+        yield 'warehouse' => [static fn (ItemsProvider $items): ?\Throwable => $items->putVariationWarehouse(546534, 27303, 20, ['storageLocation' => 1234]), 'PUT', '/rest/items/546534/variations/27303/variation_warehouses/20', ['storageLocation' => 1234]];
+    }
+
+    /**
+     * @param callable(ItemsProvider): ?\Throwable $write
+     */
+    #[DataProvider('writes')]
+    public function testAWriteGoesToItsRoute(callable $write, string $method, string $path, mixed $body): void
+    {
+        $this->respond('{}');
+
+        self::assertNull($write($this->items()));
+        $this->assertRequestCount(1);
+        $this->assertRequest($method, $path, []);
+        if (null !== $body) {
+            self::assertSame($body, $this->body());
+        }
+    }
+
+    /**
+     * @param callable(ItemsProvider): ?\Throwable $write
+     */
+    #[DataProvider('writes')]
+    public function testAWriteGivesTheErrorBack(callable $write, string $method, string $path, mixed $body): void
+    {
+        $error = self::notFound();
+        $this->respond($error);
+
+        self::assertSame($error, $write($this->items()));
+    }
+
     private function items(): ItemsProvider
     {
         return $this->service->items($this->config());

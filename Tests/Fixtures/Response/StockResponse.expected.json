@@ -1,0 +1,52 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\StockResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\Stock",
+            "averagePurchasePrice": 1110.25,
+            "itemId": 1100,
+            "reorderDelta": 1106.25,
+            "reordered": 1108.25,
+            "reservedBundle": 1109.25,
+            "reservedEbay": 1105.25,
+            "reservedStock": 1104.25,
+            "stockNet": 1107.25,
+            "stockPhysical": 1103.25,
+            "storehouseType": 1111,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-02T10:53:00.000000+01:00 +01:00"
+            },
+            "variationId": 1101,
+            "warehouseId": 1102,
+            "warehousePriority": 1112
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\Stock",
+            "averagePurchasePrice": 1125.25,
+            "itemId": 1115,
+            "reorderDelta": 1121.25,
+            "reordered": 1123.25,
+            "reservedBundle": 1124.25,
+            "reservedEbay": 1120.25,
+            "reservedStock": 1119.25,
+            "stockNet": 1122.25,
+            "stockPhysical": 1118.25,
+            "storehouseType": 1126,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-17T10:08:00.000000+01:00 +01:00"
+            },
+            "variationId": 1116,
+            "warehouseId": 1117,
+            "warehousePriority": 1127
+        }
+    ],
+    "firstOnPage": 1095,
+    "isLastPage": false,
+    "itemsPerPage": 1097,
+    "lastOnPage": 1096,
+    "lastPageNumber": 1094,
+    "page": 1091,
+    "totalsCount": 1092
+}

@@ -1,0 +1,43 @@
+{
+    "page": 1091,
+    "totalsCount": 1092,
+    "isLastPage": false,
+    "lastPageNumber": 1094,
+    "firstOnPage": 1095,
+    "lastOnPage": 1096,
+    "itemsPerPage": 1097,
+    "entries": [
+        {
+            "itemId": 1100,
+            "variationId": 1101,
+            "warehouseId": 1102,
+            "stockPhysical": 1103.25,
+            "reservedStock": 1104.25,
+            "reservedEbay": 1105.25,
+            "reorderDelta": 1106.25,
+            "stockNet": 1107.25,
+            "reordered": 1108.25,
+            "reservedBundle": 1109.25,
+            "averagePurchasePrice": 1110.25,
+            "storehouse_type": 1111,
+            "warehousePriority": 1112,
+            "updatedAt": "2026-03-02T10:53:00+01:00"
+        },
+        {
+            "itemId": 1115,
+            "variationId": 1116,
+            "warehouseId": 1117,
+            "stockPhysical": 1118.25,
+            "reservedStock": 1119.25,
+            "reservedEbay": 1120.25,
+            "reorderDelta": 1121.25,
+            "stockNet": 1122.25,
+            "reordered": 1123.25,
+            "reservedBundle": 1124.25,
+            "averagePurchasePrice": 1125.25,
+            "storehouse_type": 1126,
+            "warehousePriority": 1127,
+            "updatedAt": "2026-03-17T10:08:00+01:00"
+        }
+    ]
+}

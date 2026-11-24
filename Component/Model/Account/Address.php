@@ -64,6 +64,9 @@ class Address
     /** @var \DateTime|null */
     private ?\DateTime $updatedAt = null;
 
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Account\AddressOption>|null */
+    private ?array $options = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -312,6 +315,24 @@ class Address
     public function setUpdatedAt(DateTime $updatedAt): Address
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return list<AddressOption>|null
+     */
+    public function getOptions(): ?array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @param list<AddressOption>|null $options
+     */
+    public function setOptions(?array $options): Address
+    {
+        $this->options = $options;
 
         return $this;
     }

@@ -55,6 +55,9 @@ class Order
     /** @var list<\PM\PlentyMarketsBundle\Component\Model\Mixed\Tag>|null */
     private ?array $tags = null;
 
+    /** @var list<\PM\PlentyMarketsBundle\Component\Model\Order\OrderComment>|null with[]=comments */
+    private ?array $comments = null;
+
 
     /** @var int|null */
     private ?int $typeId = null;
@@ -219,6 +222,24 @@ class Order
     public function setTags(array $tags): Order
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @return list<OrderComment>|null null without with[]=comments
+     */
+    public function getComments(): ?array
+    {
+        return $this->comments;
+    }
+
+    /**
+     * @param list<OrderComment>|null $comments
+     */
+    public function setComments(?array $comments): Order
+    {
+        $this->comments = $comments;
 
         return $this;
     }

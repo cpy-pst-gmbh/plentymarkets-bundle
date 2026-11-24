@@ -1,0 +1,20 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\StockManagement\\Stock",
+    "averagePurchasePrice": 1040.25,
+    "itemId": 1030,
+    "reorderDelta": 1036.25,
+    "reordered": 1038.25,
+    "reservedBundle": 1039.25,
+    "reservedEbay": 1035.25,
+    "reservedStock": 1034.25,
+    "stockNet": 1037.25,
+    "stockPhysical": 1033.25,
+    "storehouseType": 1041,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-16T10:43:00.000000+01:00 +01:00"
+    },
+    "variationId": 1031,
+    "warehouseId": 1032,
+    "warehousePriority": 1042
+}

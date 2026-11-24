@@ -15,5 +15,25 @@
     "contactPerson": "value-14",
     "checkedAt": "2026-03-16T10:15:00+01:00",
     "createdAt": "2026-03-17T10:16:00+01:00",
-    "updatedAt": "2026-03-18T10:17:00+01:00"
+    "updatedAt": "2026-03-18T10:17:00+01:00",
+    "options": [
+        {
+            "id": 1020,
+            "addressId": 1021,
+            "typeId": 1022,
+            "value": "value-23",
+            "position": 1024,
+            "createdAt": "2026-03-26T10:25:00+01:00",
+            "updatedAt": "2026-03-27T10:26:00+01:00"
+        },
+        {
+            "id": 1028,
+            "addressId": 1029,
+            "typeId": 1030,
+            "value": "value-31",
+            "position": 1032,
+            "createdAt": "2026-03-06T10:33:00+01:00",
+            "updatedAt": "2026-03-07T10:34:00+01:00"
+        }
+    ]
 }

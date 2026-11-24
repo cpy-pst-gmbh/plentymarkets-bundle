@@ -1,0 +1,17 @@
+{
+    "id": 1001,
+    "listingMarketId": 1002,
+    "referrerId": 1003.25,
+    "externalId": "value-4",
+    "quantity": 1005.25,
+    "quantityRemain": 1006.25,
+    "quantitySold": 1007.25,
+    "quantitySoldDelta": 1008.25,
+    "statusId": 1009,
+    "price": 1010.25,
+    "sku": "value-11",
+    "hasStockReservationForEbay": 1012,
+    "currency": "value-13",
+    "createdAt": "2026-03-15 10:14:00",
+    "updatedAt": "2026-03-16 10:15:00"
+}

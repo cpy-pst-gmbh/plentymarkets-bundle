@@ -2,6 +2,7 @@
 
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
+use PM\PlentyMarketsBundle\Component\Response\ListingMarketHistoriesResponse;
 use PM\PlentyMarketsBundle\Component\Response\ListingMarketsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,5 +35,32 @@ class ListingsProvider extends BaseProvider
         }
 
         return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ListingMarketsResponse::class, 'json');
+    }
+
+    /**
+     * A single page of the market listing histories, the listings as they ran.
+     */
+    public function getMarketHistoriesPage(int $page = 1, array $query = []): ListingMarketHistoriesResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::LISTING_MARKETS_HISTORIES,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ListingMarketHistoriesResponse::class, 'json');
     }
 }

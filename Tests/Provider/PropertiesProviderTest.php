@@ -229,6 +229,23 @@ final class PropertiesProviderTest extends ProviderTestCase
         self::assertSame($error, $this->service->properties($this->config())->getSelections(363));
     }
 
+    public function testARelationIsDeleted(): void
+    {
+        $this->respond('');
+
+        self::assertNull($this->service->properties($this->config())->deleteRelation(77));
+        $this->assertRequestCount(1);
+        $this->assertRequest('DELETE', '/rest/properties/relations/77', []);
+    }
+
+    public function testDeletingARelationGivesTheErrorBack(): void
+    {
+        $error = new \RuntimeException('down');
+        $this->respond($error);
+
+        self::assertSame($error, $this->service->properties($this->config())->deleteRelation(77));
+    }
+
     private static function page(bool $isLastPage, array $ids): array
     {
         $page = self::fixture('Response/PropertiesResponse');

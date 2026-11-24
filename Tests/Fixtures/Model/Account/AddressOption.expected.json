@@ -1,0 +1,16 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Account\\AddressOption",
+    "addressId": 1002,
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-07T10:06:00.000000+01:00 +01:00"
+    },
+    "id": 1001,
+    "position": 1005,
+    "typeId": 1003,
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-08T10:07:00.000000+01:00 +01:00"
+    },
+    "value": "value-4"
+}

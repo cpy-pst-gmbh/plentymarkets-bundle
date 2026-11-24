@@ -2,6 +2,8 @@
 
 namespace PM\PlentyMarketsBundle\Tests\Provider;
 
+use PM\PlentyMarketsBundle\Component\Model\Account\AddressOption;
+use PM\PlentyMarketsBundle\Component\Model\Order\OrderComment;
 use PM\PlentyMarketsBundle\Component\Model\Order\ShippingCountry;
 use DateTimeImmutable;
 use DateTimeZone;
@@ -303,6 +305,34 @@ final class OrdersProviderTest extends ProviderTestCase
         self::assertSame([2643, 2636, 'value-1639'], [$order->getId(), $order->getPlentyId(), $order->getStatusName()]);
         self::assertContainsOnlyInstancesOf(OrderItem::class, $order->getOrderItems());
         self::assertSame([2408, 2435], array_map(static fn (OrderItem $item) => $item->getId(), $order->getOrderItems()));
+    }
+
+    public function testAnOrderIsReadWithItsCommentsAndTheOptionsOfItsAddresses(): void
+    {
+        $order = self::fixture('Model/Order/Order');
+        $order['addresses'][0]['options'] = [self::fixture('Model/Account/AddressOption')];
+        $this->respond($order);
+
+        $order = $this->provider()->getById(2643, ['with' => ['comments', 'addresses', 'tags']]);
+
+        $this->assertRequest('GET', '/rest/orders/2643', ['with' => ['comments', 'addresses', 'tags']]);
+        self::assertInstanceOf(Order::class, $order);
+        self::assertContainsOnlyInstancesOf(OrderComment::class, $order->getComments());
+        $comment = $order->getComments()[0];
+        self::assertSame([2685, 'value-1686', 2687, 2688, 'value-1689', true], [$comment->getId(), $comment->getReferenceType(), $comment->getReferenceValue(), $comment->getUserId(), $comment->getText(), $comment->isVisibleForContact()]);
+        self::assertSame('2026-03-12T10:11:00+01:00', $comment->getCreatedAt()->format(DATE_ATOM));
+        $option = $order->getAddresses()[0]->getOptions()[0];
+        self::assertInstanceOf(AddressOption::class, $option);
+        self::assertSame([1001, 1002, 1003, 'value-4', 1005], [$option->getId(), $option->getAddressId(), $option->getTypeId(), $option->getValue(), $option->getPosition()]);
+    }
+
+    public function testWithoutCommentsAskedForThereAreNone(): void
+    {
+        $order = self::fixture('Model/Order/Order');
+        unset($order['comments']);
+        $this->respond($order);
+
+        self::assertNull($this->provider()->getById(2643)->getComments());
     }
 
     public function testAnOrderByItsIdGivesTheErrorBack(): void

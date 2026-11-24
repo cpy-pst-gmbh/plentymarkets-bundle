@@ -420,6 +420,140 @@ class ItemsProvider extends BaseProvider
         return $response instanceof Throwable ? $response : null;
     }
 
+    /**
+     * Changes fields of the image, such as names: [['lang' => 'de', 'name' => '', 'alternate' => '…']]
+     * (only languages the image has already).
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putImage(int $itemId, int $imageId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM_IMAGE, $itemId, $imageId), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Changes fields of the item, such as flagOne, storeSpecial or free11; the others stay.
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putItemFields(int $itemId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM, $itemId), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Changes the description of a variation in one language: only the fields given, name 1 is name.
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putVariationDescription(int $itemId, int $variationId, string $lang, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM_VARIATION_DESCRIPTION, $itemId, $variationId, $lang), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Gives the variation a sales price it does not have yet.
+     */
+    public function postVariationSalesPrice(int $itemId, int $variationId, int $salesPriceId, float $price): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_POST, sprintf(RestfulUrl::ITEM_VARIATION_SALES_PRICES, $itemId, $variationId), [RequestOptions::JSON => ['salesPriceId' => $salesPriceId, 'price' => $price]]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Changes a sales price of the variation, such as price or lowestPriceCalculation.
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putVariationSalesPrice(int $itemId, int $variationId, int $salesPriceId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM_VARIATION_SALES_PRICE, $itemId, $variationId, $salesPriceId), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Takes a sales price from the variation.
+     */
+    public function deleteVariationSalesPrice(int $itemId, int $variationId, int $salesPriceId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_DELETE, sprintf(RestfulUrl::ITEM_VARIATION_SALES_PRICE, $itemId, $variationId, $salesPriceId));
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Links the variation to a category.
+     */
+    public function postVariationCategory(int $itemId, int $variationId, int $categoryId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_POST, sprintf(RestfulUrl::ITEM_VARIATION_CATEGORIES, $itemId, $variationId), [RequestOptions::JSON => ['categoryId' => $categoryId]]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Removes the link of the variation to a category.
+     */
+    public function deleteVariationCategory(int $itemId, int $variationId, int $categoryId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_DELETE, sprintf(RestfulUrl::ITEM_VARIATION_CATEGORY, $itemId, $variationId, $categoryId));
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Links the variation to a market (referrer), sub-referrers such as 4.01 included.
+     */
+    public function postVariationMarket(int $itemId, int $variationId, float $marketId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_POST, sprintf(RestfulUrl::ITEM_VARIATION_MARKETS, $itemId, $variationId), [RequestOptions::JSON => ['marketId' => $marketId]]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Removes the link of the variation to a market (referrer): 4 for 4.0, 4.01 as it is.
+     */
+    public function deleteVariationMarket(int $itemId, int $variationId, float $marketId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_DELETE, sprintf(RestfulUrl::ITEM_VARIATION_MARKET, $itemId, $variationId, $marketId));
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Changes fields of a supplier of the variation, such as deliveryTimeInDays; the id is
+     * the one of the link (ItemVariationSupplier::getId()), not the supplier's.
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putVariationSupplier(int $itemId, int $variationId, int $variationSupplierId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM_VARIATION_SUPPLIER, $itemId, $variationId, $variationSupplierId), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Changes fields of the variation in a warehouse, such as storageLocation.
+     *
+     * @param array<string, mixed> $fields
+     */
+    public function putVariationWarehouse(int $itemId, int $variationId, int $warehouseId, array $fields): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_PUT, sprintf(RestfulUrl::ITEM_VARIATION_WAREHOUSES_WAREHOUSE, $itemId, $variationId, $warehouseId), [RequestOptions::JSON => $fields]);
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
     public function getVariationStock(int $itemId, int $variationId, bool $flushEntities = true): array
     {
         $response = $this->getResponse(
