@@ -1,0 +1,8 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Order\\ShippingCountry",
+    "active": false,
+    "id": 1001,
+    "isoCode2": "value-3",
+    "isoCode3": "value-4",
+    "name": "value-2"
+}

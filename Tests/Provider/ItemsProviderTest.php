@@ -753,6 +753,75 @@ final class ItemsProviderTest extends ProviderTestCase
         $this->assertRequestCount(1);
     }
 
+    public function testASinglePageOfItemsIsRead(): void
+    {
+        $this->respond(self::page([['id' => 7, 'producingCountryId' => 15]], false, 3));
+
+        $page = $this->items()->getItemsPage(3, ['itemsPerPage' => 250, 'page' => 9]);
+
+        $this->assertRequestCount(1);
+        $this->assertRequest('GET', '/rest/items', ['page' => '3', 'itemsPerPage' => '250']);
+        self::assertFalse($page->isIsLastPage());
+        self::assertSame([7, 15], [$page->getEntries()[0]->getId(), $page->getEntries()[0]->getProducingCountryId()]);
+    }
+
+    public function testAnImageIsUploadedWithoutAvailabilities(): void
+    {
+        $this->respond(['id' => 433501, 'itemId' => 546534, 'position' => 0, 'cleanImageName' => '546534-Lein-Pflanzenpass-27303.png', 'availabilities' => []]);
+
+        $image = $this->items()->uploadImage(546534, 'Pflanzenpass_27303.png', 'PNG-DATA', 'png');
+
+        $this->assertRequest('POST', '/rest/items/546534/images/upload', []);
+        self::assertSame(
+            ['itemId' => 546534, 'uploadFileName' => 'Pflanzenpass_27303.png', 'uploadImageData' => base64_encode('PNG-DATA'), 'fileType' => 'png', 'position' => 0, 'availabilities' => []],
+            $this->body(),
+        );
+        self::assertInstanceOf(ItemImage::class, $image);
+        self::assertSame([433501, '546534-Lein-Pflanzenpass-27303.png'], [$image->getId(), $image->getCleanImageName()]);
+    }
+
+    public function testWithoutAvailabilitiesTheDefaultOfPlentymarketsApplies(): void
+    {
+        $this->respond(['id' => 1]);
+
+        $this->items()->uploadImage(5, 'a.jpg', 'X', 'jpg', 3, null);
+
+        self::assertSame(['itemId' => 5, 'uploadFileName' => 'a.jpg', 'uploadImageData' => 'WA==', 'fileType' => 'jpg', 'position' => 3], $this->body());
+    }
+
+    public function testAnUploadGivesTheErrorBack(): void
+    {
+        $error = self::notFound();
+        $this->respond($error);
+
+        self::assertSame($error, $this->items()->uploadImage(5, 'a.png', 'X', 'png'));
+    }
+
+    public function testAnImageIsLinkedToAVariation(): void
+    {
+        $this->respond(['id' => 292902, 'itemId' => 546534, 'variationId' => 27303, 'imageId' => 433501]);
+
+        self::assertNull($this->items()->postVariationImage(546534, 27303, 433501));
+        $this->assertRequest('POST', '/rest/items/546534/variations/27303/variation_images', []);
+        self::assertSame(['itemId' => 546534, 'variationId' => 27303, 'imageId' => 433501], $this->body());
+    }
+
+    public function testAnImageIsDeleted(): void
+    {
+        $this->respond(['affectedRows' => 1]);
+
+        self::assertNull($this->items()->deleteImage(546534, 433501));
+        $this->assertRequest('DELETE', '/rest/items/546534/images/433501', []);
+    }
+
+    public function testADeleteGivesTheErrorBack(): void
+    {
+        $error = self::notFound();
+        $this->respond($error);
+
+        self::assertSame($error, $this->items()->deleteImage(546534, 1));
+    }
+
     private function items(): ItemsProvider
     {
         return $this->service->items($this->config());

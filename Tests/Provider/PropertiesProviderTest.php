@@ -2,6 +2,7 @@
 
 namespace PM\PlentyMarketsBundle\Tests\Provider;
 
+use PM\PlentyMarketsBundle\Component\Model\Property\Selection;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
@@ -203,6 +204,31 @@ final class PropertiesProviderTest extends ProviderTestCase
     }
 
     /** @param list<int> $ids */
+    public function testTheSelectionsOfAPropertyAreReadFromAllPages(): void
+    {
+        $selection = static fn (int $id, string $de): array => ['id' => $id, 'propertyId' => 363, 'relation' => ['relationValues' => [['lang' => 'en', 'value' => 'x'], ['lang' => 'de', 'value' => $de]]]];
+        $this->respond(
+            ['page' => 1, 'isLastPage' => false, 'entries' => [$selection(142, 'Solanum')]],
+            ['page' => 2, 'isLastPage' => true, 'entries' => [$selection(164, 'Capsicum'), ['id' => 165, 'propertyId' => 363]]],
+        );
+
+        $selections = $this->service->properties($this->config())->getSelections(363);
+
+        $this->assertRequestCount(2);
+        $this->assertRequest('GET', '/rest/properties/selections', ['propertyId' => '363', 'itemsPerPage' => '250', 'page' => '1'], 0);
+        $this->assertRequest('GET', '/rest/properties/selections', ['propertyId' => '363', 'itemsPerPage' => '250', 'page' => '2'], 1);
+        self::assertContainsOnlyInstancesOf(Selection::class, $selections);
+        self::assertSame([[142, 'Solanum'], [164, 'Capsicum'], [165, null]], array_map(static fn (Selection $selection): array => [$selection->getId(), $selection->getName('de')], $selections));
+    }
+
+    public function testSelectionsGiveTheErrorBack(): void
+    {
+        $error = new \RuntimeException('down');
+        $this->respond($error);
+
+        self::assertSame($error, $this->service->properties($this->config())->getSelections(363));
+    }
+
     private static function page(bool $isLastPage, array $ids): array
     {
         $page = self::fixture('Response/PropertiesResponse');

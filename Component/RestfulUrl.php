@@ -23,6 +23,8 @@ class RestfulUrl
     public const ITEMS = 'items';
     public const ITEM = 'items/%d';
     public const ITEM_UNITS = 'items/units';
+    public const ITEM_IMAGE = 'items/%d/images/%d';
+    public const ITEM_IMAGE_UPLOAD = 'items/%d/images/upload';
     public const ITEM_BARCODES = 'items/barcodes';
     public const ITEM_MANUFACTURERS = 'items/manufacturers';
     public const ITEM_SALES_PRICE = 'items/sales_prices/%d';
@@ -32,6 +34,7 @@ class RestfulUrl
     public const ITEM_VARIATION_BOOK_INCOMING_ITEMS = 'items/%d/variations/%d/stock/bookIncomingItems';
     public const ITEM_VARIATION_DESCRIPTIONS = 'items/%d/variations/%d/descriptions';
     public const ITEM_VARIATION_IMAGES = 'items/%d/variations/%d/images';
+    public const ITEM_VARIATION_IMAGE_LINKS = 'items/%d/variations/%d/variation_images';
     public const ITEM_VARIATION_SALES_PRICES = 'items/%d/variations/%d/variation_sales_prices';
     public const ITEM_VARIATION_STOCK = 'items/%d/variations/%d/stock';
     public const ITEM_VARIATION_STOCK_CORRECTION = 'items/%d/variations/%d/stock/correction';
@@ -52,6 +55,7 @@ class RestfulUrl
     public const ORDER_REFERRERS = 'orders/referrers';
     public const ORDER_SHIPPING_PACKAGES = 'orders/%d/shipping/packages';
     public const ORDER_SHIPPING_PRESETS = 'orders/shipping/presets';
+    public const ORDER_SHIPPING_COUNTRIES = 'orders/shipping/countries';
     public const ORDER_STATUS_HISTORY = 'orders/%d/status-history';
     public const ORDERS = 'orders';
 
@@ -62,12 +66,14 @@ class RestfulUrl
     public const PROPERTIES_RELATIONS = '/rest/properties/relations';
     public const PROPERTIES_RELATIONS_VALUES = '/rest/properties/relations/values';
     public const PROPERTIES_RELATIONS_VALUES_BY_ID = '/rest/properties/relations/values/%d';
+    public const PROPERTIES_SELECTIONS = '/rest/properties/selections';
 
     public const STOCK_MANAGEMENT_WAREHOUSE = 'stockmanagement/warehouses/%d';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_MOVEMENTS = 'stockmanagement/warehouses/%d/stock/movements';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_STORAGE_LOCATIONS = 'stockmanagement/warehouses/%d/stock/storageLocations';
     public const STOCK_MANAGEMENT_WAREHOUSES = 'stockmanagement/warehouses';
 
+    public const TAGS = 'tags';
     public const TAGS_RELATIONSHIPS = 'tags/relationships';
 
     public const WAREHOUSES_LOCATIONS = 'warehouses/%d/locations';

@@ -2,6 +2,7 @@
 
 namespace PM\PlentyMarketsBundle\Tests\Provider;
 
+use PM\PlentyMarketsBundle\Component\Model\Order\ShippingCountry;
 use DateTimeImmutable;
 use DateTimeZone;
 use GuzzleHttp\Exception\ClientException;
@@ -561,6 +562,17 @@ final class OrdersProviderTest extends ProviderTestCase
         $this->respond($error);
 
         self::assertSame($error, $this->provider()->putItemWarehouse(2170042, 2408, 3));
+    }
+
+    public function testTheCountriesAreReadWithTheirIsoCodes(): void
+    {
+        $this->respond([['id' => 1, 'name' => 'Deutschland', 'isoCode2' => 'DE', 'isoCode3' => 'DEU', 'active' => true], ['id' => 15, 'name' => 'Italien', 'isoCode2' => 'IT']]);
+
+        $countries = $this->provider()->getShippingCountries();
+
+        $this->assertRequest('GET', '/rest/orders/shipping/countries', []);
+        self::assertContainsOnlyInstancesOf(ShippingCountry::class, $countries);
+        self::assertSame([[1, 'DE', true], [15, 'IT', null]], array_map(static fn (ShippingCountry $country): array => [$country->getId(), $country->getIsoCode2(), $country->isActive()], $countries));
     }
 
     private function provider(): OrdersProvider
