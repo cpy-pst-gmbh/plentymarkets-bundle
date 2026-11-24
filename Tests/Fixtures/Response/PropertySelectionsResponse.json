@@ -1,0 +1,25 @@
+{
+    "page": 1030,
+    "totalsCount": 1031,
+    "isLastPage": true,
+    "lastPageNumber": 1033,
+    "firstOnPage": 1034,
+    "lastOnPage": 1035,
+    "itemsPerPage": 1036,
+    "entries": [
+        {
+            "id": 1039,
+            "propertyId": 1040,
+            "position": 1041,
+            "createdAt": "2026-03-15T10:42:00+01:00",
+            "updatedAt": "2026-03-16T10:43:00+01:00"
+        },
+        {
+            "id": 1046,
+            "propertyId": 1047,
+            "position": 1048,
+            "createdAt": "2026-03-22T10:49:00+01:00",
+            "updatedAt": "2026-03-23T10:50:00+01:00"
+        }
+    ]
+}

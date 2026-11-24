@@ -12,6 +12,7 @@ use PM\PlentyMarketsBundle\Component\Model\Order\OrderPropertyType;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderReferrer;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderShippingPackage;
 use PM\PlentyMarketsBundle\Component\Model\Order\OrderShippingPreset;
+use PM\PlentyMarketsBundle\Component\Model\Order\ShippingCountry;
 use PM\PlentyMarketsBundle\Component\Model\Order\StatusHistoryEntry;
 use PM\PlentyMarketsBundle\Component\Response\OrderResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
@@ -245,6 +246,22 @@ class OrdersProvider extends BaseProvider
             OrderShippingPreset::class.'[]',
             'json'
         );
+    }
+
+    /**
+     * All countries of plentymarkets with their ISO codes; the IDs are those of
+     * countryId and producingCountryId everywhere else.
+     *
+     * @return list<ShippingCountry>|Throwable
+     */
+    public function getShippingCountries(): array|Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_GET, RestfulUrl::ORDER_SHIPPING_COUNTRIES);
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ShippingCountry::class.'[]', 'json');
     }
 
     /**

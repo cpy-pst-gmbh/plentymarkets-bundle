@@ -6,6 +6,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use PM\PlentyMarketsBundle\Component\Config\TagType;
+use PM\PlentyMarketsBundle\Component\Model\Tag\Tag;
 
 /** Tagging something in plentymarkets. */
 final class TagsProviderTest extends ProviderTestCase
@@ -41,6 +42,20 @@ final class TagsProviderTest extends ProviderTestCase
         $this->service->tags($this->config())->postRelationship(12, TagType::order, '7');
 
         self::assertSame(['tagId' => 12, 'tagType' => 'order', 'relationshipValue' => '7', 'relationshipUUID5' => ''], $this->body());
+    }
+
+    public function testAllTagsAreReadWithNameAndColour(): void
+    {
+        $this->respond([
+            ['id' => 203, 'tagName' => 'Pflanzenpass', 'color' => '#e93a97', 'createdAt' => '2022-11-03T19:03:44+01:00', 'updatedAt' => '2022-11-03T19:03:44+01:00'],
+            ['id' => 324, 'tagName' => 'Pflanzenpass_neu_generieren', 'color' => '#e93a97'],
+        ]);
+
+        $tags = $this->service->tags($this->config())->getTags();
+
+        $this->assertRequest('GET', '/rest/tags', []);
+        self::assertContainsOnlyInstancesOf(Tag::class, $tags);
+        self::assertSame([[203, 'Pflanzenpass', '#e93a97'], [324, 'Pflanzenpass_neu_generieren', '#e93a97']], array_map(static fn (Tag $tag): array => [$tag->getId(), $tag->getTagName(), $tag->getColor()], $tags));
     }
 
     public function testAnErrorAnswerIsReturned(): void

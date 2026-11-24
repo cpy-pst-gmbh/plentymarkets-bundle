@@ -4,7 +4,9 @@ namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use GuzzleHttp\RequestOptions;
 use PM\PlentyMarketsBundle\Component\Model\Property\Relation;
+use PM\PlentyMarketsBundle\Component\Model\Property\Selection;
 use PM\PlentyMarketsBundle\Component\Response\PropertiesResponse;
+use PM\PlentyMarketsBundle\Component\Response\PropertySelectionsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
 use Throwable;
@@ -53,6 +55,42 @@ class PropertiesProvider extends BaseProvider
         }
 
         return array_merge($data->getEntries(), $merged);
+    }
+
+    /**
+     * All values of a selection property, from all pages.
+     *
+     * @return list<Selection>|Throwable
+     */
+    public function getSelections(int $propertyId, int $itemsPerPage = 250): array|Throwable
+    {
+        $selections = [];
+        $page = 1;
+
+        do {
+            $response = $this->getResponse(
+                Request::METHOD_GET,
+                RestfulUrl::PROPERTIES_SELECTIONS,
+                [
+                    RequestOptions::QUERY => [
+                        'propertyId' => $propertyId,
+                        'itemsPerPage' => $itemsPerPage,
+                        'page' => $page,
+                    ],
+                ]
+            );
+
+            if ($response instanceof Throwable) {
+                return $response;
+            }
+
+            /** @var PropertySelectionsResponse $data */
+            $data = $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), PropertySelectionsResponse::class, 'json');
+            $selections = array_merge($selections, $data->getEntries());
+            ++$page;
+        } while (false === $data->isIsLastPage());
+
+        return $selections;
     }
 
     public function putRelationValue(int $apiId, string $value): bool|Throwable

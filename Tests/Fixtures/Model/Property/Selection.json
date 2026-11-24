@@ -1,0 +1,19 @@
+{
+    "id": 1006,
+    "propertyId": 1007,
+    "position": 1008,
+    "createdAt": "2026-03-10T10:09:00+01:00",
+    "updatedAt": "2026-03-11T10:10:00+01:00",
+    "relation": {
+        "id": 1012,
+        "propertyId": 1013,
+        "relationTypeIdentifier": "value-14",
+        "relationTargetId": 1015,
+        "selectionRelationId": 1016,
+        "groupId": 1017,
+        "markup": 1018.25,
+        "createdAt": "2026-03-20T10:19:00+01:00",
+        "updatedAt": "2026-03-21T10:20:00+01:00",
+        "relationValues": []
+    }
+}

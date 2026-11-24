@@ -1,0 +1,34 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Selection",
+    "createdAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-10T10:09:00.000000+01:00 +01:00"
+    },
+    "id": 1006,
+    "position": 1008,
+    "propertyId": 1007,
+    "relation": {
+        "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Property\\Relation",
+        "createdAt": {
+            "@class": "DateTime",
+            "@value": "2026-03-20T10:19:00.000000+01:00 +01:00"
+        },
+        "groupId": 1017,
+        "id": 1012,
+        "markup": 1018.25,
+        "property": null,
+        "propertyId": 1013,
+        "relationTargetId": 1015,
+        "relationTypeIdentifier": "value-14",
+        "relationValues": [],
+        "selectionRelationId": 1016,
+        "updatedAt": {
+            "@class": "DateTime",
+            "@value": "2026-03-21T10:20:00.000000+01:00 +01:00"
+        }
+    },
+    "updatedAt": {
+        "@class": "DateTime",
+        "@value": "2026-03-11T10:10:00.000000+01:00 +01:00"
+    }
+}

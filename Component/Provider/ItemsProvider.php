@@ -80,6 +80,33 @@ class ItemsProvider extends BaseProvider
     }
 
     /**
+     * A single page of items, for result sets too large to keep in memory.
+     */
+    public function getItemsPage(int $page = 1, array $query = []): ItemsResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::ITEMS,
+            [
+                'query' => array_merge(
+                    [
+                        'page' => $page,
+                    ],
+                    $query,
+                    // The page of the argument, whatever $query says (#60).
+                    ['page' => $page]
+                ),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemsResponse::class, 'json');
+    }
+
+    /**
      * A single page, for result sets too large to keep in memory.
      */
     public function getVariationsPage(int $page = 1, array $query = []): ItemsVariationsResponse|Throwable
@@ -332,6 +359,65 @@ class ItemsProvider extends BaseProvider
         }
 
         return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemImage::class.'[]', 'json');
+    }
+
+    /**
+     * Uploads an image to the item. Without availabilities plentymarkets makes it available
+     * for all clients, markets and listings; an empty list keeps it unavailable everywhere.
+     * POST items/{id}/images (without /upload) answers 200 and creates nothing.
+     *
+     * @param string                                                 $data           the file itself, not base64
+     * @param ?list<array{type: string, value: float|int}>           $availabilities null = the default of plentymarkets
+     */
+    public function uploadImage(int $itemId, string $fileName, string $data, string $fileType, int $position = 0, ?array $availabilities = []): ItemImage|Throwable
+    {
+        $body = [
+            'itemId' => $itemId,
+            'uploadFileName' => $fileName,
+            'uploadImageData' => base64_encode($data),
+            'fileType' => $fileType,
+            'position' => $position,
+        ];
+        if (null !== $availabilities) {
+            $body['availabilities'] = $availabilities;
+        }
+
+        $response = $this->getResponse(Request::METHOD_POST, sprintf(RestfulUrl::ITEM_IMAGE_UPLOAD, $itemId), [RequestOptions::JSON => $body]);
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), ItemImage::class, 'json');
+    }
+
+    /**
+     * Links an image of the item to one of its variations.
+     */
+    public function postVariationImage(int $itemId, int $variationId, int $imageId): ?Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_POST,
+            sprintf(RestfulUrl::ITEM_VARIATION_IMAGE_LINKS, $itemId, $variationId),
+            [
+                RequestOptions::JSON => [
+                    'itemId' => $itemId,
+                    'variationId' => $variationId,
+                    'imageId' => $imageId,
+                ],
+            ]
+        );
+
+        return $response instanceof Throwable ? $response : null;
+    }
+
+    /**
+     * Deletes an image of the item, its links to variations go with it.
+     */
+    public function deleteImage(int $itemId, int $imageId): ?Throwable
+    {
+        $response = $this->getResponse(Request::METHOD_DELETE, sprintf(RestfulUrl::ITEM_IMAGE, $itemId, $imageId));
+
+        return $response instanceof Throwable ? $response : null;
     }
 
     public function getVariationStock(int $itemId, int $variationId, bool $flushEntities = true): array
