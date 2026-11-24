@@ -1,0 +1,28 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\DeleteLogResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\DeleteLog",
+            "referenceType": 1015,
+            "referenceValue": 1016,
+            "updatedAt": "value-17",
+            "userId": 1018,
+            "userRealName": "value-19"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\DeleteLog",
+            "referenceType": 1021,
+            "referenceValue": 1022,
+            "updatedAt": "value-23",
+            "userId": 1024,
+            "userRealName": "value-25"
+        }
+    ],
+    "firstOnPage": 1010,
+    "isLastPage": true,
+    "itemsPerPage": 1012,
+    "lastOnPage": 1011,
+    "lastPageNumber": 1009,
+    "page": 1006,
+    "totalsCount": 1007
+}

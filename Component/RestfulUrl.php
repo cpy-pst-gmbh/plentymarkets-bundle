@@ -17,6 +17,7 @@ class RestfulUrl
 
     public const BACKEND_USERS = 'backend/users';
     public const LOGS = 'logs';
+    public const DELETE_LOG = 'delete_log';
 
     public const FULFILMENT_PICKLIST = 'fulfillment/picklist/%d';
 

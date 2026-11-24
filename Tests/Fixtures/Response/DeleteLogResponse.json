@@ -1,0 +1,25 @@
+{
+    "page": 1006,
+    "totalsCount": 1007,
+    "isLastPage": true,
+    "lastPageNumber": 1009,
+    "firstOnPage": 1010,
+    "lastOnPage": 1011,
+    "itemsPerPage": 1012,
+    "entries": [
+        {
+            "referenceType": 1015,
+            "referenceValue": 1016,
+            "updatedAt": "value-17",
+            "userId": 1018,
+            "userRealName": "value-19"
+        },
+        {
+            "referenceType": 1021,
+            "referenceValue": 1022,
+            "updatedAt": "value-23",
+            "userId": 1024,
+            "userRealName": "value-25"
+        }
+    ]
+}
