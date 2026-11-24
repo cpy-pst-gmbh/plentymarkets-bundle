@@ -1,0 +1,8 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Backend\\DeleteLog",
+    "referenceType": 1001,
+    "referenceValue": 1002,
+    "updatedAt": "value-3",
+    "userId": 1004,
+    "userRealName": "value-5"
+}

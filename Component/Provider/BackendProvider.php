@@ -4,6 +4,7 @@
 namespace PM\PlentyMarketsBundle\Component\Provider;
 
 use PM\PlentyMarketsBundle\Component\Model\Backend\User;
+use PM\PlentyMarketsBundle\Component\Response\DeleteLogResponse;
 use PM\PlentyMarketsBundle\Component\Response\LogsResponse;
 use PM\PlentyMarketsBundle\Component\RestfulUrl;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,5 +63,27 @@ class BackendProvider extends BaseProvider
         }
 
         return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), LogsResponse::class, 'json');
+    }
+
+    /**
+     * One page of the delete log. Filters such as referenceType (DeleteLog::REFERENCE_TYPE_*),
+     * userId, updatedBetween ("from,to" as unix timestamps or ISO 8601) and itemsPerPage go in
+     * $query. Plenty sorts by the ID of the deleted record, not by date.
+     */
+    public function getDeleteLogPage(int $page = 1, array $query = []): DeleteLogResponse|Throwable
+    {
+        $response = $this->getResponse(
+            Request::METHOD_GET,
+            RestfulUrl::DELETE_LOG,
+            [
+                'query' => array_merge($query, ['page' => $page]),
+            ]
+        );
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        return $this->getService()->getSerializer()->deserialize($response->getBody()->getContents(), DeleteLogResponse::class, 'json');
     }
 }
