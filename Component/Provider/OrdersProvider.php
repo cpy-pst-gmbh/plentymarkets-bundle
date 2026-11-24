@@ -147,6 +147,41 @@ class OrdersProvider extends BaseProvider
         }
     }
 
+    /**
+     * Creates a credit note from a parent order. plentymarkets takes addresses, prices and taxes
+     * from the parent order, only the quantity per order item is given.
+     *
+     * @param array<int, float|int> $quantities quantity per order item id of the parent order
+     */
+    public function postCreditNote(int $orderId, array $quantities, ?float $statusId = null, ?int $ownerId = null): Throwable|Order
+    {
+        $body = [
+            'quantities' => array_map(
+                static fn (int $orderItemId, float|int $quantity): array => ['orderItemId' => $orderItemId, 'quantity' => $quantity],
+                array_keys($quantities),
+                array_values($quantities),
+            ),
+        ];
+        if (null !== $statusId) {
+            $body['statusId'] = $statusId;
+        }
+        if (null !== $ownerId) {
+            $body['ownerId'] = $ownerId;
+        }
+
+        $response = $this->getResponse(Request::METHOD_POST, sprintf(RestfulUrl::ORDER_CREDIT_NOTES, $orderId), [RequestOptions::JSON => $body]);
+
+        if ($response instanceof Throwable) {
+            return $response;
+        }
+
+        try {
+            return $this->getService()->getSerializer()->deserialize($this->getBodyContentsWithFixedDate($response), Order::class, 'json');
+        } catch (Throwable $throwable) {
+            return $throwable;
+        }
+    }
+
     public function getByIdWithAddresses(int $orderId): Throwable|Order
     {
         return $this->getById(

@@ -345,7 +345,7 @@ class Order
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getOwnerId()
     {
@@ -353,7 +353,7 @@ class Order
     }
 
     /**
-     * @param int $ownerId
+     * @param int|null $ownerId
      *
      * @return Order
      */

@@ -24,6 +24,7 @@ use PM\PlentyMarketsBundle\Component\Model\Order\StatusHistoryEntry;
 use PM\PlentyMarketsBundle\Component\Provider\OrdersProvider;
 use PM\PlentyMarketsBundle\Component\Response\OrderResponse;
 use RuntimeException;
+use Throwable;
 
 use function array_key_exists;
 use function array_map;
@@ -592,6 +593,45 @@ final class OrdersProviderTest extends ProviderTestCase
         $this->respond($error);
 
         self::assertSame($error, $this->provider()->putItemWarehouse(2170042, 2408, 3));
+    }
+
+    public function testACreditNoteIsCreatedFromTheParentOrderWithTheQuantityPerItem(): void
+    {
+        $this->respond(json_encode(['id' => 2170099, 'typeId' => 4, 'statusId' => 11.1, 'ownerId' => 47, 'createdAt' => '2026-11-24T10:14:00+01:00'], JSON_THROW_ON_ERROR));
+
+        $creditNote = $this->provider()->postCreditNote(2170042, [11889912 => 2, 11889913 => 1.5], 11.1, 47);
+
+        $this->assertRequest('POST', '/rest/orders/2170042/credit_notes', []);
+        self::assertSame(
+            ['quantities' => [['orderItemId' => 11889912, 'quantity' => 2], ['orderItemId' => 11889913, 'quantity' => 1.5]], 'statusId' => 11.1, 'ownerId' => 47],
+            $this->body(),
+        );
+        self::assertInstanceOf(Order::class, $creditNote);
+        self::assertSame([2170099, 4, 11.1], [$creditNote->getId(), $creditNote->getTypeId(), $creditNote->getStatusId()]);
+    }
+
+    public function testACreditNoteWithoutStatusAndOwnerLeavesThemToPlentymarkets(): void
+    {
+        $this->respond(['id' => 2170099, 'typeId' => 4]);
+
+        $this->provider()->postCreditNote(2170042, [11889912 => 1]);
+
+        self::assertSame(['quantities' => [['orderItemId' => 11889912, 'quantity' => 1]]], $this->body());
+    }
+
+    public function testACreditNoteGivesTheErrorBack(): void
+    {
+        $error = self::error(422);
+        $this->respond($error);
+
+        self::assertSame($error, $this->provider()->postCreditNote(2170042, [11889912 => 1]));
+    }
+
+    public function testACreditNoteGivesBackTheErrorOfAnUnreadableAnswer(): void
+    {
+        $this->respond('{"id":');
+
+        self::assertInstanceOf(Throwable::class, $this->provider()->postCreditNote(2170042, [11889912 => 1]));
     }
 
     public function testTheCountriesAreReadWithTheirIsoCodes(): void
