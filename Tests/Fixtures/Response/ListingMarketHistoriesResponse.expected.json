@@ -1,0 +1,60 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Response\\ListingMarketHistoriesResponse",
+    "entries": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Listing\\ListingMarketHistory",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-11T10:38:00.000000+00:00 UTC"
+            },
+            "currency": "value-37",
+            "externalId": "value-28",
+            "hasStockReservationForEbay": 1036,
+            "id": 1025,
+            "listingMarketId": 1026,
+            "price": 1034.25,
+            "quantity": 1029.25,
+            "quantityRemain": 1030.25,
+            "quantitySold": 1031.25,
+            "quantitySoldDelta": 1032.25,
+            "referrerId": 1027.25,
+            "sku": "value-35",
+            "statusId": 1033,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-12T10:39:00.000000+00:00 UTC"
+            }
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Listing\\ListingMarketHistory",
+            "createdAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-27T10:54:00.000000+00:00 UTC"
+            },
+            "currency": "value-53",
+            "externalId": "value-44",
+            "hasStockReservationForEbay": 1052,
+            "id": 1041,
+            "listingMarketId": 1042,
+            "price": 1050.25,
+            "quantity": 1045.25,
+            "quantityRemain": 1046.25,
+            "quantitySold": 1047.25,
+            "quantitySoldDelta": 1048.25,
+            "referrerId": 1043.25,
+            "sku": "value-51",
+            "statusId": 1049,
+            "updatedAt": {
+                "@class": "DateTime",
+                "@value": "2026-03-28T10:55:00.000000+00:00 UTC"
+            }
+        }
+    ],
+    "firstOnPage": 1020,
+    "isLastPage": true,
+    "itemsPerPage": 1022,
+    "lastOnPage": 1021,
+    "lastPageNumber": 1019,
+    "page": 1016,
+    "totalsCount": 1017
+}

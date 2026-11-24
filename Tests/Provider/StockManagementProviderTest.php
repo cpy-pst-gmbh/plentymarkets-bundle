@@ -2,6 +2,9 @@
 
 namespace PM\PlentyMarketsBundle\Tests\Provider;
 
+use PM\PlentyMarketsBundle\Component\Response\StockResponse;
+use PM\PlentyMarketsBundle\Component\Response\StockMovementsResponse;
+use PM\PlentyMarketsBundle\Component\Model\StockManagement\Stock;
 use DateTimeImmutable;
 use DateTimeZone;
 use GuzzleHttp\Exception\ClientException;
@@ -192,6 +195,63 @@ final class StockManagementProviderTest extends ProviderTestCase
         $this->respond($error);
 
         self::assertSame($error, $this->service->stockManagement($this->config())->getStorageLocationStockPage(3));
+    }
+
+    public function testOnlyTheAskedPageOfMovementsIsRead(): void
+    {
+        $this->respond(self::movements(false, [5, 6]));
+
+        $page = $this->service->stockManagement($this->config())->getMovementsPage(11, 3, ['page' => 9]);
+
+        $this->assertRequestCount(1);
+        $this->assertRequest('GET', '/rest/stockmanagement/warehouses/11/stock/movements', ['page' => '3']);
+        self::assertInstanceOf(StockMovementsResponse::class, $page);
+        self::assertFalse($page->isIsLastPage());
+        self::assertSame([5, 6], array_map(static fn (StockMovement $movement): ?int => $movement->getId(), $page->getEntries()));
+    }
+
+    public function testAPageOfMovementsGivesTheErrorBack(): void
+    {
+        $error = ClientException::create(new Request('GET', 'stockmanagement/warehouses/11/stock/movements'), new Response(404, [], '{}'));
+        $this->respond($error);
+
+        self::assertSame($error, $this->service->stockManagement($this->config())->getMovementsPage(11));
+    }
+
+    public function testAPageOfTheStockIsReadForSomeVariations(): void
+    {
+        $this->respond(self::fixture('Response/StockResponse'));
+
+        $page = $this->service->stockManagement($this->config())->getStockPage(2, ['variationId' => '27303,27304', 'itemsPerPage' => 250]);
+
+        $this->assertRequestCount(1);
+        $this->assertRequest('GET', '/rest/stockmanagement/stock', ['page' => '2', 'variationId' => '27303,27304', 'itemsPerPage' => '250']);
+        self::assertInstanceOf(StockResponse::class, $page);
+        self::assertFalse($page->isIsLastPage());
+        self::assertContainsOnlyInstancesOf(Stock::class, $page->getEntries());
+        self::assertSame([1101, 1116], array_map(static fn (Stock $stock): ?int => $stock->getVariationId(), $page->getEntries()));
+    }
+
+    public function testEveryFieldOfTheStockIsRead(): void
+    {
+        $this->respond(['page' => 1, 'isLastPage' => true, 'entries' => [self::fixture('Model/StockManagement/Stock')]]);
+
+        $stock = $this->service->stockManagement($this->config())->getStockPage()->getEntries()[0];
+
+        self::assertSame([1030, 1031, 1032, 1041, 1042], [$stock->getItemId(), $stock->getVariationId(), $stock->getWarehouseId(), $stock->getStorehouseType(), $stock->getWarehousePriority()]);
+        self::assertSame(
+            [1033.25, 1034.25, 1035.25, 1036.25, 1037.25, 1038.25, 1039.25, 1040.25],
+            [$stock->getStockPhysical(), $stock->getReservedStock(), $stock->getReservedEbay(), $stock->getReorderDelta(), $stock->getStockNet(), $stock->getReordered(), $stock->getReservedBundle(), $stock->getAveragePurchasePrice()],
+        );
+        self::assertSame('2026-03-16T10:43:00+01:00', $stock->getUpdatedAt()->format(DATE_ATOM));
+    }
+
+    public function testAPageOfTheStockGivesTheErrorBack(): void
+    {
+        $error = ClientException::create(new Request('GET', 'stockmanagement/stock'), new Response(404, [], '{}'));
+        $this->respond($error);
+
+        self::assertSame($error, $this->service->stockManagement($this->config())->getStockPage());
     }
 
     /** @param list<int> $ids */

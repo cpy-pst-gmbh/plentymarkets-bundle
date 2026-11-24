@@ -1,0 +1,9 @@
+{
+    "id": 1001,
+    "addressId": 1002,
+    "typeId": 1003,
+    "value": "value-4",
+    "position": 1005,
+    "createdAt": "2026-03-07T10:06:00+01:00",
+    "updatedAt": "2026-03-08T10:07:00+01:00"
+}

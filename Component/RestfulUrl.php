@@ -32,19 +32,27 @@ class RestfulUrl
     public const ITEM_VARIATION = 'items/%d/variations/%d';
     public const ITEM_VARIATION_BARCODES = 'items/%d/variations/%d/variation_barcodes';
     public const ITEM_VARIATION_BOOK_INCOMING_ITEMS = 'items/%d/variations/%d/stock/bookIncomingItems';
+    public const ITEM_VARIATION_CATEGORIES = 'items/%d/variations/%d/variation_categories';
+    public const ITEM_VARIATION_CATEGORY = 'items/%d/variations/%d/variation_categories/%d';
     public const ITEM_VARIATION_DESCRIPTIONS = 'items/%d/variations/%d/descriptions';
+    public const ITEM_VARIATION_DESCRIPTION = 'items/%d/variations/%d/descriptions/%s';
     public const ITEM_VARIATION_IMAGES = 'items/%d/variations/%d/images';
     public const ITEM_VARIATION_IMAGE_LINKS = 'items/%d/variations/%d/variation_images';
+    public const ITEM_VARIATION_MARKETS = 'items/%d/variations/%d/variation_markets';
+    public const ITEM_VARIATION_MARKET = 'items/%d/variations/%d/variation_markets/%s';
     public const ITEM_VARIATION_SALES_PRICES = 'items/%d/variations/%d/variation_sales_prices';
+    public const ITEM_VARIATION_SALES_PRICE = 'items/%d/variations/%d/variation_sales_prices/%d';
     public const ITEM_VARIATION_STOCK = 'items/%d/variations/%d/stock';
     public const ITEM_VARIATION_STOCK_CORRECTION = 'items/%d/variations/%d/stock/correction';
     public const ITEM_VARIATION_STOCK_STORAGE_LOCATIONS = 'items/%d/variations/%d/stock/storageLocations';
     public const ITEM_VARIATION_SUPPLIERS = 'items/%d/variations/%d/variation_suppliers';
+    public const ITEM_VARIATION_SUPPLIER = 'items/%d/variations/%d/variation_suppliers/%d';
     public const ITEM_VARIATION_WAREHOUSES = 'items/%d/variations/%d/variation_warehouses';
     public const ITEM_VARIATION_WAREHOUSES_WAREHOUSE = 'items/%d/variations/%d/variation_warehouses/%d';
     public const ITEM_VARIATIONS = 'items/variations';
 
     public const LISTING_MARKETS = 'listings/markets';
+    public const LISTING_MARKETS_HISTORIES = 'listings/markets/histories';
 
     public const ORDER = 'orders/%d';
     public const ORDER_DATE_TYPES = 'orders/dates/types';
@@ -64,10 +72,12 @@ class RestfulUrl
 
     public const PROPERTIES = '/rest/properties';
     public const PROPERTIES_RELATIONS = '/rest/properties/relations';
+    public const PROPERTIES_RELATION = '/rest/properties/relations/%d';
     public const PROPERTIES_RELATIONS_VALUES = '/rest/properties/relations/values';
     public const PROPERTIES_RELATIONS_VALUES_BY_ID = '/rest/properties/relations/values/%d';
     public const PROPERTIES_SELECTIONS = '/rest/properties/selections';
 
+    public const STOCK_MANAGEMENT_STOCK = 'stockmanagement/stock';
     public const STOCK_MANAGEMENT_WAREHOUSE = 'stockmanagement/warehouses/%d';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_MOVEMENTS = 'stockmanagement/warehouses/%d/stock/movements';
     public const STOCK_MANAGEMENT_WAREHOUSE_STOCK_STORAGE_LOCATIONS = 'stockmanagement/warehouses/%d/stock/storageLocations';
@@ -75,6 +85,7 @@ class RestfulUrl
 
     public const TAGS = 'tags';
     public const TAGS_RELATIONSHIPS = 'tags/relationships';
+    public const TAGS_RELATIONSHIP_V2 = 'v2/tags/relationships/%d';
 
     public const WAREHOUSES_LOCATIONS = 'warehouses/%d/locations';
     public const WAREHOUSES_LOCATIONS_DIMENSIONS = 'warehouses/%d/locations/dimensions';

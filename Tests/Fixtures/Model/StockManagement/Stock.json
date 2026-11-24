@@ -1,0 +1,16 @@
+{
+    "itemId": 1030,
+    "variationId": 1031,
+    "warehouseId": 1032,
+    "stockPhysical": 1033.25,
+    "reservedStock": 1034.25,
+    "reservedEbay": 1035.25,
+    "reorderDelta": 1036.25,
+    "stockNet": 1037.25,
+    "reordered": 1038.25,
+    "reservedBundle": 1039.25,
+    "averagePurchasePrice": 1040.25,
+    "storehouse_type": 1041,
+    "warehousePriority": 1042,
+    "updatedAt": "2026-03-16T10:43:00+01:00"
+}
