@@ -70,7 +70,12 @@ class RestfulUrl
     public const ORDERS = 'orders';
 
 
+    public const PAYMENTS = 'payments';
+    public const PAYMENT = 'payments/%d';
     public const PAYMENTS_METHODS = 'payments/methods';
+    public const PAYMENTS_ORDER = 'payments/orders/%d';
+    public const PAYMENT_ORDER_RELATION = 'payment/%d/order/%d';
+    public const PAYMENT_ORDER_RELATIONS = 'payment/%d/order';
 
     public const PROPERTIES = '/rest/properties';
     public const PROPERTIES_RELATIONS = '/rest/properties/relations';

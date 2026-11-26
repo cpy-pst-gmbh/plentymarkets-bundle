@@ -1,0 +1,35 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Payment\\Payment",
+    "amount": 1002.25,
+    "currency": "value-7",
+    "deleted": 1005,
+    "exchangeRatio": 1003.25,
+    "hash": "value-9",
+    "id": 1001,
+    "importedAt": "value-12",
+    "isSystemCurrency": true,
+    "mopId": 1015,
+    "origin": 1010,
+    "parentId": 1004,
+    "properties": [
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Payment\\PaymentProperty",
+            "id": 1019,
+            "paymentId": 1020,
+            "typeId": 1021,
+            "value": "value-22"
+        },
+        {
+            "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Payment\\PaymentProperty",
+            "id": 1024,
+            "paymentId": 1025,
+            "typeId": 1026,
+            "value": "value-27"
+        }
+    ],
+    "receivedAt": "value-11",
+    "status": 1013,
+    "transactionType": 1014,
+    "type": "value-8",
+    "unaccountable": 1006
+}
