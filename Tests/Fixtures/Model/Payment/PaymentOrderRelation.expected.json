@@ -1,0 +1,7 @@
+{
+    "@class": "PM\\PlentyMarketsBundle\\Component\\Model\\Payment\\PaymentOrderRelation",
+    "assignedAt": "value-31",
+    "id": 1028,
+    "orderId": 1030,
+    "paymentId": 1029
+}

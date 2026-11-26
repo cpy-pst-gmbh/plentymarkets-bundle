@@ -1,0 +1,32 @@
+{
+    "id": 1001,
+    "amount": 1002.25,
+    "exchangeRatio": 1003.25,
+    "parentId": 1004,
+    "deleted": 1005,
+    "unaccountable": 1006,
+    "currency": "value-7",
+    "type": "value-8",
+    "hash": "value-9",
+    "origin": 1010,
+    "receivedAt": "value-11",
+    "importedAt": "value-12",
+    "status": 1013,
+    "transactionType": 1014,
+    "mopId": 1015,
+    "isSystemCurrency": true,
+    "properties": [
+        {
+            "id": 1019,
+            "paymentId": 1020,
+            "typeId": 1021,
+            "value": "value-22"
+        },
+        {
+            "id": 1024,
+            "paymentId": 1025,
+            "typeId": 1026,
+            "value": "value-27"
+        }
+    ]
+}
