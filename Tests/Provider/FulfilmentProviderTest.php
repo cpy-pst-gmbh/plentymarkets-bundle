@@ -23,7 +23,30 @@ final class FulfilmentProviderTest extends ProviderTestCase
         self::assertSame(1146, $picklist->getId());
         self::assertSame('value-152', $picklist->getProcessState());
         self::assertSame('2026-03-08T10:27:00+01:00', $picklist->getCreatedAt()->format(DATE_ATOM));
-        self::assertSame(['key-154' => 'value-154'], $picklist->getFilterOptions()->getOrderIds());
+    }
+
+    public function testTheOrderIdsOfAPicklistAreIntegers(): void
+    {
+        $answer = self::fixture('Model/Fulfilment/Picklist');
+        $answer['filterOptions']['orderIds'] = ['101', '102'];
+        $this->respond($answer);
+
+        $picklist = $this->service->fulfilment($this->config())->getById(42);
+
+        self::assertInstanceOf(Picklist::class, $picklist);
+        self::assertSame([101, 102], $picklist->getFilterOptions()->getOrderIds(), 'plentymarkets sends them as strings, OrdersProvider::getById() takes an int.');
+    }
+
+    public function testAPicklistWithoutOrdersHasNoOrderIds(): void
+    {
+        $answer = self::fixture('Model/Fulfilment/Picklist');
+        $answer['filterOptions']['orderIds'] = [];
+        $this->respond($answer);
+
+        $picklist = $this->service->fulfilment($this->config())->getById(42);
+
+        self::assertInstanceOf(Picklist::class, $picklist);
+        self::assertSame([], $picklist->getFilterOptions()->getOrderIds());
     }
 
     public function testTheZeroDateOfAPicklistIsReadAsTheYearZero(): void
